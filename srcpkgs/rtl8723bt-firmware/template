@@ -1,0 +1,17 @@
+# Template file for 'rtl8723bt-firmware'
+pkgname=rtl8723bt-firmware
+version=0.0.202003
+revision=1
+_commit=28ad3584927c0fe1f321176f73a7fd42cccec56f
+archs="aarch64*"
+wrksrc="${pkgname}-${_commit}"
+short_desc="Firmware for RTL8723BT"
+maintainer="Tomasz Kramkowski <tk@the-tk.com>"
+license="?"
+homepage="https://github.com/anarsoul/rtl8723bt-firmware"
+distfiles="https://github.com/anarsoul/${pkgname}/archive/${_commit}.tar.gz"
+checksum=6bddc863eb3fe388d06b3a7db149e777d2573755291665ac18b0481aed368d0c
+
+do_install() {
+	vinstall rtl_bt/rtl8723cs_xx_fw.bin 644 usr/lib/firmware/rtl_bt
+}

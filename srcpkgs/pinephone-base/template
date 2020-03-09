@@ -1,0 +1,11 @@
+# Template file for 'pinephone-base'
+pkgname=pinephone-base
+version=0.1
+revision=1
+archs="aarch64*"
+build_style=meta
+depends="pinephone-kernel linux-firmware pinephone-uboot rtl8723bt-firmware"
+short_desc="Void Linux Pinebook platform package"
+maintainer="Tomasz Kramkowski <tk@the-tk.com>"
+license="Public Domain"
+homepage="https://www.voidlinux.org"

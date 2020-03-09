@@ -1,0 +1,30 @@
+#!/bin/sh
+
+kver=${2}
+uuid=$(cat /etc/fstab | awk '$2 == "/" { print $1 }' | sed 's/^UUID=//')
+dev=$(blkid -U "${uuid}")
+partuuid=$(blkid -o value -s PARTUUID "${dev}")
+bootpart=$(df -P /boot | tail -1 | awk '{ print $6 }')
+bootstrip() {
+    echo ${1} | sed "s,^${bootpart}/,/,"
+}
+
+cat > /boot/boot.txt <<EOF
+part uuid \${devtype} \${devnum}:\${bootpart} uuid
+setenv bootargs console=tty0 console=ttyS0,115200 root=PARTUUID=${partuuid} rootwait loglevel=4 slub_debug=P page_poison=1
+setenv fdtfile allwinner/sun50i-a64-pinephone.dtb
+
+if load \${devtype} \${devnum}:\${bootpart} \${kernel_addr_r} $(bootstrip /boot/vmlinux-${kver}); then
+  if load \${devtype} \${devnum}:\${bootpart} \${fdt_addr_r} $(bootstrip /boot/dtbs/dtbs-${kver}/\${fdtfile}); then
+    fdt addr \${fdt_addr_r}
+    fdt resize
+    if load \${devtype} \${devnum}:\${bootpart} \${ramdisk_addr_r} $(bootstrip /boot/initramfs-${kver}.img); then
+      booti \${kernel_addr_r} \${ramdisk_addr_r}:\${filesize} \${fdt_addr_r};
+    else
+      booti \${kernel_addr_r} - \${fdt_addr_r};
+    fi;
+  fi;
+fi
+EOF
+
+exec mkimage -A arm64 -O linux -T script -C none -n "U-Boot boot script" -d /boot/boot.txt /boot/boot.scr

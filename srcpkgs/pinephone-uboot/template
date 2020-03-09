@@ -1,0 +1,81 @@
+# Template file for 'pinephone-uboot'
+pkgname=pinephone-uboot
+version=2020.01
+revision=1
+_commit_atf=601964294796f2b78f38c3f85cfaeb5885e06f19
+archs="aarch64*"
+hostmakedepends="git flex dtc python3-devel swig bc"
+depends="u-boot-tools"
+short_desc="U-Boot for PinePhone"
+maintainer="Tomasz Kramkowski <tk@the-tk.com>"
+license="GPL-2.0-only, BSD-3-Clause"
+homepage="https://www.denx.de/wiki/U-Boot"
+
+patch_args="-Np1 -d u-boot"
+
+do_fetch() {
+	mkdir -p "${wrksrc}"
+
+	cd "${wrksrc}"
+	git clone git://git.denx.de/u-boot.git
+	cd u-boot
+	git checkout v${version}
+	if [ "$XBPS_TARGET_LIBC" = "musl" ]; then
+		touch include/stddef.h
+	fi
+
+	cd "${wrksrc}"
+	git clone https://github.com/ARM-software/arm-trusted-firmware.git
+	cd arm-trusted-firmware
+	git reset --hard ${_commit_atf}
+}
+
+do_patch() {
+	cp -f "$FILESDIR/pinephone.patch" "$wrksrc/u-boot"
+	cd "$wrksrc/u-boot"
+        patch -sl -Np1 -i pinephone.patch 
+}
+
+do_configure() {
+	unset CFLAGS CXXFLAGS CPPFLAGS LDFLAGS
+
+	cd u-boot
+	make ${makejobs} pinephone_defconfig
+	echo 'CONFIG_IDENT_STRING=" Voidlinux"' >> .config
+}
+
+do_build() {
+	unset CFLAGS CXXFLAGS CPPFLAGS LDFLAGS
+	if [ "$CROSS_BUILD" ]; then
+		export CROSS_COMPILE=${XBPS_CROSS_TRIPLET}-
+	fi
+
+	cd arm-trusted-firmware
+	make ${makejobs} PLAT=sun50i_a64 DEBUG=1 bl31
+
+	cd ../u-boot
+	make ${makejobs} EXTRAVERSION=-${revision} \
+	     BL31=../arm-trusted-firmware/build/sun50i_a64/debug/bl31.bin
+}
+
+do_install() {
+	cd u-boot
+	vmkdir boot
+	vinstall u-boot-sunxi-with-spl.bin 0644 boot
+	vinstall "${FILESDIR}/kernel.d/uboot" 750 \
+		 etc/kernel.d/post-install 60-uboot
+
+	vlicense Licenses/Exceptions
+	vlicense Licenses/OFL.txt
+	vlicense Licenses/README
+	vlicense Licenses/bsd-2-clause.txt
+	vlicense Licenses/bsd-3-clause.txt
+	vlicense Licenses/eCos-2.0.txt
+	vlicense Licenses/gpl-2.0.txt
+	vlicense Licenses/ibm-pibs.txt
+	vlicense Licenses/isc.txt
+	vlicense Licenses/lgpl-2.0.txt
+	vlicense Licenses/lgpl-2.1.txt
+	vlicense Licenses/r8a779x_usb3.txt
+	vlicense Licenses/x11.txt
+}
