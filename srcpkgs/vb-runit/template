@@ -9,7 +9,7 @@ maintainer="zenobit <zen@osowoso.xyz>"
 license="CC0-1.0"
 homepage="https://codeberg.org/oSoWoSo/vb-runit"
 distfiles="https://codeberg.org/oSoWoSo/vb-runit/archive/${version}.tar.gz"
-checksum=a9049cb46ebde56aaa429579df27b056ee5372bf8edc2f1f5e6e2f5c5fe113e2
+checksum=a9171604ab7c4c5d91987dccaf35149f2d9ee70b97b8a0c0139e6d9546e5ad30
 
 depends="virtual?awk procps-ng runit"
 conf_files="
@@ -48,4 +48,3 @@ vb-runit-apparmor_package() {
 		vmove etc/runit/core-services/09-apparmor.sh
 	}
 }
-
