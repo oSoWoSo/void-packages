@@ -1,0 +1,24 @@
+case "${ACTION}" in
+post)
+	# Enable default services:
+	#	- ngetty (default)
+	#	- udevd (default)
+	#	- sulogin (single)
+	mkdir -p etc/runit/runsvdir/single
+	ln -sf /etc/sv/sulogin etc/runit/runsvdir/single
+
+	mkdir -p etc/runit/runsvdir/default
+	if [ ! -e etc/runit/runsvdir/current ]; then
+		ln -sf default etc/runit/runsvdir/current
+	fi
+	ln -sf /etc/sv/ngetty etc/runit/runsvdir/default
+	done
+	[ -e etc/sv/udevd/run ] && ln -sf /etc/sv/udevd etc/runit/runsvdir/default
+
+	if [ -d usr/sbin -a ! -L usr/sbin ]; then
+		for f in init shutdown halt reboot poweroff; do
+			ln -sr ../bin/$f usr/sbin/$f
+		done
+	fi
+	;;
+esac

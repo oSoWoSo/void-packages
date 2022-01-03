@@ -1,8 +1,8 @@
 # Template file for 'ungoogled-chromium-marmaduke'
-_chromiumRevision=827102
+_chromiumRevision=885287
 
 pkgname=ungoogled-chromium-marmaduke
-version=88.0.4324.150
+version=92.0.4515.159
 revision=1
 maintainer="mkf <makefile@riseup.net>"
 homepage="https://github.com/macchrome/linchrome"
@@ -17,7 +17,7 @@ _baseUrl="https://github.com/macchrome/linchrome/releases/download"
 _filename="v${version}-r${_chromiumRevision}-portable-ungoogled-Lin64/ungoogled-chromium_${version}_1.vaapi_linux.tar.xz"
 _chromiumUrl="${_baseUrl}/${_filename}"
 distfiles="$_chromiumUrl"
-checksum=8b455ca7bba3b70023d43d2343f74963019931bbaee277ba000f03c7ee436dd5
+checksum=b5b4815ce856f783af7ae161fdaa850f97882ed8e862dd1cb8d07edddbf6a510
 _licenseUrl="https://raw.githubusercontent.com/chromium/chromium/master/LICENSE"
 
 do_install() {
