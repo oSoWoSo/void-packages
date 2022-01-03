@@ -1,15 +1,15 @@
-# Template file for 'runit-void'
-pkgname=runit-void
-version=20210314
-revision=2
-wrksrc="void-runit-${version}"
+# Template file for 'vb-runit'
+pkgname=vb-runit
+version=20211225
+revision=1
+wrksrc="vb-runit-${version}"
 build_style=gnu-makefile
-short_desc="Void Linux runit scripts"
-maintainer="Enno Boland <gottox@voidlinux.org>"
+short_desc="Vb-linux runit scripts"
+maintainer="zenobit <zen@osowoso.xyz>"
 license="CC0-1.0"
 homepage="https://codeberg.org/oSoWoSo/vb-runit"
 distfiles="https://codeberg.org/oSoWoSo/vb-runit/archive/${version}.tar.gz"
-checksum=9ac95a14b5e1aedfcf0b093b8992b08316448ac1afb7fd26501ac43c4ebf3847
+checksum=a9049cb46ebde56aaa429579df27b056ee5372bf8edc2f1f5e6e2f5c5fe113e2
 
 depends="virtual?awk procps-ng runit"
 conf_files="
@@ -18,7 +18,7 @@ conf_files="
  /etc/rc.conf
  /etc/rc.local
  /etc/rc.shutdown
- /etc/sv/ngetty"
+ /etc/sv/ngetty/conf"
 
 make_dirs="
  /etc/zzz.d/suspend 0755 root root
@@ -39,7 +39,7 @@ post_install() {
 	ln -s runit-init ${DESTDIR}/usr/bin/init
 }
 
-runit-void-apparmor_package() {
+vb-runit-apparmor_package() {
 	short_desc+=" - AppArmor initialization"
 	depends="${sourcepkg}-${version}_${revision}"
 	conf_files="/etc/default/apparmor"
@@ -48,3 +48,4 @@ runit-void-apparmor_package() {
 		vmove etc/runit/core-services/09-apparmor.sh
 	}
 }
+
