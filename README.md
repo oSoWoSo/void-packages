@@ -2,6 +2,8 @@ VUR
 # Void User Repository
 Renamed from nvoid
 
+[![Check PR](https://github.com/oSoWoSo/VUR/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/oSoWoSo/VUR/actions/workflows/build.yml)
+
 nvoid is a custom xbps-src repo which includes packages which can not be accepted into [void-packages](https://github.com/void-linux/void-packages/) or just experimental and WIP.
 
 ## supported architectures
