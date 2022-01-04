@@ -6,3 +6,4 @@
 masterdir*
 hostdir*
 .xbps-checkvers*.plist
+privkey.pem
