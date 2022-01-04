@@ -1,14 +1,14 @@
 # Template file for 'vbm'
 pkgname=vbm
-version=latest
+version=1.4.1
 revision=1
-wrksrc="vbm-${version}"
+wrksrc="vbm"
 short_desc="XBPS package management helper for VoidLinux"
 maintainer="zenobit <pm@osowoso.xyz>"
 license="GPL-3.0-or-later"
 homepage="https://codeberg.org/oSoWoSo/vbm"
-distfiles="https://codeberg.org/oSoWoSo/${pkgname}/archive/latest.tar.gz"
-checksum=767e67430d65797ac7c9d966a8ced213adb548d855e56d3f179df056f632b304
+distfiles="https://codeberg.org/oSoWoSo/${pkgname}/archive/${version}.tar.gz"
+checksum=f929557203457d226571389cb716154c1c7529fb8753cb6f1af86d08e62a17a2
 
 do_install() {
 	vbin vbm
