@@ -1,0 +1,22 @@
+# Template file for 'edk2'
+pkgname=edk2
+version=20211216
+revision=1
+#archs="i686 x86_64"
+#wrksrc=
+#create_wrksrc=yes
+build_style=gnu-configure
+#configure_args=""
+#make_build_args=""
+#make_install_args=""
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+hostmakedepends="rpmextract"
+makedepends=""
+depends=""
+short_desc="UEFI firmware for virtual machines"
+maintainer="zenobit <pm@osowoso.xyz>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/tianocore/edk2"
+distfiles="https://www.kraxel.org/repos/jenkins/${pkgname}/${pkgname}.git-ovmf-x64-0-${version}.94.gb451c69088.noarch.rpm"
+checksum=79dcf24dd261b6317b47fdba71926e42eec2d622a8debbee9e88fe07b8aeb8a5

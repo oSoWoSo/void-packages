@@ -1,0 +1,22 @@
+# Template file for 'quickemu'
+pkgname=quickemu
+version=3.11
+revision=1
+#archs="i686 x86_64"
+#wrksrc=
+#create_wrksrc=yes
+build_style=gnu-configure
+#configure_args=""
+#make_build_args=""
+#make_install_args=""
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+hostmakedepends=""
+makedepends=""
+depends="qemu bash coreutils grep jq procps-ng python3 cdrtools usbutils util-linux sed spice-gtk swtpm wget xdg-user-dirs xrandr zsync"
+short_desc="Quickly create and run optimised Windows, macOS and Linux desktop virtual machines."
+maintainer="zenobit <pm@osowoso.xyz>"
+license="MIT"
+homepage="https://github.com/quickemu-project/quickemu"
+distfiles="https://github.com/${pkgname}-project/${pkgname}/archive/refs/tags/${version}.tar.gz"
+checksum=17c53abbd71bbc50a9037bc006791888ac75f4d4d7501c0d5a98176a58b80c18

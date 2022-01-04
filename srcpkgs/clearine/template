@@ -1,0 +1,26 @@
+# Template file for 'clearine'
+pkgname=clearine
+version=0.8
+revision=1
+build_style=python3-module
+pycompile_module="Clearine"
+hostmakedepends="python3-setuptools python3-pip xbps-triggers"
+depends="python3-gobject python3-cairo"
+short_desc="GTK3-based logout-window overlay for independent windowmanager"
+maintainer="zenobit from oSoWoSo <pm@osowoso.xyz>"
+license="MIT"
+homepage="https://github.com/oSoWoSo/clearine"
+distfiles="https://github.com/oSoWoSo/${pkgname}/archive/${version}.tar.gz"
+checksum=dd8665d70a490a6de1545c74daff1dc442dd5ffce575e2b61ca502bf376faf95
+conf_files="/etc/clearine.conf"
+
+pre_build() {
+	sed -i src/data/clearine.conf \
+		-e "s;\(restart =\) .*;\1 reboot;" \
+		-e "s;\(shutdown =\) .*;\1 poweroff;"
+}
+
+post_install() {
+	vconf src/data/clearine.conf
+	vlicense LICENSE
+}

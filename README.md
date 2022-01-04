@@ -1,4 +1,3 @@
-VUR
 # Void User Repository
 Renamed from nvoid
 
@@ -11,15 +10,15 @@ all packages support `x86_64` (glibc), most of them support `x86_64-musl`. other
 
 ## quick start
 
-fetch void-packages tree first
+optional: fetch void-packages tree first
 ```
 git clone --depth 1 https://github.com/void-linux/void-packages
 ```
-fetch VUR as well
+fetch VUR
 ```
 git clone --depth 1 https://github.com/vb-linux/VUR
 ```
-merge them
+optional: merge them
 ```
 cp -r VUR/srcpkgs/*  void-packages/srcpkgs
 cat VUR/custom-shlibs >> void-packages/etc/shlibs
@@ -35,3 +34,5 @@ cd void-packages
 xi <pkgname>
 ```
 
+## PR guide for github void-packages and VUR
+[PR guide](./pr-guide.md)
