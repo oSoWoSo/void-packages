@@ -136,7 +136,7 @@ libnvidia-gtk2.so.346.47 nvidia-gtklibs-346.47_1 ignore
 libnvidia-gtk3.so.346.47 nvidia-gtklibs-346.47_1 ignore
 libnvidia-glcore.so.390.87 nvidia390-libs-390.87_1 ignore
 libnvidia-glsi.so.346.72 nvidia-libs-346.72_1 ignore
-libnvidia-fatbinaryloader.so.390.144 nvidia390-libs-390.144_1 ignore
+libnvidia-fatbinaryloader.so.390.147 nvidia390-libs-390.147_1 ignore
 libnvidia-fatbinaryloader.so.430.40 nvidia-libs-430.40_1 ignore
 libglapi.so.0 libglapi-7.11_1
 libgbm.so.1 libgbm-9.0_1
@@ -420,7 +420,7 @@ libField3D.so.1.7 Field3D-1.7.3_1
 libMAC.so.6 libMAC-5.28_1
 libmad.so.0 libmad-0.15.1b_1
 libmatroska.so.7 libmatroska-1.6.0_1
-libmatrix_client.so.0.6.0 mtxclient-0.6.0_1
+libmatrix_client.so.0.6.1 mtxclient-0.6.1_1
 libebml.so.5 libebml-1.4.0_1
 libdvdread.so.8 libdvdread-6.1.1_1
 libdvdnav.so.4 libdvdnav-4.1.3_1
@@ -558,10 +558,10 @@ libKF5PurposeWidgets.so.5 purpose-5.48.0_1
 libKF5Purpose.so.5 purpose-5.48.0_1
 libKF5PulseAudioQt.so.3 pulseaudio-qt-1.3_1
 libReviewboardHelpers.so.5 purpose-5.48.0_1
-libecpg_compat.so.3 postgresql-libs-13.2_2
-libecpg.so.6 postgresql-libs-13.2_2
-libpgtypes.so.3 postgresql-libs-13.2_2
-libpq.so.5 postgresql-libs-13.2_2
+libecpg_compat.so.3 postgresql-libs-14.0_1
+libecpg.so.6 postgresql-libs-14.0_1
+libpgtypes.so.3 postgresql-libs-14.0_1
+libpq.so.5 postgresql-libs-14.0_1
 libmypaint.so.0 libmypaint-1.6.1_1
 libgssapi_krb5.so.2 mit-krb5-libs-1.8_1
 libgssrpc.so.4 mit-krb5-libs-1.8_1
@@ -830,7 +830,7 @@ libgiblib.so.1 giblib-1.2.4_1
 libgc.so.1 gc-7.6.4_1
 libcord.so.1 gc-7.4_1
 libgslcblas.so.0 gsl-1.15_1
-libgsl.so.25 gsl-2.6_1
+libgsl.so.27 gsl-2.7.1_1
 liblua5.1.so.5.1 lua51-5.1.5_1
 liblua5.2.so.5.2 lua52-5.2.4_2
 liblua5.3.so.5.3 lua53-5.3.5_4
@@ -1580,6 +1580,7 @@ libKF5Mime.so.5 kmime-17.12.1_1
 libKF5Kirigami2.so.5 kirigami2-5.47.0_1
 libtaskmanager.so.6 plasma-workspace-5.8.4_1
 libnotificationmanager.so.1 plasma-workspace-5.15.90_1
+libZXing.so.1 zxing-cpp-1.2.0_1
 libfreerdp-client2.so.2 libfreerdp-2.2.0_3
 libfreerdp2.so.2 libfreerdp-2.2.0_3
 libwinpr2.so.2 libfreerdp-2.2.0_3
@@ -2897,7 +2898,7 @@ libswipl.so.8 swi-prolog-8.2.4_2
 libpcre2-16.so.0 libpcre2-10.22_1
 libpcre2-32.so.0 libpcre2-10.22_1
 libpcre2-8.so.0 libpcre2-10.22_1
-libpcre2-posix.so.2 libpcre2-10.30_1
+libpcre2-posix.so.3 libpcre2-10.39_1
 libui.so.0 libui-alpha3.1_1
 libgnome-autoar-0.so.0 gnome-autoar-0.1.1_1
 libgnome-autoar-gtk-0.so.0 gnome-autoar-0.1.1_1
@@ -2908,14 +2909,15 @@ liblog4cplus-2.0.so.3 log4cplus-2.0.0_1
 liblog4cplusU-2.0.so.3 log4cplus-2.0.3_1
 libpng12.so.0 libpng12-1.2.56_2
 libpng.so.3 libpng12-1.2.56_2
-libcapnpc-0.8.0.so capnproto-0.8.0_1
-libcapnp-json-0.8.0.so capnproto-0.8.0_1
-libcapnp-rpc-0.8.0.so capnproto-0.8.0_1
-libcapnp-0.8.0.so capnproto-0.8.0_1
-libkj-http-0.8.0.so capnproto-0.8.0_1
-libkj-async-0.8.0.so capnproto-0.8.0_1
-libkj-test-0.8.0.so capnproto-0.8.0_1
-libkj-0.8.0.so capnproto-0.8.0_1
+libcapnpc-0.9.1.so capnproto-0.9.1_1
+libcapnp-json-0.9.1.so capnproto-0.9.1_1
+libcapnp-rpc-0.9.1.so capnproto-0.9.1_1
+libcapnp-websocket-0.9.1.so capnproto-0.9.1_1
+libcapnp-0.9.1.so capnproto-0.9.1_1
+libkj-http-0.9.1.so capnproto-0.9.1_1
+libkj-async-0.9.1.so capnproto-0.9.1_1
+libkj-test-0.9.1.so capnproto-0.9.1_1
+libkj-0.9.1.so capnproto-0.9.1_1
 libkea-asiodns.so.12 libkea-1.9.5_2
 libkea-asiolink.so.23 libkea-1.9.5_2
 libkea-cc.so.22 libkea-1.9.5_2
@@ -3938,11 +3940,12 @@ libcglm.so.0 cglm-0.7.6_1
 libfcft.so.3 fcft-2.2.2_1
 libaml.so.0 aml-0.1.0_1
 libneatvnc.so.0 neatvnc-0.3.2_1
-libtdjson.so.1.7.0 libtd-1.7.0_2
+libtdjson.so.1.8.0 libtd-1.8.0_1
 libJudy.so.1 judy-1.0.5_1
 libsignal-protocol-c.so.2 libsignal-protocol-c-2.3.3_2
-libKSeExprUI.so.4.0.1.0 seexpr-krita-4.0.1.0_1
-libKSeExpr.so.4.0.1.0 seexpr-krita-4.0.1.0_1
+libKSeExprUI.so.4 seexpr-krita-4.0.4.0_1
+libKSeExpr.so.4 seexpr-krita-4.0.4.0_1
+libkritaqmicinterface.so.17 krita-5.0.0_1
 liburing.so.2 liburing-2.0_1
 libbson-1.0.so.0 libbson-1.17.4_2
 libsonic.so.0 libsonic-0.2.0_1
@@ -4025,7 +4028,7 @@ libflint.so.16 flintlib-2.8.0_1
 libarb.so.2 arb-2.20.0_1
 libec.so.8 eclib-20210625_1
 libsymmetrica.so.2 symmetrica-3.0.1_1
-libLfunction.so lcalc-1.23_2
+libLfunction.so.1 lcalc-2.0.4_1
 liblrcalc.so.1 lrcalc-1.2_1
 libwayland-client++.so.0 libwaylandpp-0.2.8_1
 libwayland-cursor++.so.0 libwaylandpp-0.2.8_1
@@ -4052,6 +4055,8 @@ libqrtr-glib.so.0 libqrtr-glib-1.0.0_1
 libbraiding.so.0 libbraiding-1.1_1
 libstemmer.so.2 libstemmer-2.1.0_1
 libdecor-0.so.0 libdecor-0.1.0_1
+libprimecount.so.7 primecount-7.2_1
+libprimesieve.so.9 primesieve-7.7_1
 libavif.so.13 libavif-0.9.3_1
 libkdumpfile.so.9 libkdumpfile-0.4.1_1
 libamd.so.2 SuiteSparse-5.10.1_1
@@ -4090,3 +4095,5 @@ libkmaillanguagetool.so.5 kdepim-addons-21.08.3_1
 libkaddressbookmergelibprivate.so.5 kdepim-addons-21.08.3_1
 libkmailconfirmbeforedeleting.so.5 kdepim-addons-21.08.3_1
 libkaddressbookprivate.so.5 kaddressbook-21.08.3_1
+libcodec2.so.1.0 codec2-1.0.1_1
+libx86emu.so.3 libx86emu-3.4_1

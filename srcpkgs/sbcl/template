@@ -1,9 +1,9 @@
 # Template file for 'sbcl'
 pkgname=sbcl
-version=2.1.11
-revision=1
+version=2.2.0
+revision=2
 archs="i686 x86_64* armv7l aarch64 ppc64le*"
-hostmakedepends="iana-etc"
+hostmakedepends="iana-etc texinfo"
 makedepends="zlib-devel"
 conf_files="/etc/sbclrc"
 short_desc="Steel Bank Common Lisp"
@@ -12,7 +12,7 @@ license="custom:BSD+public_domain"
 homepage="http://www.sbcl.org/"
 changelog="http://www.sbcl.org/news.html"
 distfiles="${SOURCEFORGE_SITE}/${pkgname}/${pkgname}-${version}-source.tar.bz2"
-checksum=bfc1481de7fdbdfaeef2ab0f0e8e84efd343433dea8d21cfbea8b0146cbdfefd
+checksum=2276957ea86ae9968ca486a9928c67a34cb31c9403ec657d24ecdf8458daa5c6
 nocross=yes
 nopie=yes
 
@@ -20,7 +20,7 @@ _bootstrap_lisp="bash ../sbcl-*-linux/run-sbcl.sh --no-sysinit --no-userinit --d
 case "$XBPS_TARGET_MACHINE" in
 x86_64)
 	distfiles+=" ${SOURCEFORGE_SITE}/${pkgname}/${pkgname}-${version}-x86-64-linux-binary.tar.bz2"
-	checksum+=" e9605c843776470d8f81000b732b0a672ec355c0e3d6bbebfb900eddeb86c440"
+	checksum+=" e480db37b2cc8e97e0105f44291aa6fa372e09d070d64466384e5eb9eb76939d"
 	;;
 i686)
 	distfiles+=" ${SOURCEFORGE_SITE}/${pkgname}/${pkgname}-1.4.3-x86-linux-binary.tar.bz2"
@@ -35,17 +35,21 @@ aarch64)
 	checksum+=" 14c8fc0f3a03416b5d23763156e2bb28b690fb665af1e6f6112201fd0ddcd512"
 	;;
 ppc*|*-musl)
-	makedepends+=" ecl"
-	_bootstrap_lisp="ecl"
+	# ecl bootstrap is broken since 2.2.0:
+	# https://build.voidlinux.org/builders/x86_64-musl_builder/builds/39694/steps/shell_3/logs/stdio
+	makedepends+=" clisp"
+	_bootstrap_lisp="clisp"
 	;;
 esac
 
 do_build() {
+	printf '"%s.void.%s"\n' "$version" "$revision" >version.lisp-expr
 	export CFLAGS+=" -D_GNU_SOURCE -fno-omit-frame-pointer -DSBCL_HOME=/usr/lib/sbcl"
 	export LINKFLAGS="$LDFLAGS"
 	bash make.sh \
 		"$_bootstrap_lisp" \
 		--without-sb-test --with-sb-core-compression --prefix=/usr
+	make -C ./doc/manual info
 }
 
 do_install() {

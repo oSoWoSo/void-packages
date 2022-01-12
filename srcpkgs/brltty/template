@@ -1,7 +1,7 @@
 # Template file for 'brltty'
 pkgname=brltty
 version=6.4
-revision=1
+revision=3
 build_style=gnu-configure
 configure_args="--enable-gpm --with-screen-driver=lx,sc
  --with-tables-directory=/usr/share/brltty PYTHON=/usr/bin/python3"
@@ -74,6 +74,7 @@ brltty-devel_package() {
 
 python3-brlapi_package() {
 	short_desc+=" - Python3 bindings"
+	depends="python3"
 	pkg_install() {
 		vmove ${py3_sitelib}
 	}

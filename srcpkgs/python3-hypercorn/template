@@ -1,6 +1,6 @@
 # Template file for 'python3-hypercorn'
 pkgname=python3-hypercorn
-version=0.12.0
+version=0.13.2
 revision=1
 wrksrc="${pkgname#*-}-${version}"
 build_style=python3-pep517
@@ -15,7 +15,7 @@ license="MIT"
 homepage="https://gitlab.com/pgjones/hypercorn"
 changelog="https://gitlab.com/pgjones/hypercorn/-/blob/master/CHANGELOG.rst"
 distfiles="${homepage}/-/archive/${version}/${pkgname#*-}-${version}.tar.gz"
-checksum=c373eda54f301fdf58c5728454fb8c7cb9585aeb73f169430d9d88b5a62f7d10
+checksum=f08bf9cbd9d813f4cd29bb5398b064176b4639dcc430dd1d366a389dae4ca280
 
 do_check() {
 	vsed -i pyproject.toml -e '/addopts/d'

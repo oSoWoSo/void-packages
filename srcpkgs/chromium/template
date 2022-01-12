@@ -1,15 +1,15 @@
 # Template file for 'chromium'
 pkgname=chromium
 # See https://chromiumdash.appspot.com/releases?platform=Linux for the latest version
-version=96.0.4664.93
+version=97.0.4692.71
 revision=1
 archs="i686* x86_64* aarch64* armv7l* ppc64le*"
 short_desc="Google's attempt at creating a safer, faster, and more stable browser"
-maintainer="Enno Boland <gottox@voidlinux.org>"
+maintainer="Duncaen <duncaen@voidlinux.org>"
 license="BSD-3-Clause"
 homepage="https://www.chromium.org/"
 distfiles="https://commondatastorage.googleapis.com/chromium-browser-official/${pkgname}-${version}.tar.xz"
-checksum=7c7b1f8e4e0abc3453d40c60d6a70f30851db96e5d872cbaa1b4dd7f43aa3493
+checksum=8ae189d44b782fe4d4942962260dbf5f753abf141148727d9fe82852778dfd7c
 
 lib32disabled=yes
 
@@ -18,9 +18,6 @@ build_options_default="clang js_optimize vaapi pulseaudio pipewire"
 desc_option_clang="Use clang to build"
 desc_option_debug="Build with debug symbols"
 desc_option_js_optimize="Optimize the JS used for Chromium's UI"
-desc_option_vaapi="Enable support for VA-API"
-desc_option_pulseaudio="Enable support for PulseAudio"
-desc_option_sndio="Enable support for sndio"
 desc_option_pipewire="Enable support for screen sharing for WebRTC via PipeWire"
 
 hostmakedepends="$(vopt_if clang "clang lld llvm12") python python3 pkgconf perl gperf bison ninja nodejs hwids
@@ -31,7 +28,7 @@ makedepends="libpng-devel gtk+-devel gtk+3-devel nss-devel pciutils-devel
  libXScrnSaver-devel alsa-lib-devel snappy-devel libdrm-devel
  libxml2-devel libxslt-devel $(vopt_if pulseaudio pulseaudio-devel) libexif-devel
  libXcursor-devel libflac-devel speex-devel libmtp-devel libwebp-devel
- libjpeg-turbo-devel libevent-devel json-c-devel harfbuzz-devel
+ libjpeg-turbo-devel libevent-devel json-c-devel
  minizip-devel jsoncpp-devel zlib-devel libcap-devel libXdamage-devel
  re2-devel fontconfig-devel freetype-devel opus-devel libatomic-devel
  ffmpeg-devel libva-devel python-setuptools xcb-proto libcurl-devel
@@ -45,7 +42,7 @@ esac
 
 if [ "$CROSS_BUILD" ]; then
 	hostmakedepends+=" libX11-devel libxcb-devel pciutils-devel libXext-devel libglvnd-devel
-	 libjpeg-turbo-devel libXi-devel nss-devel libpng-devel libwebp-devel harfbuzz-devel
+	 libjpeg-turbo-devel libXi-devel nss-devel libpng-devel libwebp-devel
 	 libxml2-devel $(vopt_if pulseaudio pulseaudio-devel) libxslt-devel libxkbcommon-devel
 	 $(vopt_if pipewire pipewire-devel) ffmpeg-devel opus-devel pango-devel libva-devel
 	 libcurl-devel snappy-devel re2-devel libXrandr-devel libXcomposite-devel cups-devel
@@ -169,12 +166,12 @@ do_configure() {
 	# use_system_v8=1
 	# use_system_zlib=1
 	# bzip2 jsoncpp minizip xdg_utils speex
+	# XXX: harfbuzz-ng use builtin one until system-wide is updated >=3.0.0
 	system="
 		ffmpeg
 		flac
 		fontconfig
 		freetype
-		harfbuzz-ng
 		libdrm
 		libevent
 		libjpeg
@@ -237,7 +234,7 @@ do_configure() {
 		'enable_widevine=true'
 		'enable_hangout_services_extension=true'
 
-		'use_system_harfbuzz=true'
+		'use_system_harfbuzz=false'
 		'use_system_wayland_scanner=true'
 
 		'use_cups=true'
@@ -323,7 +320,7 @@ do_configure() {
 
 do_build() {
 	_setup_toolchain
-	ninja -C out/Release ${makejobs} chrome chromedriver chrome_crashpad_handler
+	CCACHE_SLOPPINESS=include_file_mtime ninja -C out/Release ${makejobs} chrome chromedriver chrome_crashpad_handler
 }
 
 do_install() {

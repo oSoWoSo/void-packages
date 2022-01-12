@@ -1,7 +1,7 @@
 # Template file for 'procs'
 pkgname=procs
-version=0.11.10
-revision=2
+version=0.11.13
+revision=1
 build_style=cargo
 build_helper=qemu
 short_desc="Modern replacement for ps written in Rust"
@@ -10,19 +10,19 @@ license="MIT"
 homepage="https://github.com/dalance/procs"
 changelog="https://raw.githubusercontent.com/dalance/procs/master/CHANGELOG.md"
 distfiles="https://github.com/dalance/procs/archive/refs/tags/v${version}.tar.gz"
-checksum=e6a869722181f2122a5a223517a2d1f6505d19b8b9d46ffd59c61fb02f472403
+checksum=b769ddf1b2faeca4e9fb22e8e0248f5d69b4b88bd51fb37c8510d2e6a8e897d3
 
 post_build() {
 	PROCS="target/${RUST_TARGET}/release/procs"
-	vtargetrun ${PROCS} --completion bash
-	vtargetrun ${PROCS} --completion fish
-	vtargetrun ${PROCS} --completion zsh
+	vtargetrun ${PROCS} --completion-out bash >procs.bash
+	vtargetrun ${PROCS} --completion-out fish >procs.fish
+	vtargetrun ${PROCS} --completion-out zsh >procs.zsh
 }
 
 post_install() {
 	vcompletion procs.bash bash
 	vcompletion procs.fish fish
-	vcompletion _procs zsh
+	vcompletion procs.zsh zsh
 
 	vlicense LICENSE
 }

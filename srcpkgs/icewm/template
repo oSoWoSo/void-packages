@@ -1,6 +1,6 @@
 # Template file for 'icewm'
 pkgname=icewm
-version=2.9.0
+version=2.9.4
 revision=1
 build_style=cmake
 make_cmd=make
@@ -16,8 +16,9 @@ short_desc="Window Manager designed for speed, usability, and consistency"
 maintainer="Glaulher <glaulher.developer@gmail.com>"
 license="GPL-2.0-or-later"
 homepage="https://ice-wm.org/"
+changelog="https://raw.githubusercontent.com/ice-wm/icewm/master/NEWS"
 distfiles="https://github.com/ice-wm/icewm/archive/${version}.tar.gz"
-checksum=eacf813ee427cf80f46aaf8d104d7d0e79937b38dff362a857ce86a091c9de5b
+checksum=5a41b4745e23c9d5bb14fb6be1348730b4c74d64689e1c63d4b412c6a581683e
 # broken tests
 make_check=no
 

@@ -1,6 +1,6 @@
 # Template file for 'synapse'
 pkgname=synapse
-version=1.48.0
+version=1.49.2
 revision=1
 build_style=python3-module
 hostmakedepends="python3-setuptools"
@@ -12,26 +12,29 @@ depends="python3-jsonschema python3-frozendict python3-canonicaljson
  python3-setuptools python3-bleach python3-Jinja2 python3-psycopg2 python3-lxml
  python3-saml2 python3-treq python3-macaroons python3-sortedcontainers
  python3-typing_extensions python3-ijson"
-checkdepends="$depends python3-parameterized"
+checkdepends="$depends python3-parameterized python3-mock"
 short_desc="Matrix reference homeserver"
 maintainer="Joel Beckmeyer <joel@beckmeyer.us>"
 license="Apache-2.0"
 homepage="https://github.com/matrix-org/synapse"
 changelog="https://raw.githubusercontent.com/matrix-org/synapse/develop/CHANGES.md"
 distfiles="https://github.com/matrix-org/synapse/archive/v${version}.tar.gz"
-checksum=182facc856f8d0c0d2d0dd4105fae4f851297167c0ee95c202a3aad9ed86c486
+checksum=f5b0017e9d77db94fac853fbefbcb4538d879cb80f404b02003930c76f5cafab
 
 system_accounts="synapse"
 synapse_homedir="/var/lib/synapse"
 
 make_dirs="
 	/var/lib/synapse 0700 synapse synapse
-	/etc/synapse 0755 synapse synapse"
+	/var/log/synapse 0755 synapse synapse"
 
 do_check() {
-	PYTHONPATH="." trial3 tests
+	PYTHONPATH="." trial3 ${makejobs} tests
 }
 
 post_install() {
 	vsv synapse
+
+	vsconf docs/sample_config.yaml homeserver.yaml
+	vsconf docs/sample_log_config.yaml log.yaml
 }
