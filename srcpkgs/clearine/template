@@ -10,7 +10,7 @@ maintainer="zenobit from oSoWoSo <pm@osowoso.xyz>"
 license="MIT"
 homepage="https://github.com/oSoWoSo/clearine"
 distfiles="https://github.com/oSoWoSo/${pkgname}/archive/${version}.tar.gz"
-checksum=732f22a0d4b60a2affc2f16eb37fe75a7ce283021d4ceaaade590bd2e341c8c7
+checksum=dd8665d70a490a6de1545c74daff1dc442dd5ffce575e2b61ca502bf376faf95
 conf_files="/etc/clearine.conf"
 
 pre_build() {
