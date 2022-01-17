@@ -1,0 +1,22 @@
+# Template file for 'dt-dark-theme'
+pkgname=dt-dark-theme
+version=0.1
+revision=1
+#archs="i686 x86_64"
+#wrksrc=
+#create_wrksrc=yes
+build_style=gnu-configure
+#configure_args=""
+#make_build_args=""
+#make_install_args=""
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+hostmakedepends=""
+makedepends=""
+depends=""
+short_desc="A dark (very dark) theme for GTK2, GTK3, Openbox, JWM and more."
+maintainer="zenobit <pm@osowoso.xyz>"
+license="MIT"
+homepage="https://gitlab.com/dwt1/dt-dark-theme"
+distfiles="https://codeberg.org/oSoWoSo/${pkgname}/archive/${version}.tar.gz"
+checksum=badbadbadbadbadbadbadbadbadbadbadbadbadbadbadbadbadbadbadbadbadb
