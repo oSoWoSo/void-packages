@@ -1,0 +1,24 @@
+# Template file for 'darkmatter-grub2-theme'
+pkgname=darkmatter-grub2-theme
+version=0.1
+revision=1
+#archs="i686 x86_64"
+wrksrc=${pkgname}-${version}
+create_wrksrc=yes
+build_style=python3-module
+#configure_args=""
+#make_build_args=""
+#make_install_args=""
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+hostmakedepends=""
+makedepends="grub"
+depends=""
+short_desc="Dark matter grub2 theme"
+maintainer="zenobit <pm@osowoso.xyz>"
+license="GPL-3.0-or-later"
+homepage="https://www.pling.com/p/1603282/"
+distfiles="http://10.0.1.3:3000/oSoWoSo/${pkgname}/archive/${version}.tar.gz"
+checksum=c2276bf2233e0ece350863a24853d24b2ded066df0f0b6474d36e9037067dab8
+
+sudo python3 masterdir/builddir/darkmatter-grub2-theme-0.1/darkmatter-grub2-theme/install.py

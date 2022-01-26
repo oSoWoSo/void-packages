@@ -18,5 +18,5 @@ short_desc=""
 maintainer="zenobit <pm@osowoso.xyz>"
 license="GPL-3.0-or-later"
 homepage=""
-distfiles=""
+distfiles="http://10.0.1.3:3000/oSoWoSo/${pkgname}/archive/${version}.tar.gz"
 checksum=badbadbadbadbadbadbadbadbadbadbadbadbadbadbadbadbadbadbadbadbadb

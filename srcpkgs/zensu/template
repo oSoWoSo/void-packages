@@ -22,5 +22,5 @@ distfiles="http://10.0.1.3:3000/oSoWoSo/${pkgname}/archive/${version}.tar.gz"
 checksum=714a52d329a52aeb3b891b70f623deda4e9efcdce1e23f54649ba3f6f2eb1d39
 
 do_install() {
-	vcopy ${wrksrc}/zensu.sh /usr/bin/zensu
+	vcopy zensu.sh  /usr/bin/zensu
 }

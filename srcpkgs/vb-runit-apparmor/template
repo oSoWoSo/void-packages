@@ -9,7 +9,7 @@ short_desc="Vb-linux runit scripts"
 maintainer="zenobit <zen@osowoso.xyz>"
 license="CC0-1.0"
 homepage="https://codeberg.org/oSoWoSo/vb-runit"
-distfiles="https://codeberg.org/oSoWoSo/${pkgname}/archive/${version}.tar.gz"
+distfiles="https://codeberg.org/oSoWoSo/vb-runit/archive/${version}.tar.gz"
 checksum=a9171604ab7c4c5d91987dccaf35149f2d9ee70b97b8a0c0139e6d9546e5ad30
 
 depends="virtual?awk procps-ng runit"
