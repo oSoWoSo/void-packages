@@ -4,7 +4,9 @@ version=0.24.2
 revision=1
 pycompile_dirs="usr/lib/kitty"
 hostmakedepends="pkg-config python3 wayland-devel wayland-protocols"
-makedepends="gettext-devel glfw-devel harfbuzz-devel libxkbcommon-devel python3-devel wayland-devel wayland-protocols librsync-devel libcanberra-devel"
+makedepends="gettext-devel glfw-devel harfbuzz-devel libxkbcommon-devel
+ python3-devel wayland-devel wayland-protocols librsync-devel
+ libcanberra-devel"
 depends="kitty-terminfo-${version}_${revision}"
 short_desc="Modern, hackable, featureful, OpenGL based terminal emulator"
 maintainer="Benjamin Slade <slade@jnanam.net>"
