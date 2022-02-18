@@ -16,7 +16,7 @@ git clone --depth 1 https://github.com/void-linux/void-packages
 ```
 fetch VUR
 ```
-git clone --depth 1 https://github.com/vb-linux/VUR
+git clone --depth 1 https://github.com/oSoWoSo/VUR
 ```
 optional: merge them
 ```
