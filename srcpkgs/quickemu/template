@@ -5,7 +5,6 @@ revision=1
 #archs="i686 x86_64"
 #wrksrc=
 #create_wrksrc=yes
-build_style=gnu-configure
 #configure_args=""
 #make_build_args=""
 #make_install_args=""
@@ -13,10 +12,20 @@ build_style=gnu-configure
 #make_dirs="/var/log/dir 0755 root root"
 hostmakedepends=""
 makedepends=""
-depends=""
-short_desc=""
+depends="qemu coreutils grep jq procps-ng python3 cdrtools usbutils util-linux sed spice-gtk swtpm wget xrandr zsync"
+short_desc="simple shell script to manage Qemu virtual machines."
 maintainer="zenobit <zen@osowoso.xyz>"
-license="GPL-3.0-or-later"
-homepage=""
-distfiles=""
-checksum=badbadbadbadbadbadbadbadbadbadbadbadbadbadbadbadbadbadbadbadbadb
+license="MIT"
+homepage="https://github.com/quickemu-project/quickemu"
+distfiles="https://github.com/oSoWoSo/${pkgname}/archive/refs/tags/${version}.tar.gz"
+checksum=279fed2bff990e1209d2fdc621c5b4d56d382c939d151e5e1f3a0142158d93e4
+
+do_install() {
+	vbin quickget
+	vbin quickemu
+	vbin macrecovery
+}
+
+post_install() {
+	vlicense LICENSE
+}
