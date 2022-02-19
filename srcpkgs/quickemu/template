@@ -2,14 +2,6 @@
 pkgname=quickemu
 version=3.12
 revision=1
-#archs="i686 x86_64"
-#wrksrc=
-#create_wrksrc=yes
-#configure_args=""
-#make_build_args=""
-#make_install_args=""
-#conf_files=""
-#make_dirs="/var/log/dir 0755 root root"
 hostmakedepends=""
 makedepends=""
 depends="qemu coreutils grep jq procps-ng python3 cdrtools usbutils util-linux sed spice-gtk swtpm wget xrandr zsync"
