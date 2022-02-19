@@ -1,0 +1,18 @@
+# Template file for 'gomuks-bin'
+pkgname=gomuks-bin
+version=0.2.2
+revision=1
+archs="x86_64"
+create_wrksrc=yes
+short_desc="Terminal Matrix client written in Go - static binaries "
+maintainer="make-file <makefile@riseup.net>"
+license="AGPL-3.0-or-later"
+homepage="https://github.com/tulir/gomuks"
+distfiles="https://github.com/tulir/gomuks/releases/download/v${version}/gomuks-linux-amd64"
+checksum=7a42a24d20283a4fb938393795165dcca95410f29282f9dfd15964a4fa7c0aa1
+skip_extraction="gomuks-linux-amd64"
+
+do_install() {
+	vbin ${XBPS_SRCDISTDIR}/${pkgname}-${version}/gomuks-linux-amd64 gomuks-bin
+	vlicense ${FILESDIR}/LICENSE
+}

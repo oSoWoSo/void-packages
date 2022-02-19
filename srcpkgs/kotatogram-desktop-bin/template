@@ -1,0 +1,31 @@
+# Template file for 'kotatogram-desktop-bin'
+pkgname=kotatogram-desktop-bin
+reverts="1.3.9_2 1.3.9_1"
+version=1.3.5
+revision=1
+archs="x86_64"
+wrksrc=Kotatogram
+depends="desktop-file-utils glib hicolor-icon-theme dbus-glib dbus libX11"
+short_desc="Experimental Telegram Desktop fork - Static binaries"
+maintainer="make-file <makefile@riseup.net>"
+license="GPL-3.0-only, OpenSSL"
+homepage="https://github.com/kotatogram/kotatogram-desktop"
+distfiles="https://github.com/kotatogram/kotatogram-desktop/releases/download/k${version}/${version}.tar.xz"
+checksum=50d94e30396b6ebb693d2670cc90e5afbe6fc86b2547f496c1ad79358e0d1f42
+nostrip="yes"
+
+do_install() {
+	vbin ${wrksrc}/Kotatogram kotatogram-desktop-beta-bin
+}
+
+post_install() {
+	vmkdir usr/share/applications
+	vcopy ${FILESDIR}/${pkgname}.desktop usr/share/applications
+	mkdir -p "${DESTDIR}/etc/kotatogram-desktop"
+	echo "/usr/bin/kotatogram-desktop-bin" > "${DESTDIR}/etc/kotatogram-desktop/externalupdater"
+	# install kotatogram icons
+	for i in 16x16 32x32 48x48 64x64 128x128 256x256 512x512; do
+		vmkdir "usr/share/icons/hicolor/${i}/apps"
+		vinstall ${FILESDIR}/icon${i}.png 644 usr/share/icons/hicolor/${i}/apps/kotatogram.png
+	done
+}

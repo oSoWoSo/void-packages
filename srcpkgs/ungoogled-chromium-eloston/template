@@ -1,0 +1,33 @@
+# Template file for 'ungoogled-chromium-eloston'
+
+_chromiumRevision=1.1
+
+pkgname=ungoogled-chromium-eloston
+version=87.0.4280.88
+revision=2
+maintainer="mkf <makefile@riseup.net>"
+homepage="https://github.com/Eloston/ungoogled-chromium"
+license="BSD-3-Clause"
+short_desc="Ungoogled chromium build from eloston"
+archs="x86_64"
+create_wrksrc=yes
+nostrip="yes"
+hostmakedepends="tar xz"
+make_dirs="/opt/${pkgname} 755 root root"
+_baseUrl="https://github.com/mcstrugs/ungoogled-chromium-binaries/releases/download"
+_filename="${version}-${_chromiumRevision}/ungoogled-chromium_${version}-${_chromiumRevision}_linux.tar.xz"
+_chromiumUrl="${_baseUrl}/${_filename}"
+distfiles="$_chromiumUrl"
+checksum="76604aff59111b3cdfc2c84c00909fcf78fa77115bfe80a4075bba2c40aac446"
+
+do_install() {
+	vmkdir opt/${pkgname}/
+	vmkdir usr/share/applications
+	mv ${wrksrc}/* ${DESTDIR}/opt/${pkgname}
+	vmkdir usr/bin
+	ln -rs ${DESTDIR}/opt/${pkgname}/chrome-wrapper ${DESTDIR}/usr/bin/${pkgname}
+}
+post_install() {
+	vcopy ${FILESDIR}/${pkgname}.desktop usr/share/applications
+	vlicense ${FILESDIR}/LICENSE
+}

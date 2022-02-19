@@ -1,0 +1,16 @@
+# Template file for 'green-recorder'
+pkgname=green-recorder
+version=3.2.8
+revision=2
+archs="x86_64*"
+build_style=python3-module
+make_install_args="--optimize=1 --skip-build"
+hostmakedepends="gettext python3-setuptools"
+depends="python3-pydbus python3-gobject python3-urllib3 gawk
+ffmpeg ImageMagick xdpyinfo xwininfo libappindicator"
+short_desc="Simple screen recorder in gtk, supports Wayland and Xorg"
+maintainer="make-file <makefile@riseup.net>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/dvershinin/green-recorder"
+distfiles="https://github.com/dvershinin/green-recorder/archive/${version}.tar.gz"
+checksum=5f37eb5182eab631de212a639118635fe14bba1de5c1d8ec7e02c46d01ffee2c

@@ -1,0 +1,17 @@
+# Template file for 'jj-xmpp'
+pkgname=jj-xmpp
+version=2
+revision=1
+wrksrc=jj
+build_style=gnu-makefile
+makedepends="loudmouth-devel libglib-devel pkg-config"
+short_desc="Simple FIFO and filesystem based Jabber/XMPP client"
+maintainer="make-file <makefile@riseup.net>"
+license="GPL-3.0-or-later"
+homepage="https://23.fi/jj"
+distfiles="http://23.fi/jj/jj-${version}.tar.gz"
+checksum=f0d1afc0eb277c955fafa57fe3268e25ff012b01c8b95868dc8cad912213bf0b
+
+do_install() {
+	vbin jj
+}

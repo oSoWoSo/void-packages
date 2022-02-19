@@ -1,0 +1,19 @@
+# Template file for 'shadowsocks-qt'
+pkgname=shadowsocks-qt
+version=3.0.1
+revision=2
+archs="x86_64"
+wrksrc="shadowsocks-qt5-${version}"
+build_style="cmake"
+makedepends="pkg-config qt5-dbus qt5-network qt5-core qt5-gui qt5-devel libQtShadowsocks-devel qrencode-devel libzbar-devel"
+depends="libQtShadowsocks"
+short_desc="Fast, reliable and cross-platform GUI fronted for Shadowsocks"
+maintainer="make-file <makefile@riseup.net>"
+license="LGPL-3.0-or-later"
+homepage="https://github.com/shadowsocks/shadowsocks-qt5"
+distfiles="https://github.com/shadowsocks/shadowsocks-qt5/archive/v${version}.tar.gz"
+checksum=a4dbfc49b50f9fb14cc9025e7d7c8b22fd0dda7de224e5d7b7cc7f32a8ad1146
+
+do_patch() {
+	sed -i '/APPINDICATOR/d' CMakeLists.txt
+}

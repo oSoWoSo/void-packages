@@ -1,0 +1,18 @@
+# Template file for 'mbr'
+pkgname=mbr
+version=1.1.11
+revision=1
+archs="i686 x86_64*"
+build_style=configure
+configure_args="--prefix=${DESTDIR}/usr"
+makedepends="bin86"
+short_desc="Small bootloader written in C"
+maintainer="make-file <makefile@riseup.net>"
+license="GPL-2.0-or-later"
+homepage="http://www.chiark.greenend.org.uk/~neilt/mbr"
+distfiles="http://www.chiark.greenend.org.uk/~neilt/mbr/mbr-${version}.tar.gz"
+checksum=c188692955763602e211be585b94c4e4d0fbe7b49fb12a6cd80ae06ccd421f55
+
+post_install() {
+	mv ${DESTDIR}/usr/sbin ${DESTDIR}/usr/bin
+}

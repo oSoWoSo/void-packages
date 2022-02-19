@@ -1,0 +1,25 @@
+# Template file for 'enlightenment-arc-theme-bin'
+pkgname=enlightenment-arc-theme-bin
+version=0.5.2
+revision=1
+create_wrksrc=yes
+depends="efl"
+short_desc="Arc theme for enlightenment"
+maintainer="make-file <makefile@riseup.net>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/lightdot/enlightenment-arc-theme"
+distfiles="
+ https://github.com/lightdot/enlightenment-arc-theme/releases/download/${version}/arc.edj
+ https://github.com/lightdot/enlightenment-arc-theme/releases/download/${version}/arc-dark.edj"
+
+skip_extraction="arc.edj arc-dark.edj"
+
+checksum="
+ 225b891348de833185b8c078a1c37d7af40f0e7c968770022c4362348c1bcb2b
+ 44616011246c61d4d0281b58c26c0692557d03259c45f2a93806d47420edf5c3"
+
+do_install() {
+	vmkdir usr/share/elementary/themes
+	vcopy ${XBPS_SRCDISTDIR}/${pkgname}-${version}/arc.edj usr/share/elementary/themes
+	vcopy ${XBPS_SRCDISTDIR}/${pkgname}-${version}/arc-dark.edj usr/share/elementary/themes
+}

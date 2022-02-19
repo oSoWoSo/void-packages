@@ -1,0 +1,22 @@
+# Template file for 'notekit'
+pkgname=notekit
+version=0.1
+revision=2
+wrksrc=${pkgname}-${version}-alpha
+build_style=cmake
+make_dirs="/usr/share/notekit 0755 root root"
+makedepends="jsoncpp-devel libxml2-devel gtksourceviewmm-devel pkg-config"
+depends="jsoncpp libxml2 gtksourceviewmm"
+short_desc="GTK3 hierarchical markdown notetaking application with tablet support"
+maintainer="make-file <makefile@riseup.net>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/blackhole89/notekit/"
+distfiles="https://github.com/blackhole89/notekit/archive/v${version}-alpha.tar.gz"
+checksum=8ea98586b1bcd368f2b7341874be7483c2525e7e00122e3f280e8204750780b4
+conflicts="notekit-git"
+
+post_install() {
+	vinstall freedesktop/com.github.blackhole89.notekit.png 644 usr/share/icons/hicolor/128x128/apps/
+	vinstall freedesktop/com.github.blackhole89.notekit.svg 644 usr/share/icons/hicolor/scalable/apps/
+	vinstall freedesktop/com.github.blackhole89.notekit.desktop 644 usr/share/applications
+}

@@ -1,0 +1,30 @@
+# Template file for 'kotatogram-desktop-beta-bin'
+pkgname=kotatogram-desktop-beta-bin
+version=1.3.9
+revision=3
+archs="x86_64"
+wrksrc=Kotatogram
+depends="desktop-file-utils glib hicolor-icon-theme dbus-glib dbus libX11"
+short_desc="Beta version of Kotatogram Desktop - Static binaries"
+maintainer="make-file <makefile@riseup.net>"
+license="GPL-3.0-only, OpenSSL"
+homepage="https://github.com/kotatogram/kotatogram-desktop"
+distfiles="https://github.com/kotatogram/kotatogram-desktop/releases/download/k${version}/${version}.tar.xz"
+checksum=20f3f1a01cadbed46e854b1a646aa726c7264ac469ca032c43d88508b661d939
+nostrip="yes"
+
+do_install() {
+	vbin ${wrksrc}/Kotatogram kotatogram-desktop-beta-bin
+}
+
+post_install() {
+	vmkdir usr/share/applications
+	vcopy ${FILESDIR}/${pkgname}.desktop usr/share/applications
+	mkdir -p "${DESTDIR}/etc/kotatogram-desktop"
+	echo "/usr/bin/kotatogram-desktop-beta-bin" > "${DESTDIR}/etc/kotatogram-desktop/externalupdater"
+	# install kotatogram icons
+	for i in 16x16 32x32 48x48 64x64 128x128 256x256 512x512; do
+		vmkdir "usr/share/icons/hicolor/${i}/apps"
+		vinstall ${FILESDIR}/icon${i}.png 644 usr/share/icons/hicolor/${i}/apps/kotatogram.png
+	done
+}

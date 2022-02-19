@@ -1,0 +1,19 @@
+# Template file for 'gajim-url-image-preview'
+pkgname=gajim-url-image-preview
+version=2.6.0
+revision=1
+wrksrc="url_image_preview"
+hostmakedepends="unzip"
+depends="python3 python3-setuptools python3-cryptography python3-Pillow"
+short_desc="Gajim plugin which displays a preview of links to images"
+maintainer="make-file <makefile@riseup.net>"
+license="GPL-3.0-or-later"
+homepage="https://dev.gajim.org/gajim/gajim-plugins/wikis/urlimagepreviewplugin"
+distfiles="https://ftp.gajim.org/plugins_releases/url_image_preview_${version}.zip"
+checksum=631228fa46cfd881f48cee43fb44c8377bce006f95e0b821f1d8a05dc25a4b99
+
+
+do_install() {
+	install -d "${DESTDIR}/${py3_sitelib}/gajim/data/plugins/url_image_preview"
+	cp -r * "${DESTDIR}/${py3_sitelib}/gajim/data/plugins/url_image_preview"
+}

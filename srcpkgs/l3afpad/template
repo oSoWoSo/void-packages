@@ -1,0 +1,22 @@
+# Template file for 'l3afpad'
+pkgname=l3afpad
+version=0.8.18.1.11
+revision=2
+build_style=gnu-configure
+hostmakedepends="pkg-config"
+makedepends="glib-devel intltool automake gtk+3-devel"
+depends="gtk+3"
+short_desc="Simple text editor forked from Leafpad, supports GTK+ 3.x"
+maintainer="make-file <makefile@risueup.net>"
+license="GPL-2.0-or-later"
+homepage="https://github.com/stevenhoneyman/l3afpad/"
+distfiles="https://github.com/stevenhoneyman/l3afpad/archive/v${version}.tar.gz"
+checksum=86f374b2f950b7c60dda50aa80a5034b8e3c80ded5cd3284c2d5921b31652793
+
+pre_configure() {
+	./autogen.sh
+}
+
+post_install() {
+	mv ${DESTDIR}/usr/lib/locale ${DESTDIR}/usr/share/locale
+}

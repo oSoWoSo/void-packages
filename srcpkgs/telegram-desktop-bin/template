@@ -1,0 +1,30 @@
+# Template file for 'telegram-desktop-bin'
+pkgname=telegram-desktop-bin
+version=2.5.8
+revision=1
+archs="x86_64"
+wrksrc=Telegram
+depends="desktop-file-utils glib hicolor-icon-theme dbus-glib dbus libX11"
+short_desc="Telegram desktop messaging app - Static binaries"
+maintainer="mkf <makefile@riseup.net>"
+license="GPL-3.0-only, OpenSSL"
+homepage="https://github.com/telegramdesktop/tdesktop"
+distfiles="https://github.com/telegramdesktop/tdesktop/releases/download/v${version}/tsetup.${version}.tar.xz"
+checksum=12884255e8e3ea839ca0cb87fcd52b4580135de6f2a8269be5a92aea616ae102
+nostrip="yes"
+
+do_install() {
+	vbin ${wrksrc}/Telegram ${pkgname}
+}
+
+post_install() {
+	vmkdir usr/share/applications
+	vcopy ${FILESDIR}/${pkgname}.desktop usr/share/applications
+	mkdir -p "${DESTDIR}/etc/tdesktop"
+	echo "/usr/bin/telegram-desktop-bin" > "${DESTDIR}/etc/tdesktop/externalupdater"
+	# install telegram icons
+	for i in 16x16 32x32 48x48 64x64 128x128 256x256 512x512; do
+		vmkdir "usr/share/icons/hicolor/${i}/apps"
+		vinstall ${FILESDIR}/icon${i}.png 644 usr/share/icons/hicolor/${i}/apps/telegram.png
+	done
+}

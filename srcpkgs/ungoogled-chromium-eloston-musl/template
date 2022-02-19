@@ -1,0 +1,39 @@
+# Template file for 'ungoogled-chromium-eloston-musl'
+_chromiumRevision=1.musl1
+
+pkgname=ungoogled-chromium-eloston-musl
+version=85.0.4183.102
+revision=1
+maintainer="mkf <makefile@riseup.net>"
+homepage="https://github.com/Eloston/ungoogled-chromium"
+license="BSD-3-Clause"
+create_wrksrc=yes
+wrksrc=ungoogled-chromium_85.0.4183.102-1.musl1_linux
+short_desc="Ungoogled chromium build from eloston - musl version"
+archs="x86_64-musl"
+nostrip="yes"
+hostmakedepends="tar xz patchelf"
+make_dirs="/opt/${pkgname} 755 root root"
+_baseUrl="https://github.com/Cubified/ungoogled-chromium-binaries/releases/download"
+_filename="${version}-${_chromiumRevision}/ungoogled-chromium_${version}-${_chromiumRevision}_linux.tar.xz"
+_chromiumUrl="${_baseUrl}/${_filename}"
+distfiles="$_chromiumUrl"
+checksum=2efe76f64abb8cf2718447918b9f6b35d067ddfa20ed9cbb7bc5094688af493e
+
+
+do_install() {
+	vmkdir opt/${pkgname}/
+	vmkdir usr/share/applications
+	mv ${wrksrc}/* ${DESTDIR}/opt/${pkgname}
+	vmkdir usr/bin
+	ln -rs ${DESTDIR}/opt/${pkgname}/chrome-wrapper  ${DESTDIR}/usr/bin/ungoogled-chromium-eloston
+	# since libc.musl-x86_64.so.1 is named libc.so on void
+	for i  in libGLESv2.so crashpad_handler chrome chrome_sandbox libEGL.so chromedriver ; do
+		patchelf --replace-needed  libc.musl-x86_64.so.1 libc.so ${DESTDIR}/opt/${pkgname}/${i}
+	done
+
+}
+post_install() {
+	vcopy ${FILESDIR}/ungoogled-chromium-eloston.desktop usr/share/applications
+	vlicense ${FILESDIR}/LICENSE
+}

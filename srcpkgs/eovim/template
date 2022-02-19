@@ -1,0 +1,18 @@
+# Template file for 'eovim'
+pkgname=eovim
+version=0.2.0
+revision=1
+build_style="cmake"
+makedepends="pkg-config msgpack-devel efl-devel"
+depends="neovim msgpack efl"
+short_desc="EFL GUI client for Neovim"
+maintainer="mkf <makefile@riseup.net>"
+license="MIT"
+homepage="https://github.com/jeanguyomarch/eovim"
+distfiles="https://github.com/jeanguyomarch/eovim/archive/v${version}.tar.gz"
+checksum=d11da1d3736e19af4d6f7f97a382893fcfa0eba58f7137290e7c8a1ce802f53e
+tags="neovim efl"
+
+post_install() {
+	vlicense ${wrksrc}/LICENSE
+}

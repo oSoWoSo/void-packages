@@ -1,0 +1,37 @@
+# Template file for 'xplr'
+pkgname=xplr
+version=0.17.0
+revision=1
+archs="x86_64*"
+hostmakedepends="tar"
+makedepends="libgcc-devel"
+short_desc="Hackable, minimal, fast TUI file explorer written in Rust"
+maintainer="Shubham Pawar <shubhampawar3007@gmail.com>"
+license="MIT"
+homepage="https://github.com/sayanarijit/xplr"
+distfiles="${homepage}/releases/download/v${version}/${pkgname}-linux.tar.gz
+	${homepage}/raw/v${version}/LICENSE
+	${homepage}/raw/v${version}/README.md
+	${homepage}/raw/v${version}/src/init.lua
+	${homepage}/raw/v${version}/assets/desktop/${pkgname}.desktop"
+
+checksum="00c90dc80d2bd8b3eccf32b5196394146651d31a792851f3c1972d579804de40
+ 393e9f5a12c614e476ff7067b3fd330dc63304e92d6c3762fa9120cedc7e6b9c
+ 1f640f6731317ca836ff61bec17af316c7ade9a593af2b08b3453be8da369237
+ 2e8847a1734d78a69666234c88eac87fe43f7c47e3971de41cab83b7433c6e5f
+ f71844576ef72820b9baddd34c49a04e1f0655dcc88c693eb509589907bdf86f"
+
+tags="file-manager rust"
+
+do_extract() {
+	tar fxz ${XBPS_SRCDISTDIR}/${pkgname}-${version}/${pkgname}-linux.tar.gz
+}
+
+do_install() {
+	vbin xplr
+	cd ${XBPS_SRCDISTDIR}/${pkgname}-${version}
+	vdoc README.md
+	vsconf init.lua
+	vlicense LICENSE
+	vinstall ${pkgname}.desktop 644 /usr/share/applications
+}

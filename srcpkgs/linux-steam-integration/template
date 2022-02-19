@@ -1,0 +1,42 @@
+# Template file for 'linux-steam-integration'
+pkgname=linux-steam-integration
+version=0.7.3
+revision=2
+archs="x86_64"
+build_style=meson
+makedepends="gcc-multilib gtk+3-devel pkg-config"
+depends="gtk+3 steam"
+short_desc="Helper for enabling better Steam integration on Linux"
+maintainer="make-file <makefile@riseup.net>"
+license="LGPL-2.0-or-later"
+homepage="https://github.com/clearlinux/linux-steam-integration"
+distfiles="https://github.com/clearlinux/${pkgname}/releases/download/v${version}/${pkgname}-${version}.tar.xz"
+checksum=be8f391ad786c09aa74aec83dc9077adf0863f92f297a1d361dfd61ed1108d41
+
+do_configure() {
+	meson build --prefix=/usr \
+		-Dwith-shim=co-exist \
+		-Dwith-frontend=true \
+		-Dwith-steam-binary=/usr/lib/steam/steam \
+		-Dwith-new-libcxx-abi=true
+
+	# 32-bit build
+	export CC="gcc -m32"
+	export CXX="g++ -m32"
+	export PKG_CONFIG_PATH="/usr/lib32/pkgconfig"
+	mkdir build32
+	meson build32 --prefix /usr \
+		-Dwith-shim=none \
+		--libexecdir /usr/lib32 \
+		--libdir /usr/lib32
+}
+
+do_build() {
+	ninja -C build
+	ninja -C build32
+}
+
+do_install() {
+	DESTDIR="$DESTDIR" ninja -C build install
+	DESTDIR="$DESTDIR" ninja -C build32 install
+}

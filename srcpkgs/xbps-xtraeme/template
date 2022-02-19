@@ -1,0 +1,58 @@
+# Template file for 'xbps-xtraeme'
+pkgname=xbps-xtraeme
+version=0.59.1
+revision=3
+bootstrap=yes
+wrksrc=xbps-${version}
+build_style=configure
+short_desc="XBPS package system utilities"
+maintainer="mkf <makefile@risuep.net>"
+license="BSD-2-Clause, BSD-3-Clause, ISC"
+homepage="https://gitlab.com/xtraeme/xbps"
+changelog="https://gitlab.com/xtraeme/xbps/-/blob/master/NEWS.md"
+distfiles="https://gitlab.com/xtraeme/xbps/-/archive/${version}/xbps-${version}.tar.gz"
+checksum=0cbd8d5f23a62047c75974bca21da9f004a94efffd7f37c68562a8dbc869fb2a
+
+hostmakedepends="pkgconf"
+checkdepends="kyua"
+makedepends="zlib-devel  libressl-devel libarchive-devel"
+depends="ca-certificates xbps-triggers"
+
+make_dirs="/etc/xbps.d 0755 root root"
+broken=yes
+
+if [ "$CHROOT_READY" ]; then
+	makedepends+=" atf-devel"
+	xbps-xtraeme-tests_package() {
+	        short_desc+=" - Kyua testsuite"
+	        pkg_install() {
+		                vmove usr/tests
+	        }
+	}
+
+fi
+
+do_configure() {
+	./configure --prefix=/usr --sysconfdir=/etc ${CHROOT_READY:+--enable-tests}
+}
+	mv 3RDPARTY LICENSE.3DPARTY
+	vlicense LICENSE
+	vlicense LICENSE.3RDPARTY
+}
+
+libxbps-xtraeme_package() {
+	short_desc+=" - runtime library"
+	pkg_install() {
+	        vmove "usr/lib/*.so.*"
+	}
+}
+libxbps-xtraeme-devel_package() {
+	short_desc+=" - runtime library (development files)"
+	depends="${makedepends} libxbps>=${version}_${revision}"
+	pkg_install() {
+	        vmove usr/include
+	        vmove "usr/lib/*.a"
+	        vmove "usr/lib/*.so"
+	        vmove usr/lib/pkgconfig
+	}
+}
