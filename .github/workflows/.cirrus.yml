@@ -5,7 +5,7 @@ persistent_worker:
       cpu: 24
       memory: 128G
       volumes:
-        - /path/on/host:/path/in/container
+        - /:/test
         - /tmp/persistent-cache:/tmp/cache:ro
 
 task:
