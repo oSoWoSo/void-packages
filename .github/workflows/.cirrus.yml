@@ -1,7 +1,6 @@
-container:
-  image: debian:latest
-  cpu: 24
-  memory: 128G
+lint_task:
+  container:
+    image: alpine/flake8:latest
 
 name: Check merge
 
