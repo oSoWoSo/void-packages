@@ -1,0 +1,12 @@
+persistent_worker:
+  isolation:
+    container:
+      image: debian:latest
+      cpu: 24
+      memory: 128G
+      volumes:
+        - /path/on/host:/path/in/container
+        - /tmp/persistent-cache:/tmp/cache:ro
+
+task:
+  script: uname -a
