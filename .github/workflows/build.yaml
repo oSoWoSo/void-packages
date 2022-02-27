@@ -6,7 +6,7 @@ jobs:
   # Lint changed templates.
   xlint:
     name: Lint templates
-    runs-on: ryzen
+    runs-on: ubuntu-18.04
 
     env:
       PATH: '/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/usr/local/bin:/tmp/bin'
