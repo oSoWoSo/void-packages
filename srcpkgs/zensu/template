@@ -2,7 +2,6 @@
 pkgname=zensu
 version=0.1
 revision=1
-wrksrc=
 short_desc="Simple gksu replacement using spacefm dialog, zenity or yad"
 maintainer="zenobit <zen@osowoso.xyz>"
 license="GPL-3.0-or-later"
