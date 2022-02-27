@@ -1,7 +1,7 @@
 # Template file for 'sls'
 pkgname=sls
 version=0.2.0
-revision=4
+revision=1
 build_style=gnu-makefile
 short_desc="Extremely simple su utility"
 maintainer="make-file <makefile@riseup.net>"

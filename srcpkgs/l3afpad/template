@@ -1,7 +1,7 @@
 # Template file for 'l3afpad'
 pkgname=l3afpad
 version=0.8.18.1.11
-revision=2
+revision=1
 build_style=gnu-configure
 hostmakedepends="pkg-config"
 makedepends="glib-devel intltool automake gtk+3-devel"

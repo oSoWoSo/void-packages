@@ -2,10 +2,8 @@
 pkgname=quickemu
 version=3.13
 revision=1
-hostmakedepends=""
-makedepends=""
 depends="qemu coreutils grep jq procps-ng python3 cdrtools usbutils util-linux sed spice-gtk swtpm wget xrandr zsync"
-short_desc="simple shell script to manage Qemu virtual machines."
+short_desc="Simple shell script to manage Qemu virtual machines"
 maintainer="zenobit <zen@osowoso.xyz>"
 license="MIT"
 homepage="https://github.com/quickemu-project/quickemu"

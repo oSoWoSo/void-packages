@@ -4,7 +4,7 @@ _chromiumRevision=1.1
 
 pkgname=ungoogled-chromium-eloston
 version=87.0.4280.88
-revision=2
+revision=1
 maintainer="mkf <makefile@riseup.net>"
 homepage="https://github.com/Eloston/ungoogled-chromium"
 license="BSD-3-Clause"

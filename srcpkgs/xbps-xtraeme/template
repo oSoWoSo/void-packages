@@ -1,7 +1,7 @@
 # Template file for 'xbps-xtraeme'
 pkgname=xbps-xtraeme
 version=0.59.1
-revision=3
+revision=1
 bootstrap=yes
 wrksrc=xbps-${version}
 build_style=configure

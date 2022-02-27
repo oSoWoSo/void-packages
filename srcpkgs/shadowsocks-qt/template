@@ -1,7 +1,7 @@
 # Template file for 'shadowsocks-qt'
 pkgname=shadowsocks-qt
 version=3.0.1
-revision=2
+revision=1
 archs="x86_64"
 wrksrc="shadowsocks-qt5-${version}"
 build_style="cmake"

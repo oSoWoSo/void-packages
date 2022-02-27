@@ -1,7 +1,7 @@
 # Template file for 'linux-steam-integration'
 pkgname=linux-steam-integration
 version=0.7.3
-revision=2
+revision=1
 archs="x86_64"
 build_style=meson
 makedepends="gcc-multilib gtk+3-devel pkg-config"

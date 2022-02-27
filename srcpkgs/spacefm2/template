@@ -2,9 +2,9 @@
 pkgname=spacefm2
 version=2.1.2
 revision=1
-build_style=meson
 wrksrc="${pkgname}-${version}"
 create_wrksrc=yes
+build_style=meson
 configure_args="$(gtk3)"
 hostmakedepends="pkg-config intltool xdg-utils xbps-triggers"
 makedepends="$(gtk3 gtk+3-devel gtk+-devel)
