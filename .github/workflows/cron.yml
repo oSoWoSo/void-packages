@@ -6,7 +6,7 @@ on:
 
 jobs:
   lock:
-    runs-on: ryzen
+    runs-on: ubuntu-18.04
     steps:
       - uses: dessant/lock-threads@v2
         with:
@@ -14,7 +14,7 @@ jobs:
           pr-lock-inactive-days: '90'
           process-only: 'prs'
   cycles:
-    runs-on: ryzen
+    runs-on: ubuntu-18.04
     container:
         image: 'ghcr.io/void-linux/xbps-src-masterdir:20210313rc01-x86_64-musl'
     steps:
