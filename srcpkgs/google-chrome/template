@@ -1,10 +1,11 @@
 # Template file for 'google-chrome'
 pkgname=google-chrome
-version=98.0.4758.102
-revision=1
+version=99.0.4844.51
+revision=2
 _channel=stable
 archs="x86_64"
 hostmakedepends="curl tar xz python3 python3-html2text python3-setuptools"
+depends="gtk+3"
 short_desc="Attempt at creating a safer, faster, and more stable browser"
 maintainer="Michael Aldridge <maldridge@voidlinux.org>"
 license="custom:chrome"
@@ -19,7 +20,7 @@ _chromeUrl="${_baseUrl}/${_filename}"
 _licenseUrl="https://www.google.com/intl/en/chrome/terms/"
 
 distfiles="$_chromeUrl"
-checksum=864ffdeb9402ee82da2786e99c58547598762b281f34a14d8ad670ece654d95d
+checksum=a19354b3f8eee069cec49cdc44bea43d7f0cbddf6a94bb49c1e221a4ee757812
 
 do_extract() {
 	mkdir -p ${DESTDIR}

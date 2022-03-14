@@ -1,18 +1,25 @@
-# Template file for 'kafkacat'
-pkgname=kafkacat
-version=1.6.0
-revision=2
-wrksrc="kcat-${version}"
+# Template file for 'kcat'
+pkgname=kcat
+version=1.7.0
+revision=1
 build_style=configure
-configure_args="--prefix=/usr"
 makedepends="librdkafka-devel"
 short_desc="Command line Apache Kafka producer and consumer"
 maintainer="Frank Steinborn <steinex@nognu.de>"
 license="BSD-2-Clause"
-homepage="https://github.com/edenhill/kafkacat"
+homepage="https://github.com/edenhill/kcat"
+changelog="https://raw.githubusercontent.com/edenhill/kcat/master/CHANGELOG.md"
 distfiles="${homepage}/archive/${version}.tar.gz"
-checksum=300fd861d2d6b406ae8a9f5538055449e10da611076959993b8e2430101c4ea1
+checksum=baaed3cb6f5ade6a01355edb8819365e263a325375bee50727e009810e49cb38
 
-post_install() {
+do_install() {
+	vman kcat.1
+	vbin kcat
 	vlicense LICENSE
+}
+
+kafkacat_package() {
+	depends="${sourcepkg}>=${version}_${revision}"
+	short_desc+=" (transitional dummy package)"
+	build_style=meta
 }
