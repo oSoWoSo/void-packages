@@ -1,0 +1,22 @@
+# Template file for 'lapce'
+pkgname=lapce
+version=0.0.10
+revision=1
+#archs="i686 x86_64"
+wrksrc="${pkgname}-${version}"
+create_wrksrc=yes
+build_style=cargo
+#configure_args=""
+#make_build_args=""
+#make_install_args=""
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+hostmakedepends="cmake freetype-devel fontconfig-devel libxcb-devel pkg-config rustup"
+makedepends="rustup"
+depends="rust"
+short_desc="Lightning-fast and Powerful Code Editor written in Rust"
+maintainer="zenobit <zen@osowoso.xyz>"
+license="Apache License 2.0"
+homepage="https://lapce.dev/"
+distfiles="https://github.com/lapce/lapce/releases/download/v${version}/Lapce-linux.tar.gz"
+checksum=70568b771a5a6e594adc7f778b7eea343c28d88d5f7873a0213400394ad97eb9
