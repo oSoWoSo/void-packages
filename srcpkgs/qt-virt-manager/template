@@ -1,6 +1,6 @@
 # Template file for 'qt-virt-manager'
 pkgname=qt-virt-manager
-version=0.72.98
+version=0.72.99
 revision=1
 build_style=cmake
 hostmakedepends="pkg-config"
