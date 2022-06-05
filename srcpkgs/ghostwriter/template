@@ -1,6 +1,6 @@
 # Template file for 'ghostwriter'
 pkgname=ghostwriter
-version=2.1.1
+version=2.1.3
 revision=1
 build_style=qmake
 hostmakedepends="pkg-config qt5-qmake qt5-host-tools"
@@ -12,7 +12,7 @@ maintainer="Andrew Benson <abenson+void@gmail.com>"
 license="GPL-3.0-or-later"
 homepage="http://wereturtle.github.io/ghostwriter"
 distfiles="https://github.com/wereturtle/ghostwriter/archive/${version}.tar.gz"
-checksum=a9add6202dc1c9bb3f591fd4ec5d70e0fbd49d55f4921dc217923debc4d02f06
+checksum=cef7283e7decae3033032d8b56b48e65164c277f5c8c231d7da0f73a5ccfa260
 
 case "$XBPS_TARGET_MACHINE" in
 	armv5tel*) broken="qtwebengine not built for this platform";;

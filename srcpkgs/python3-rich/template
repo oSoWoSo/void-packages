@@ -1,6 +1,6 @@
 # Template file for 'python3-rich'
 pkgname=python3-rich
-version=11.2.0
+version=12.4.4
 revision=1
 wrksrc="rich-${version}"
 build_style=python3-module
@@ -13,7 +13,8 @@ maintainer="Andrew Benson <abenson+void@gmail.com>"
 license="MIT"
 homepage="https://github.com/willmcgugan/rich"
 distfiles="${PYPI_SITE}/r/rich/rich-${version}.tar.gz"
-checksum=1a6266a5738115017bb64a66c59c717e7aa047b3ae49a011ede4abdeffc6536e
+checksum=4c586de507202505346f3e32d1363eb9ed6932f0c2f63184dea88983ff4971e2
+make_check=extended # some checks only work on windows
 
 post_install() {
 	vlicense LICENSE

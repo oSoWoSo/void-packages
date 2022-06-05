@@ -1,18 +1,19 @@
 # Template file for 'knewstuff'
 pkgname=knewstuff
-version=5.91.0
+version=5.94.0
 revision=1
 build_style=cmake
 hostmakedepends="kcoreaddons extra-cmake-modules gettext
  kpackage qt5-host-tools qt5-qmake python3"
-makedepends="kio-devel kpackage-devel attica-devel"
+makedepends="kio-devel kpackage-devel attica-devel
+ syndication-devel kirigami2-devel"
 depends="kdeclarative qt5-quickcontrols"
 short_desc="KDE Framework for downloading and sharing additional application data"
 maintainer="John <me@johnnynator.dev>"
 license="LGPL-2.1-or-later"
 homepage="https://invent.kde.org/frameworks/knewstuff"
 distfiles="${KDE_SITE}/frameworks/${version%.*}/${pkgname}-${version}.tar.xz"
-checksum=5dd9fb32fe7e99b64f8dc4b8801bbdba5dc5ba2eda9bec2fb1fc563a53ec6a2a
+checksum=aacd014f99ab66d40ae98333cb56257244ca552bc4df0ce04de4e29bae90336f
 
 knewstuff-devel_package() {
 	short_desc+=" - development"

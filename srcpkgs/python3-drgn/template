@@ -1,6 +1,6 @@
 # Template file for 'python3-drgn'
 pkgname=python3-drgn
-version=0.0.16
+version=0.0.19
 revision=1
 wrksrc="drgn-${version}"
 build_style=python3-module
@@ -12,7 +12,7 @@ maintainer="Leah Neukirchen <leah@vuxu.org>"
 license="GPL-3.0-or-later"
 homepage="https://github.com/osandov/drgn/"
 distfiles="https://github.com/osandov/drgn/archive/refs/tags/v${version}.tar.gz"
-checksum=8dee0e92babc456ecf9228dc5f5433ae78fb2d6215d035bef79f29afaecd4433
+checksum=5ed9049f5a257c342eb8fb8e2c7276b1baf1e9109ff0d9677a0990990c7afa4d
 
 pre_build() {
 	if [ "$CROSS_BUILD" ]; then

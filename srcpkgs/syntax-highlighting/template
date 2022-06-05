@@ -1,6 +1,6 @@
 # Template file for 'syntax-highlighting'
 pkgname=syntax-highlighting
-version=5.91.0
+version=5.94.0
 revision=1
 build_style=cmake
 configure_args="-DKATEHIGHLIGHTINGINDEXER_EXECUTABLE=/usr/libexec/${pkgname}/katehighlightingindexer"
@@ -12,7 +12,7 @@ maintainer="John <me@johnnynator.dev>"
 license="LGPL-2.1-or-later"
 homepage="https://invent.kde.org/frameworks/syntax-highlighting"
 distfiles="${KDE_SITE}/frameworks/${version%.*}/${pkgname}-${version}.tar.xz"
-checksum=370a45b274db90e8d2d34d61d3f665a3f1f9f552d4503ce5805a47f445c4f93a
+checksum=cf871332a50355836919fdd833a82c32b3d5fe7fea8fa3e58714c39c8ddde5a6
 
 if [ "$CROSS_BUILD" ]; then
 	hostmakedepends+=" syntax-highlighting"

@@ -3,7 +3,7 @@
 # THIS PKG MUST BE SYNCHRONIZED WITH "srcpkgs/firefox-i18n".
 #
 pkgname=firefox
-version=97.0
+version=100.0.2
 revision=1
 build_helper="rust"
 short_desc="Mozilla Firefox web browser"
@@ -11,7 +11,7 @@ maintainer="Duncaen <duncaen@voidlinux.org>"
 license="MPL-2.0, GPL-2.0-or-later, LGPL-2.1-or-later"
 homepage="https://www.mozilla.org/firefox/"
 distfiles="${MOZILLA_SITE}/${pkgname}/releases/${version}/source/${pkgname}-${version}.source.tar.xz"
-checksum=6c8a7dcb47122d033383fd62a1bcaefff0290a6c23d057898e8ff9c72749df28
+checksum=dc109861204f6938fd8f147af89a694eb516f3d4bb64ce3f0116452d654a8417
 
 lib32disabled=yes
 
@@ -71,6 +71,8 @@ post_patch() {
 
 do_build() {
 	cp "${FILESDIR}/mozconfig" "${wrksrc}/.mozconfig"
+
+	echo "MOZ_APP_REMOTINGNAME=Firefox" >>.mozconfig
 
 	case "$XBPS_TARGET_MACHINE" in
 	*-musl)
@@ -170,7 +172,7 @@ do_build() {
 	export MOZ_MAKE_FLAGS="${makejobs}"
 	export MOZ_NOSPAM=1
 	export MOZBUILD_STATE_PATH="${wrksrc}/mozbuild"
-	export MACH_USE_SYSTEM_PYTHON=1
+	export MACH_BUILD_PYTHON_NATIVE_PACKAGE_SOURCE=system
 
 	export AS=$CC
 
@@ -189,7 +191,7 @@ ac_add_options --enable-default-toolkit=$(vopt_if wayland 'cairo-gtk3-wayland' '
 	./mach build
 }
 do_install() {
-	export MACH_USE_SYSTEM_PYTHON=1
+	export MACH_BUILD_PYTHON_NATIVE_PACKAGE_SOURCE=system
 	export MOZBUILD_STATE_PATH="${wrksrc}/mozbuild"
 	DESTDIR="$DESTDIR" ./mach install
 

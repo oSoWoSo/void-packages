@@ -1,6 +1,6 @@
 # Template file for 'kglobalaccel'
 pkgname=kglobalaccel
-version=5.91.0
+version=5.94.0
 revision=1
 build_style=cmake
 hostmakedepends="kcoreaddons extra-cmake-modules kcoreaddons pkg-config qt5-qmake qt5-host-tools qt5-tools"
@@ -10,7 +10,7 @@ maintainer="John <me@johnnynator.dev>"
 license="LGPL-2.0-or-later"
 homepage="https://invent.kde.org/frameworks/kglobalaccel"
 distfiles="${KDE_SITE}/frameworks/${version%.*}/${pkgname}-${version}.tar.xz"
-checksum=c0610c5dfe078827594e0f32793f0fae87dcee21b75fee491850a7e0cc639a27
+checksum=a34b00116a72d0973cdeb203a5d237da63cc307e9e294dfaedb00ff0a36835e9
 
 kglobalaccel-devel_package() {
 	short_desc+=" - development"

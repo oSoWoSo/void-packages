@@ -1,17 +1,16 @@
 # Template file for 'minify'
 pkgname=minify
-version=2.10.0
+version=2.11.5
 revision=1
 build_style=go
 go_import_path="github.com/tdewolff/minify/v2"
 go_package="${go_import_path}/cmd/minify"
-hostmakedepends="git"
 short_desc="Go minifiers for web formats"
 maintainer="Leah Neukirchen <leah@vuxu.org>"
 license="MIT"
 homepage="https://github.com/tdewolff/minify"
 distfiles="https://github.com/tdewolff/minify/archive/v${version}.tar.gz"
-checksum=a26c531d5071c6bd5d2300b4906fd2c7e227a19c23549219ccfae2c20114c60e
+checksum=2d7f3415868447fffd722d93b2446e74ed486a541f03bed7ac8d6608f0693e47
 
 post_install() {
 	vlicense LICENSE

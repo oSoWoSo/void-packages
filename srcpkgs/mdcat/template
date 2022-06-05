@@ -1,21 +1,22 @@
 # Template file for 'mdcat'
 pkgname=mdcat
-version=0.25.0
+version=0.27.1
 revision=1
-wrksrc="${pkgname}-${pkgname}-${version}"
+wrksrc="${pkgname}"
 build_style=cargo
 hostmakedepends="pkg-config ruby-asciidoctor"
 makedepends="openssl-devel"
+depends="shared-mime-info"
+checkdepends="shared-mime-info"
 short_desc="Cat for markdown"
-maintainer="Wilson Birney <wpb@360scada.com>"
+maintainer="cinerea0 <cinerea0@protonmail.com>"
 license="MPL-2.0"
-homepage="https://github.com/lunaryorn/mdcat"
-changelog="https://raw.githubusercontent.com/lunaryorn/mdcat/main/CHANGELOG.md"
-distfiles="https://github.com/lunaryorn/mdcat/archive/mdcat-${version}.tar.gz"
-checksum=92fddabab24f2e7d673b06c1f31a7746abbb547c5581faaed17a8e3e1e5b17a5
+homepage="https://codeberg.org/flausch/mdcat/"
+changelog="https://codeberg.org/flausch/mdcat/raw/branch/main/CHANGELOG.md"
+distfiles="https://codeberg.org/flausch/mdcat/archive/mdcat-${version}.tar.gz"
+checksum=79961e0a842ee0f68aee3d54b39458352664c67388e56175a9d18d80f357bf14
 
 case "$XBPS_TARGET_MACHINE" in
-	armv6l|armv7l) broken="https://build.voidlinux.org/builders/armv7l_builder/builds/36158/steps/shell_3/logs/stdio" ;;
 	x86_64*|i686*|arm*|aarch64*) ;;
 	*) broken="ftbfs in ring" ;;
 esac

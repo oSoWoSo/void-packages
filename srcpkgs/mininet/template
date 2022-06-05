@@ -7,9 +7,10 @@ hostmakedepends="help2man python3-setuptools"
 depends="bash ethtool inetutils-telnet iperf iproute2 iputils libcgroup-utils
  net-tools openssh openvswitch psmisc python3-tkinter socat xbitmaps xhost xterm"
 short_desc="Emulator for rapid prototyping of Software Defined Networks"
-maintainer="classabbyamp <dev@kb6.ee>"
+maintainer="classabbyamp <void@placeviolette.net>"
 license="custom:MIT-like"
 homepage="http://mininet.org/"
+changelog="http://mininet.org/blog/categories/releases/"
 distfiles="https://github.com/mininet/${pkgname}/archive/${version}.tar.gz"
 checksum=1b16ee53ddb9a34a3751a77517643bda2286fc31be123209e84884d0697107b0
 # tests require root

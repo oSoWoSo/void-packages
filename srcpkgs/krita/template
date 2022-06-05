@@ -1,6 +1,6 @@
 # Template file for 'krita'
 pkgname=krita
-version=5.0.2
+version=5.0.6
 revision=1
 build_style=cmake
 configure_args="-Wno-dev -DBUILD_TESTING=OFF"
@@ -22,7 +22,7 @@ maintainer="John <me@johnnynator.dev>"
 license="GPL-3.0-only"
 homepage="https://krita.org/"
 distfiles="${KDE_SITE}/krita/${version}/krita-${version}.tar.gz"
-checksum=e6751fc7eb504977a4880a376ebbd3995c87dad154486084e82397e65d499cbf
+checksum=edd76d1b3e5fd00cffb90c4fdaa4dafecc8bf3638d1f7bccf463ec11ea3e0e62
 python_version=3
 replaces="calligra-krita>=0"
 make_check=no

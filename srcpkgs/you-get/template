@@ -1,6 +1,6 @@
 # Template file for 'you-get'
 pkgname=you-get
-version=0.4.1555
+version=0.4.1612
 revision=1
 build_style=python3-module
 hostmakedepends="python3-setuptools"
@@ -10,7 +10,7 @@ maintainer="Benjamín Albiñana <benalb@gmail.com>"
 license="MIT"
 homepage="https://you-get.org/"
 distfiles="${PYPI_SITE}/y/you-get/you-get-${version}.tar.gz"
-checksum=99282aca720c7ee1d9ef4b63bbbd226e906ea170b789a459fafd5b0627b0b15f
+checksum=94a133b70c27d699c02eec03880d4893df97095c8ef943286effa15eed269f9c
 
 post_install() {
 	vlicense LICENSE.txt

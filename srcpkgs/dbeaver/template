@@ -1,6 +1,6 @@
 # Template file for 'dbeaver'
 pkgname=dbeaver
-version=21.3.5
+version=22.0.5
 revision=1
 # the build downloads binaries linked to glibc
 archs="x86_64 aarch64"
@@ -11,7 +11,7 @@ maintainer="Kyle Nusbaum <knusbaum+void@sdf.org>"
 license="Apache-2.0"
 homepage="https://dbeaver.io"
 distfiles="https://github.com/dbeaver/dbeaver/archive/${version}.tar.gz"
-checksum=c6f822f4e88bffd37ba0b2525625bbd83156ec36725c2d29101c97f12e280d03
+checksum=f41e5000f885097be49f57616561debdd53c700e3255153d48b4c42db1f81452
 nopie=true
 
 if [ "$XBPS_TARGET_MACHINE" = aarch64 ]; then

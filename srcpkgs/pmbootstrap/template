@@ -1,6 +1,6 @@
 # Template file for 'pmbootstrap'
 pkgname=pmbootstrap
-version=1.41.0
+version=1.43.0
 revision=1
 build_style=python3-module
 hostmakedepends="python3-setuptools"
@@ -10,5 +10,5 @@ maintainer="bra1nwave <bra1nwave@protonmail.com>"
 license="GPL-3.0-or-later"
 homepage="https://postmarketos.org"
 distfiles="https://gitlab.com/postmarketOS/pmbootstrap/-/archive/${version}/pmbootstrap-${version}.tar.gz"
-checksum=8fa5830dc7399320a127d37ec82020bf72fc0ec952d2e32190a120a79abe59a9
+checksum=65f720fe8c8436cc13780e74978e2dfa66c4ca72e9e8567004015ff6f8a536a3
 make_check=no # tests require chroot

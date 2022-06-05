@@ -1,6 +1,6 @@
 # Template file for 'kmediaplayer'
 pkgname=kmediaplayer
-version=5.91.0
+version=5.94.0
 revision=1
 build_style=cmake
 hostmakedepends="kcoreaddons extra-cmake-modules
@@ -11,7 +11,7 @@ maintainer="John <me@johnnynator.dev>"
 license="X11"
 homepage="https://invent.kde.org/frameworks/kmediaplayer"
 distfiles="${KDE_SITE}/frameworks/${version%.*}/portingAids/${pkgname}-${version}.tar.xz"
-checksum=018aea7a06b09b9ebf7dcd6c1cf50caed144b91d0e449bfc31354c24f357c966
+checksum=0bf1f6df0ce21d397ca168307b3b3e57d10c0fb90369cee03bbfbf9fa7d8208c
 
 kmediaplayer-devel_package() {
 	short_desc+=" - development"

@@ -14,7 +14,7 @@ do_build() {
 
 do_check() {
 	if python3 -c 'import pytest' >/dev/null 2>&1; then
-		python3 -m pytest ${make_check_args} ${make_check_target}
+		${make_check_pre} python3 -m pytest ${make_check_args} ${make_check_target}
 	else
 		msg_warn "Unable to determine tests for PEP517 Python templates"
 		return 0
@@ -23,7 +23,11 @@ do_check() {
 
 do_install() {
 	# As with do_build, no need to accommodate cross compilation here
-	: ${make_install_target:=${pkgname#python3-}-${version}-*-*-*.whl}
+	if [ -z "${make_install_target}" ]; then
+		# Default wheel name normalizes hyphens to underscores
+		local wheelbase="${pkgname#python3-}"
+		make_install_target="${wheelbase//-/_}-${version}-*-*-*.whl"
+	fi
 
 	# If do_build was overridden, make sure the TMPDIR exists
 	mkdir -p build

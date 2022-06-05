@@ -1,6 +1,6 @@
 # Template file for 'fwupd'
 pkgname=fwupd
-version=1.7.5
+version=1.8.1
 revision=1
 build_style=meson
 build_helper="gir"
@@ -20,9 +20,9 @@ conf_files="
 short_desc="Daemon to allow session software to update firmware"
 maintainer="Érico Nogueira <ericonr@disroot.org>"
 license="LGPL-2.1-or-later"
-homepage="https://github.com/hughsie/fwupd"
-distfiles="https://github.com/hughsie/fwupd/archive/${version}.tar.gz"
-checksum=1acbec6727967ceb6dff9408a9312bb9eba5a7ebd0fde655122921a62d1d396c
+homepage="https://github.com/fwupd/fwupd"
+distfiles="https://github.com/fwupd/fwupd/archive/${version}.tar.gz"
+checksum=693ac8dd0fa1a7d567242b98f4666c93e8827d16ccd11aea796e01541f6ff877
 replaces="fwupdate>=0"
 
 case "$XBPS_TARGET_MACHINE" in
@@ -60,7 +60,9 @@ pre_build() {
 }
 
 fwupd-devel_package() {
-	depends="${sourcepkg}>=${version}_${revision} libglib-devel"
+	depends="${sourcepkg}>=${version}_${revision} libglib-devel libcurl-devel
+	 libjcat-devel libgusb-devel libxmlb-devel libarchive-devel gcab-devel
+	 json-glib-devel"
 	short_desc+=" - development files"
 	pkg_install() {
 		vmove usr/include

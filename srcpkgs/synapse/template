@@ -1,10 +1,11 @@
 # Template file for 'synapse'
 pkgname=synapse
-version=1.53.0
+version=1.58.0
 revision=1
-build_style=python3-module
+build_style=python3-pep517
 make_check_target=tests
-hostmakedepends="python3-setuptools"
+make_install_target="matrix_synapse-${version}-*-*-*.whl"
+hostmakedepends="python3-poetry-core"
 depends="python3-jsonschema python3-frozendict python3-canonicaljson
  python3-signedjson python3-pynacl python3-service_identity python3-Twisted
  python3-openssl python3-yaml python3-pyasn1 python3-pyasn1-modules
@@ -12,15 +13,16 @@ depends="python3-jsonschema python3-frozendict python3-canonicaljson
  python3-phonenumbers python3-prometheus_client python3-attrs python3-netaddr
  python3-setuptools python3-bleach python3-Jinja2 python3-psycopg2 python3-lxml
  python3-saml2 python3-treq python3-macaroons python3-sortedcontainers
- python3-typing_extensions python3-ijson python3-matrix-common"
-checkdepends="$depends python3-parameterized python3-pytest"
+ python3-typing_extensions python3-ijson python3-matrix-common
+ python3-packaging"
+checkdepends="$depends python3-parameterized python3-pytest unzip"
 short_desc="Matrix reference homeserver"
 maintainer="Joel Beckmeyer <joel@beckmeyer.us>"
 license="Apache-2.0"
 homepage="https://github.com/matrix-org/synapse"
 changelog="https://raw.githubusercontent.com/matrix-org/synapse/develop/CHANGES.md"
 distfiles="https://github.com/matrix-org/synapse/archive/v${version}.tar.gz"
-checksum=e9fb5c8d1178996e677f6ce8f44c11d9294da0a06297fffa34706879870f9bf4
+checksum=f859c3c426aff099360c84cfb580ba23b9d784b1a1b0e7b68965428f17e697ab
 
 system_accounts="synapse"
 synapse_homedir="/var/lib/synapse"
@@ -29,6 +31,10 @@ make_dirs="
 	/var/lib/synapse 0700 synapse synapse
 	/etc/synapse 755 synapse synapse
 	/var/log/synapse 0755 synapse synapse"
+
+pre_check() {
+	unzip ${make_install_target} "*.dist-info/*"
+}
 
 post_install() {
 	vsv synapse

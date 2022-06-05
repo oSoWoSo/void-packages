@@ -1,6 +1,6 @@
 # Template file for 'yad'
 pkgname=yad
-version=11.0
+version=12.0
 revision=1
 build_style=gnu-configure
 configure_args="--enable-icon-browser"
@@ -12,7 +12,7 @@ license="GPL-3.0-or-later"
 homepage="https://github.com/v1cont/yad"
 changelog="https://raw.githubusercontent.com/v1cont/yad/master/NEWS"
 distfiles="https://github.com/v1cont/yad/releases/download/v${version}/yad-${version}.tar.xz"
-checksum=af20b5a7120ba303ca8845db62c9a7410ae5b5224a3eb3563cd70774a745b9f2
+checksum=65dbfa72a229f6cbd131470caf4f70fec98fe935a1436acb58c841fa2a8bddde
 
 pre_configure() {
 	autoreconf -ivf

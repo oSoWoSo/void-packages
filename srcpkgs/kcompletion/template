@@ -1,20 +1,18 @@
 # Template file for 'kcompletion'
 pkgname=kcompletion
-version=5.91.0
+version=5.94.0
 revision=1
 build_style=cmake
-hostmakedepends="kcoreaddons extra-cmake-modules"
+configure_args="-DBUILD_DESIGNERPLUGIN=ON"
+hostmakedepends="kcoreaddons extra-cmake-modules
+ qt5-host-tools qt5-qmake qt5-tools-devel"
 makedepends="kconfig-devel kwidgetsaddons-devel"
 short_desc="KDE Powerful completion framework"
 maintainer="John <me@johnnynator.dev>"
 license="LGPL-2.0-or-later"
 homepage="https://invent.kde.org/frameworks/kcompletion"
 distfiles="${KDE_SITE}/frameworks/${version%.*}/${pkgname}-${version}.tar.xz"
-checksum=2422485b10de631583b7e92e0778e5cf0c0ceec677bcd289cb7bc04c5441dfd0
-
-if [ "CROSS_BUILD" ]; then
-	hostmakedepends+=" qt5-host-tools qt5-qmake qt5-tools-devel"
-fi
+checksum=1ad13d41650bbe352b0c2ecfd8c059015f9441cbf7534a2bcc9ed17a3bfa6ea4
 
 kcompletion-devel_package() {
 	short_desc+=" - development"

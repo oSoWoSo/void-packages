@@ -1,20 +1,19 @@
 # Template file for 'vault'
 pkgname=vault
-version=1.9.2
+version=1.10.3
 revision=1
 build_style=go
 go_import_path="github.com/hashicorp/vault"
 go_build_tags="release"
-_git_commit=aca76f63357041a43b49f3e8c11d67358496959f
+_git_commit=af866591ee60485f05d6e32dd63dde93df686dfb
 go_ldflags="-X ${go_import_path}/sdk/version.GitCommit=${_git_commit}"
-hostmakedepends="git"
 depends="libcap-progs"
 short_desc="Manage Secrets and Protect Sensitive Data"
 maintainer="Michael Aldridge <maldridge@voidlinux.org>"
 license="MPL-2.0"
 homepage="https://www.vaultproject.io/"
 distfiles="https://github.com/hashicorp/vault/archive/v${version}.tar.gz"
-checksum=84a2506d8d0e0757a3229012328904b5e1e13c39c7766d431ffa9c32bce51fae
+checksum=5f7d3d2fcd856b5595182e02c40c976b520658be3cca8638edac5a20869c8373
 system_accounts="_vault"
 make_dirs="/var/lib/vault 0700 _vault _vault
  /etc/vault 0750 root _vault"

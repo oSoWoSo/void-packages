@@ -62,6 +62,7 @@ packages for XBPS, the `Void Linux` native packaging system.
 		* [kernel-hooks](#triggers_kernel_hooks)
 		* [mimedb](#triggers_mimedb)
 		* [mkdirs](#triggers_mkdirs)
+		* [openjdk-profile](#triggers_openjdk_profile)
 		* [pango-modules](#triggers_pango_module)
 		* [pycompile](#triggers_pycompile)
 		* [register-shell](#triggers_register_shell)
@@ -529,6 +530,7 @@ Example:
   | UBUNTU_SITE      | http://archive.ubuntu.com/ubuntu/pool           |
   | XORG_SITE        | https://www.x.org/releases/individual            |
   | KDE_SITE         | https://download.kde.org/stable                 |
+  | VIDEOLAN_SITE    | https://download.videolan.org/pub/videolan      |
 
 - `checksum` The `sha256` digests matching `${distfiles}`. Multiple files can be
 separated by blanks. Please note that the order must be the same than
@@ -598,6 +600,9 @@ phase; when unset, it defaults to `install`. If `${build_style}` is `python-pep5
 path of the Python wheel produced by the build phase that will be installed; when unset, the
 `python-pep517` build style will look for a wheel matching the package name and version in the
 current directory with respect to the install.
+
+- `make_check_pre` The expression in front of `${make_cmd}`. This can be used for wrapper commands
+or for setting environment variables for the check command. By default empty.
 
 - `patch_args` The arguments to be passed in to the `patch(1)` command when applying
 patches to the package sources during `do_patch()`. Patches are stored in
@@ -1100,7 +1105,13 @@ still be passed in if it's a GNU configure script.
 
 - `post_build()` Actions to execute after `do_build()`.
 
-- `pre_install()` Actions to execute after `post_build()`.
+- `pre_check()` Actions to execute after `post_build()`.
+
+- `do_check()` Actions to execute to run checks for the package.
+
+- `post_check()` Actions to execute after `do_check()`.
+
+- `pre_install()` Actions to execute after `post_check()`.
 
 - `do_install()` Actions to execute to install the package files into the `fake destdir`.
 
@@ -1989,6 +2000,13 @@ During removal it will delete the directory using `rmdir`.
 
 To include this trigger use the `make_dirs` variable, as the trigger won't do anything
 unless it is defined.
+
+<a id="triggers_openjdk_profile"></a>
+#### openjdk-profile
+
+The openjdk-profile trigger is responsible for creating an entry in /etc/profile.d that
+sets the `JAVA_HOME` environment variable to the currently-selected alternative for
+`/usr/bin/java` on installation. This trigger must be manually requested.
 
 <a id="triggers_pango_module"></a>
 #### pango-modules

@@ -1,20 +1,25 @@
 # Template file for 'chezmoi'
 pkgname=chezmoi
-version=2.13.1
+version=2.17.1
 revision=1
 build_style=go
 go_import_path="github.com/twpayne/chezmoi/v2"
 go_build_tags="noembeddocs noupgrade"
-go_ldflags="-X main.version=${version} -X main.commit=v${version}
- -X main.date=$(date -u +%Y-%m-%dT%H:%M:%SZ) -X main.builtBy=xbps"
+go_ldflags="-X main.version=${version} -X main.commit=v${version} -X main.builtBy=xbps"
 short_desc="Manage your dotfiles across multiple machines, securely"
-maintainer="classabbyamp <dev@kb6.ee>"
+maintainer="classabbyamp <void@placeviolette.net>"
 license="MIT"
 homepage="https://chezmoi.io/"
 distfiles="https://github.com/twpayne/chezmoi/archive/v${version}.tar.gz"
-checksum=52fba493bb9f987a7971bcc187e7af9c01277b00daa91e4113e2e1f68c634ae2
+checksum=28b9a5408c3c4ad2224a3936b628f33c0606c80e6f02eaf0d2c14e34316ffbff
 
-export CGO_ENABLED=1
+pre_build() {
+	local _date
+	if [ "$SOURCE_DATE_EPOCH" ]; then
+		_date="$(date --utc --date "@$SOURCE_DATE_EPOCH" "+%Y-%m-%d")"
+		go_ldflags+=" -X main.date=${_date}"
+	fi
+}
 
 post_install() {
 	vlicense LICENSE

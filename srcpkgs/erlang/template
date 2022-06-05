@@ -1,7 +1,7 @@
 # Template file for 'erlang'
 pkgname=erlang
-version=24.2.2
-revision=1
+version=24.3.4
+revision=2
 create_wrksrc=yes
 build_wrksrc="otp-OTP-${version}"
 build_style=gnu-configure
@@ -14,12 +14,12 @@ license="Apache-2.0"
 homepage="http://www.erlang.org/"
 changelog="https://github.com/erlang/otp/releases"
 distfiles="https://github.com/erlang/otp/archive/OTP-${version}.tar.gz"
-checksum=b6adfc0bf14d94348146ae26cc38d09dca545f8e14ebab7ddcf9482a6e8d1162
+checksum=e59bedbb871af52244ca5284fd0a572d52128abd4decf4347fe2aef047b65c58
 subpackages="erlang-doc"
 
 if [ -z "$CROSS_BUILD" ]; then
-	configure_args+=" --with-wx-config=wx-config-3.0"
-	makedepends+=" wxWidgets-devel glu-devel"
+	configure_args+=" --with-wx-config=wx-config-gtk3"
+	makedepends+=" wxWidgets-gtk3-devel glu-devel"
 	subpackages+=" erlang-wx"
 fi
 
