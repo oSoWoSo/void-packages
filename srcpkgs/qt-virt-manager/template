@@ -14,7 +14,7 @@ license="GPL-2.0-only"
 homepage="https://f1ash.github.io/qt-virt-manager/"
 changelog="https://github.com/F1ash/qt-virt-manager/raw/master/Changelog"
 distfiles="https://github.com/F1ash/qt-virt-manager/archive/${version}.tar.gz"
-checksum=bf8b0ffe08453224efcb60a3a9f49a60f0fa195a345f996463540c78d523ec91
+checksum=06b451d32ea427c17a5520f26adfc49848ea348a8fa3b6cf73d74813e6cd0b5f
 
 if [ "$CROSS_BUILD" ]; then
 	hostmakedepends+=" qt5-host-tools qt5-devel"
