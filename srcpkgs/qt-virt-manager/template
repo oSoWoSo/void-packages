@@ -7,7 +7,7 @@ hostmakedepends="pkg-config"
 makedepends="qt5-multimedia-devel qt5-svg-devel qtermwidget-devel
  libglib-devel spice-gtk-devel libvncserver-devel
  libvirt-devel krdc-devel qt5-tools-devel"
-depends="qt5-xml"
+depends="qt5-xml krdc qtermwidget"
 short_desc="Qt Virtual machines manager"
 maintainer="Artur Sinila <freesoftware@logarithmus.dev>"
 license="GPL-2.0-only"
