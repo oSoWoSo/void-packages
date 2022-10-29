@@ -1,47 +1,45 @@
 # Template file for 'heroic-games-launcher'
 pkgname=heroic-games-launcher
-version=1.8.2
+version=2.4.3
 revision=1
-archs="x86_64"
-wrksrc=${pkgname}-${version}
-create_wrksrc=yes
-#configure_args=""
-#make_build_args=""
-#make_install_args=""
-#conf_files=""
-#make_dirs="/var/log/dir 0755 root root"
-hostmakedepends="nodejs yarn python3 python3-setuptools python3-wheel fuse git gawk tar"
-#makedepends=""
-depends="fuse"
-short_desc="Native Epic Games launcher for Linux"
-maintainer="Ruthenic <mdrakea3@tutanota.com>"
-license="GPL-3.0-only"
+archs="x86_64* armv7l* aarch64*"
+wrksrc="HeroicGamesLauncher-${version}"
+hostmakedepends="nodejs python3 yarn"
+depends="alsa-lib gtk+3 nss python3"
+checkdepends="tar xz"
+short_desc="Open Source Launcher for GOG and Epic Games"
+maintainer="Wiktor Ciurej <wiktor.ciurej@gmail.com>"
+license="GPL-3.0-or-later"
 homepage="https://github.com/Heroic-Games-Launcher/HeroicGamesLauncher"
-#distfiles=""
-#checksum="7c479dea0e87ef8cffb9712ff8258d7a16aa4c3913e604589f5d714be5bf2f71"
+distfiles="https://github.com/Heroic-Games-Launcher/HeroicGamesLauncher/archive/v${version}.tar.gz"
+checksum=b6590fd99776c2f6d890266ee177d1d90f8a127eaa47b9aec41fc00c4194bc9a
+nopie_files="/opt/heroic/resources/app.asar.unpacked/build/bin/linux/gogdl
+	/opt/heroic/resources/app.asar.unpacked/build/bin/linux/legendary"
 
-do_fetch() {
-	mkdir -p ${pkgname}-${version}
-	cd ${pkgname}-${version}
-	git clone ${homepage} -b v${version} heroic
-	shopt -s dotglob nullglob
-	mv heroic/* .
-	rm -rf heroic
-}
+case ${XBPS_TARGET_MACHINE} in
+	x86_64*) _arch=x64 ;;
+	aarch64*) _arch=arm64 ;;
+	armv7l*) _arch=armv7l ;;
+	*) broken="There is no electron package provided for selected architecture." ;;
+esac
 
 do_build() {
-	yarn
-	yarn dist
+	npm_config_arch=${_arch} npm_config_platform=linux yarn
+	npm_config_arch=${_arch} npm_config_platform=linux yarn dist:linux tar.xz --${_arch}
+}
+
+do_check() {
+	npm_config_arch=${_arch} yarn test
+	npm_config_arch=${_arch} yarn test:ci
 }
 
 do_install() {
-	#Install application files
-	vmkdir usr/lib/heroic-games-launcher
-	vcopy dist/linux-unpacked/* usr/lib/heroic-games-launcher
-	#Symlink binary to /usr/bin
-	vmkdir usr/bin
-	ln -sf /usr/lib/heroic-games-launcher/heroic ${DESTDIR}/usr/bin
-	#Install icons
-	vmkdir usr/share/icons/hicolor
-	vinstall build/icon.png 644 usr/share/icons/hicolor/512x512/apps/ heroic.png
+	vmkdir opt/heroic/
+	vcopy dist/linux-unpacked/* opt/heroic/
+	vmkdir usr/bin/
+	ln -sf /opt/heroic/heroic ${DESTDIR}/usr/bin/heroic
+	vmkdir usr/share/pixmaps/
+	vinstall public/icon.png 0755 usr/share/pixmaps/ heroic.png
+	vmkdir usr/share/applications/
+	vinstall ${FILESDIR}/heroic.desktop 0755 usr/share/applications/
 }
