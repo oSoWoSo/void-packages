@@ -1,0 +1,25 @@
+# Template file for 'atuin'
+pkgname=atuin
+version=16.0.0
+revision=1
+build_style=cargo
+build_helper=qemu
+make_check_args="-- --skip registration"
+make_install_args="--path atuin"
+hostmakedepends="pkg-config"
+makedepends="libsodium-devel sqlite-devel"
+short_desc="Magical shell history"
+maintainer="Marcin Puc <tranzystorek.io@protonmail.com>"
+license="MIT"
+homepage="https://github.com/ellie/atuin"
+distfiles="https://github.com/ellie/atuin/archive/refs/tags/v${version}.tar.gz"
+checksum=28d469e452086481f64293390ba0736a082623d49b5064a01b2e2106cc1e8fef
+
+post_install() {
+	vlicense LICENSE
+
+	for shell in bash fish zsh; do
+		vtargetrun "${DESTDIR}/usr/bin/atuin" gen-completion --shell ${shell} > atuin.${shell}
+		vcompletion atuin.${shell} ${shell}
+	done
+}
