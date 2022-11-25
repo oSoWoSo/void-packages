@@ -1,7 +1,7 @@
 # Template file for 'efl'
 pkgname=efl
 version=1.26.2
-revision=2
+revision=3
 build_style=meson
 configure_args="
  -Dbuild-examples=false
@@ -28,7 +28,7 @@ makedepends="
  gettext-devel openssl-devel liblz4-devel glib-devel ibus-devel
  fontconfig-devel fribidi-devel $(vopt_if harfbuzz harfbuzz-devel)
  libjpeg-turbo-devel libpng-devel giflib-devel tiff-devel libwebp-devel
- avahi-libs-devel eudev-libudev-devel
+ avahi-libs-devel eudev-libudev-devel libgomp-devel
  libsndfile-devel libmount-devel LuaJIT-devel poppler-cpp-devel
  librsvg-devel libspectre-devel libraw-devel libopenjpeg2-devel
  libheif-devel libavif-devel
@@ -47,7 +47,7 @@ makedepends="
  $(vopt_if ibus ibus-devel)"
 checkdepends="dbus xvfb-run"
 short_desc="Enlightenment Foundation Libraries"
-maintainer="q66 <daniel@octaforge.org>"
+maintainer="Orphaned <orphan@voidlinux.org>"
 license="LGPL-2.1-only"
 homepage="https://enlightenment.org"
 changelog="https://git.enlightenment.org/core/efl.git/plain/NEWS"

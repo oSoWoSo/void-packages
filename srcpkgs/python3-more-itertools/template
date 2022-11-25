@@ -1,8 +1,7 @@
 # Template file for 'python3-more-itertools'
 pkgname=python3-more-itertools
-version=8.13.0
-revision=2
-wrksrc="more-itertools-${version}"
+version=9.0.0
+revision=1
 build_style=python3-pep517
 hostmakedepends="python3-flit_core"
 depends="python3"
@@ -12,7 +11,7 @@ maintainer="Andrew J. Hesford <ajh@sideband.org>"
 license="MIT"
 homepage="https://github.com/erikrose/more-itertools"
 distfiles="${PYPI_SITE}/m/more-itertools/more-itertools-${version}.tar.gz"
-checksum=a42901a0a5b169d925f6f217cd5a190e32ef54360905b9c39ee7db5313bfec0f
+checksum=5a6257e40878ef0520b1803990e3e22303a41b5714006c32a3fd8304b26ea1ab
 
 post_install() {
 	vlicense LICENSE

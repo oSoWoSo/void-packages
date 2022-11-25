@@ -1,6 +1,6 @@
 # Template file for 'dolphin'
 pkgname=dolphin
-version=22.04.1
+version=22.08.2
 revision=1
 build_style=cmake
 configure_args="-DBUILD_TESTING=OFF"
@@ -15,7 +15,7 @@ license="GPL-2.0-or-later, GFDL-1.2-or-later"
 homepage="https://kde.org/applications/en/system/org.kde.dolphin"
 changelog="https://kde.org/announcements/changelogs/gear/${version}/#dolphin"
 distfiles="${KDE_SITE}/release-service/${version}/src/${pkgname}-${version}.tar.xz"
-checksum=9cf51ac21ffc3d12a919e99cca80f3bb14741eed2a3af54b4499332ccd979a7b
+checksum=39f2ee237ee5e62baf05e3798d8512e01a7d40276fca03488e256c6e30543b56
 
 if [ "$CROSS_BUILD" ]; then
 	LDFLAGS=" -Wl,-rpath-link,../bin"

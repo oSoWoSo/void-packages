@@ -1,6 +1,6 @@
 # Template file for 'nheko'
 pkgname=nheko
-version=0.9.2
+version=0.10.2
 revision=2
 build_style=cmake
 hostmakedepends="qt5-host-tools qt5-qmake pkg-config qt5-declarative asciidoc"
@@ -16,7 +16,7 @@ license="GPL-3.0-or-later"
 homepage="https://nheko-reborn.github.io"
 changelog="https://raw.githubusercontent.com/Nheko-Reborn/nheko/master/CHANGELOG.md"
 distfiles="https://github.com/Nheko-Reborn/nheko/archive/v${version}.tar.gz"
-checksum=207243e1c0d0e879066233488b766e30d1902a24fd8f848850567d88408ce8ce
+checksum=00a0da9f134e070753efefc3bc86802b60fe385f2dea937979c0824634b4c248
 
 case "$XBPS_TARGET_MACHINE" in
 	armv*-musl)

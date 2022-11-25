@@ -1,8 +1,7 @@
 # Template file for 'python3-utils'
 pkgname=python3-utils
 version=3.1.0
-revision=1
-wrksrc="python-utils-${version}"
+revision=2
 build_style=python3-module
 # skip coverage and mypy tests https://github.com/WoLpH/python-utils/issues/29
 make_check_args="-o addopts=--doctest-modules"

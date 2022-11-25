@@ -1,8 +1,7 @@
 # Template file for 'kpartx'
 pkgname=kpartx
-version=0.8.9
+version=0.9.3
 revision=1
-wrksrc="multipath-tools-${version}"
 build_wrksrc=kpartx
 build_style=gnu-makefile
 make_install_args="libudevdir=/usr/lib/udev bindir=/usr/bin"
@@ -12,11 +11,6 @@ maintainer="Leah Neukirchen <leah@vuxu.org>"
 license="GPL-2.0-or-later"
 homepage="http://christophe.varoqui.free.fr/"
 distfiles="https://github.com/opensvc/multipath-tools/archive/refs/tags/${version}.tar.gz"
-checksum=27a426facea0474e6dc48e026a94f7c86890d3f27b439b07ec26b0b9887b0cc4
+checksum=7d5af5d86e43b757e253d1ba244aa8a9c09bfbb1677a72accb799b1bfcc0a9ac
 LDFLAGS="-ldevmapper"
 CFLAGS="-D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -DLIBDM_API_COOKIE -I../libmultipath"
-
-post_extract() {
-	sed -i 's/__kernel_uint32_t/uint32_t/g' kpartx/solaris.c
-	sed -i 's,<sysmacros.h>,<sys/sysmacros.h>,g' kpartx/lopart.c
-}

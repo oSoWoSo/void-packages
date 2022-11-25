@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      PATH: '/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/usr/local/bin:/tmp/bin'
+      PATH: '/usr/libexec/chroot-git:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/usr/local/bin:/tmp/bin'
       XLINT: '1'
       LICENSE_LIST: common/travis/license.lst
 
@@ -44,7 +44,7 @@ jobs:
     container:
       image: 'ghcr.io/void-linux/xbps-src-masterdir:20220527RC01-${{ matrix.config.bootstrap }}'
       env:
-        PATH: '/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/usr/local/bin:/tmp/bin'
+        PATH: '/usr/libexec/chroot-git:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/usr/local/bin:/tmp/bin'
         ARCH: '${{ matrix.config.arch }}'
         BOOTSTRAP: '${{ matrix.config.bootstrap }}'
         TEST: '${{ matrix.config.test }}'
@@ -65,6 +65,9 @@ jobs:
     steps:
       - name: Prepare container
         run: |
+          # switch to repo-ci mirror
+          mkdir -p /etc/xbps.d && cp /usr/share/xbps.d/*-repository-*.conf /etc/xbps.d/
+          sed -i 's|repo-default|repo-ci|g' /etc/xbps.d/*-repository-*.conf
           # Sync and upgrade once, assume error comes from xbps update
           xbps-install -Syu || xbps-install -yu xbps
           # Upgrade again (in case there was a xbps update)

@@ -8,9 +8,8 @@
 _desc="Python programming language"
 
 pkgname=python3-tkinter
-version=3.10.4
+version=3.11.0
 revision=1
-wrksrc="Python-${version}"
 build_style="gnu-configure"
 configure_args="--enable-shared --enable-ipv6
  --enable-loadable-sqlite-extensions --with-computed-gotos
@@ -29,10 +28,11 @@ maintainer="Andrew J. Hesford <ajh@sideband.org>"
 homepage="https://www.python.org"
 license="Python-2.0"
 distfiles="https://www.python.org/ftp/python/${version}/Python-${version}.tar.xz"
-checksum=80bf925f571da436b35210886cf79f6eb5fa5d6c571316b73568343451f77a19
+checksum=a57dc82d77358617ba65b9841cee1e3b441f386c3789ddc0676eca077f2951c3
 
 if [ "$CROSS_BUILD" ]; then
 	hostmakedepends+=" python3"
+	configure_args+=" --with-build-python=python3.11"
 fi
 
 post_extract() {

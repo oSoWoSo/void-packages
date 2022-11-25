@@ -1,11 +1,11 @@
 # Template file for 'claws-mail'
 pkgname=claws-mail
-version=4.1.0
+version=4.1.1
 revision=1
 build_style=gnu-configure
 configure_args="--disable-static --disable-python-plugin --disable-perl-plugin
  --enable-enchant --enable-gnutls"
-hostmakedepends="pkg-config python-devel automake libtool gettext-devel"
+hostmakedepends="pkg-config automake libtool gettext-devel"
 makedepends="poppler-glib-devel libarchive-devel libSM-devel
  libnotify-devel libcanberra-devel gpgme-devel gnutls-devel
  enchant2-devel dbus-devel libetpan-devel libldap-devel
@@ -18,7 +18,7 @@ license="GPL-3.0-or-later"
 homepage="https://claws-mail.org"
 changelog="https://claws-mail.org/NEWS"
 distfiles="https://www.claws-mail.org/download.php?file=releases/claws-mail-${version}.tar.xz"
-checksum=0e1a9ca0db8d2a9e058ae30cdc7fc919779214ec3c56ee0c8a7f88cc23817a8e
+checksum=b189e700c1896f5e0deb0b76d4bfa820eb7ac1935ee10aa9afbada3cf53a0344
 
 claws-mail-devel_package() {
 	depends="${makedepends}"

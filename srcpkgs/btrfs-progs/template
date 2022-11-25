@@ -1,22 +1,21 @@
 # Template file for 'btrfs-progs'
 pkgname=btrfs-progs
-version=5.14.1
-revision=2
-wrksrc="${pkgname}-v${version}"
+version=5.19.1
+revision=1
 build_style=gnu-configure
 make_check_target=test
 configure_args="--disable-backtrace --disable-python"
-hostmakedepends="asciidoc pkg-config xmlto"
+hostmakedepends="pkgconf python3-Sphinx"
 makedepends="acl-devel libzstd-devel lzo-devel libblkid-devel libuuid-devel
- $(vopt_if e2fs 'e2fsprogs-devel') $(vopt_if reiserfs 'reiserfsprogs')
- zlib-devel"
+ eudev-libudev-devel zlib-devel
+ $(vopt_if e2fs 'e2fsprogs-devel') $(vopt_if reiserfs 'reiserfsprogs')"
 short_desc="Btrfs filesystem utilities"
 maintainer="Enno Boland <gottox@voidlinux.org>"
 license="GPL-2.0-only, LGPL-2.1-or-later"
 homepage="https://btrfs.wiki.kernel.org/index.php/Main_Page"
 changelog="https://raw.githubusercontent.com/kdave/btrfs-progs/master/CHANGES"
 distfiles="${KERNEL_SITE}/kernel/people/kdave/${pkgname}/${pkgname}-v${version}.tar.xz"
-checksum=d54a9346545ca46df128e3ccb77d60c097d90c93b7e314990236e28cfaf8c55b
+checksum=26429e540343ccc7f5d4b3f8f42b916713280e898c5471da705026ef6d2c10a6
 # Most of the tests depend on `mount` and `fallocate` commands, which are not
 # presented in chroot-util-linux
 make_check=no

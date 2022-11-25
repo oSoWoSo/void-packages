@@ -1,20 +1,19 @@
 # Template file for 'python3-ansible-compat'
 pkgname=python3-ansible-compat
-version=2.0.2
-revision=2
-wrksrc="${pkgname/python3-/}-${version}"
+version=2.2.5
+revision=1
 build_style=python3-pep517
 hostmakedepends="python3-wheel python3-setuptools_scm"
 depends="python3-subprocess-tee python3-yaml"
 short_desc="Python package for working with various version of ansible"
 maintainer="Jan Christian Grünhage <jan.christian@gruenhage.xyz>"
 license="MIT"
-homepage="https://github.com/ansible-community/ansible-compat"
+homepage="https://github.com/ansible/ansible-compat"
 distfiles="${PYPI_SITE}/a/${pkgname/python3-/}/${pkgname/python3-/}-${version}.tar.gz"
-checksum=c651995dc323ef145bab857fee6540febc881fb71b7feafe8163d49e273163a5
+checksum=28c7c545fd60ef9c3059cfb2fefd27f92db091ff6b5868f83f121ceb5e1fe1b5
 
 post_patch() {
-	vsed -e "/setuptools_scm_git_archive/d" -i pyproject.toml
+	export SETUPTOOLS_SCM_PRETEND_VERSION="${version}"
 }
 
 post_install() {

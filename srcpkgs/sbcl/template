@@ -1,10 +1,13 @@
 # Template file for 'sbcl'
 pkgname=sbcl
-version=2.2.5
+version=2.2.10
 revision=1
+create_wrksrc="required"
+build_wrksrc=sbcl
+# make sure the sbcl option in maxima is enabled for the same archs
 archs="i686 x86_64* armv7l aarch64 ppc64le*"
 hostmakedepends="iana-etc texinfo"
-makedepends="zlib-devel"
+makedepends="libzstd-devel zlib-devel"
 conf_files="/etc/sbclrc"
 short_desc="Steel Bank Common Lisp"
 maintainer="Leah Neukirchen <leah@vuxu.org>"
@@ -12,7 +15,7 @@ license="custom:BSD+public_domain"
 homepage="http://www.sbcl.org/"
 changelog="http://www.sbcl.org/news.html"
 distfiles="${SOURCEFORGE_SITE}/${pkgname}/${pkgname}-${version}-source.tar.bz2"
-checksum=8584b541370fd6ad6e58d3f97982077dfcab240f30d4e9b18f15da91c2f13ed1
+checksum=8cc3c3a8761223adef144a88730b2675083a3b26fa155d70cf91abb935e90833
 nocross=yes
 nopie=yes
 
@@ -20,7 +23,7 @@ _bootstrap_lisp="bash ../sbcl-*-linux/run-sbcl.sh --no-sysinit --no-userinit --d
 case "$XBPS_TARGET_MACHINE" in
 x86_64)
 	distfiles+=" ${SOURCEFORGE_SITE}/${pkgname}/${pkgname}-${version}-x86-64-linux-binary.tar.bz2"
-	checksum+=" 9e8a2824ba2024a212f642536e6420bbfedfe07446cabe12d568ead52cdd95db"
+	checksum+=" 7dde88ec2db3ca1012aa158366c3794a6170cf012e321a19339d422aa9309af6"
 	;;
 arm*)
 	distfiles+=" ${SOURCEFORGE_SITE}/${pkgname}/${pkgname}-1.2.14-armhf-linux-binary.tar.bz2"
@@ -37,6 +40,10 @@ i686*|ppc*|*-musl)
 	_bootstrap_lisp="clisp"
 	;;
 esac
+
+post_extract() {
+	mv sbcl-${version} sbcl
+}
 
 do_build() {
 	printf '"%s.void.%s"\n' "$version" "$revision" >version.lisp-expr
@@ -58,7 +65,6 @@ sbcl-source_package() {
 	depends="${sourcepkg}>=${version}_${revision}"
 	short_desc+=" -- source files"
 	pkg_install() {
-		cd $wrksrc
 		./clean.sh
 		vmkdir usr/lib/sbcl
 		vcopy src usr/lib/sbcl

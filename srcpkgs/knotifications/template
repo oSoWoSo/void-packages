@@ -1,6 +1,6 @@
 # Template file for 'knotifications'
 pkgname=knotifications
-version=5.94.0
+version=5.100.0
 revision=1
 build_style=cmake
 configure_args="-DBUILD_TESTING=ON"
@@ -14,7 +14,7 @@ maintainer="John <me@johnnynator.dev>"
 license="LGPL-2.1-or-later"
 homepage="https://invent.kde.org/frameworks/knotifications"
 distfiles="${KDE_SITE}/frameworks/${version%.*}/${pkgname}-${version}.tar.xz"
-checksum=c8d51ce32b65f096c75da3e7bdb033202086cabaa8faad3bcdd46730b74b43bf
+checksum=ba21304f0bd2e50042f3bce1a3d2f5bee6058ab43388203d3b2a5ba3c362e6a3
 
 knotifications-devel_package() {
 	short_desc+=" - development"

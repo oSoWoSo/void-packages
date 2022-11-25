@@ -1,7 +1,7 @@
 # Template file for 'xbps'
 pkgname=xbps
 version=0.59.1
-revision=6
+revision=7
 bootstrap=yes
 build_style=configure
 short_desc="XBPS package system utilities"
@@ -18,6 +18,8 @@ makedepends="zlib-devel openssl-devel libarchive-devel"
 depends="ca-certificates xbps-triggers"
 
 make_dirs="/etc/xbps.d 0755 root root"
+
+LDFLAGS="-ldl -pthread"
 
 if [ "$CHROOT_READY" ]; then
 	makedepends+=" atf-devel"

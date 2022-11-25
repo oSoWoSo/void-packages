@@ -1,8 +1,7 @@
 # Template file for 'python3-soupsieve'
 pkgname=python3-soupsieve
 version=1.9.5
-revision=8
-wrksrc="soupsieve-${version}"
+revision=9
 build_style=python3-module
 hostmakedepends="python3-setuptools"
 depends="python3"

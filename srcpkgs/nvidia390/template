@@ -3,7 +3,7 @@
 _desc="NVIDIA drivers (GeForce 400, 500 series)"
 
 pkgname=nvidia390
-version=390.151
+version=390.157
 revision=1
 maintainer="Andrew Benson <abenson+void@gmail.com>"
 license="custom:NVIDIA Proprietary"
@@ -22,12 +22,13 @@ conflicts="xserver-abi-video>25_1"
 if [ "$XBPS_TARGET_MACHINE" = "i686" ]; then
 	_pkg="NVIDIA-Linux-x86-${version}"
 	distfiles="http://uk.download.nvidia.com/XFree86/Linux-x86/${version}/${_pkg}.run"
-	checksum=94e399b459659c12b1344e8c8f4f5eee1ed5915ff459fc8bb831c9e1d44677db
+	checksum=55d65e0a4539a9cb796200c5f1082fe263fb0951deaaf96a9cffeb8a80f70799
 else
 	_pkg="NVIDIA-Linux-x86_64-${version}-no-compat32"
 	distfiles="http://uk.download.nvidia.com/XFree86/Linux-x86_64/${version}/${_pkg}.run"
-	checksum=6e4fd2258465f5d5527fe80abd46de925a30348b4a84658498a6d75caf42c47c
+	checksum=162317a49aa5a521eb888ec12119bfe5a45cec4e8653efc575a2d04fb05bf581
 fi
+patch_args="-Np1 --directory=${XBPS_BUILDDIR}/${pkgname}-${version}/${_pkg}/kernel"
 
 subpackages="nvidia390-gtklibs nvidia390-dkms nvidia390-opencl nvidia390-libs"
 

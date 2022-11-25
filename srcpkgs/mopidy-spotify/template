@@ -1,8 +1,7 @@
 # Template file for 'mopidy-spotify'
 pkgname=mopidy-spotify
 version=4.0.1
-revision=3
-wrksrc="Mopidy-Spotify-${version}"
+revision=4
 build_style=python3-module
 hostmakedepends="python3-setuptools"
 makedepends="python3-setuptools"

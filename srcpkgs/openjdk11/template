@@ -1,11 +1,10 @@
 # Template file for 'openjdk11'
 pkgname=openjdk11
 version=11.0.12+7
-revision=2
+revision=3
 _java_ver="${version%%.*}"
 _jdk_home="usr/lib/jvm/openjdk${_java_ver}"
 archs="x86_64* i686* aarch64* armv7* ppc64*"
-wrksrc="jdk${_java_ver}u-jdk-${version}"
 build_style=gnu-configure
 configure_args="
  --disable-warnings-as-errors
@@ -43,6 +42,7 @@ provides="java-environment-${version}_1"
 
 # Build is still parallel, but don't use -jN.
 disable_parallel_build=yes
+disable_parallel_check=yes
 build_options="docs"
 
 case "$XBPS_TARGET_MACHINE" in

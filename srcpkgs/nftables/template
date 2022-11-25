@@ -1,10 +1,10 @@
 # Template file for 'nftables'
 pkgname=nftables
-version=1.0.3
-revision=1
+version=1.0.5
+revision=2
 build_style=gnu-configure
-configure_args="--sbindir=/usr/bin --with-json --with-python-bin=/bin/python3
- --with-cli=readline"
+configure_args="--sbindir=/usr/bin --with-json
+ --with-python-bin=/bin/python3 --with-cli=readline"
 hostmakedepends="python3 asciidoc docbook2x flex pkg-config automake libtool"
 makedepends="gmp-devel jansson-devel libmnl-devel libnftnl-devel readline-devel"
 short_desc="Netfilter nftables userspace tools"
@@ -12,7 +12,7 @@ maintainer="Leah Neukirchen <leah@vuxu.org>"
 license="GPL-2.0-only"
 homepage="http://netfilter.org/projects/nftables/"
 distfiles="http://www.netfilter.org/projects/${pkgname}/files/${pkgname}-${version}.tar.bz2"
-checksum=47c4eba0105ebd3ffa89553e0702ccb34d8906a91f72ced58ab0d992b29c7748
+checksum=8d1b4b18393af43698d10baa25d2b9b6397969beecac7816c35dd0714e4de50a
 
 post_extract() {
 	autoreconf -fi

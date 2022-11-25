@@ -1,8 +1,7 @@
 # Template file for 'libkipi5'
 pkgname=libkipi5
-version=22.04.1
+version=22.08.2
 revision=1
-wrksrc="libkipi-${version}"
 build_style=cmake
 configure_args="-DBUILD_TESTING=OFF"
 hostmakedepends="extra-cmake-modules kdoctools qt5-host-tools qt5-qmake
@@ -13,7 +12,7 @@ maintainer="John <me@johnnynator.dev>"
 license="GPL-2.0-or-later"
 homepage="https://invent.kde.org/graphics/libkipi"
 distfiles="${KDE_SITE}/release-service/${version}/src/libkipi-${version}.tar.xz"
-checksum=ef15b74fed59d10dd584e452925027d927eeb7b738569089cb8da21b1e9c9afd
+checksum=26ea8dfc35d6592bdca58bc5f198b0a198669e2ca2f535878ebfa7953c84633c
 conflicts="libkipi"
 
 libkipi5-devel_package() {

@@ -1,8 +1,7 @@
 # Template file for 'cura-engine'
 pkgname=cura-engine
 version=4.13.1
-revision=2
-wrksrc="CuraEngine-${version}"
+revision=3
 build_style=cmake
 configure_args="-DCURA_ENGINE_VERSION=${version}"
 hostmakedepends="protobuf git"

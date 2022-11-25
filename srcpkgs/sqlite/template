@@ -1,9 +1,8 @@
 # Template file for 'sqlite'
 pkgname=sqlite
-version=3.38.5
+version=3.40.0
 revision=1
 _amalgamationver=$(printf "%d%02d%02d00\n" ${version//./ })
-wrksrc="sqlite-autoconf-${_amalgamationver}"
 build_style=gnu-configure
 configure_args="--enable-threadsafe --enable-dynamic-extensions --enable-fts5"
 makedepends="libedit-devel zlib-devel"
@@ -11,9 +10,9 @@ short_desc="SQL Database Engine in a C Library"
 maintainer="Anthony Iliopoulos <ailiop@altatus.com>"
 license="Public Domain"
 homepage="https://sqlite.org/"
-changelog="https://www.sqlite.org/releaselog/${version//./_}.html"
-distfiles="${homepage}/2022/sqlite-autoconf-${_amalgamationver}.tar.gz"
-checksum=5af07de982ba658fd91a03170c945f99c971f6955bc79df3266544373e39869c
+changelog="https://www.sqlite.org/changes.html"
+distfiles="https://sqlite.org/2022/sqlite-autoconf-${_amalgamationver}.tar.gz"
+checksum=0333552076d2700c75352256e91c78bf5cd62491589ba0c69aed0a81868980e7
 
 CFLAGS="-DSQLITE_ENABLE_DBSTAT_VTAB -DSQLITE_ENABLE_COLUMN_METADATA \
  -DSQLITE_ENABLE_UNLOCK_NOTIFY -DSQLITE_SECURE_DELETE \

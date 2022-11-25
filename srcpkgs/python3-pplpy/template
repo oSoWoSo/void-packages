@@ -1,8 +1,7 @@
 # Template file for 'python3-pplpy'
 pkgname=python3-pplpy
 version=0.8.7
-revision=1
-wrksrc="pplpy-${version}"
+revision=2
 build_style=python3-module
 hostmakedepends="python3-setuptools python3-Cython"
 makedepends="python3-cysignals python3-gmpy2 python3-devel gmp-devel
@@ -14,8 +13,3 @@ homepage="https://gitlab.com/videlec/pplpy"
 changelog="https://gitlab.com/videlec/pplpy/-/raw/master/CHANGES.txt"
 distfiles="${PYPI_SITE}/p/pplpy/pplpy-${version}.tar.gz"
 checksum=500bd0f4ae1a76956fae7fcba77854f5ec3e64fce76803664983763c3f2bd8bd
-
-do_check() {
-	PYTHONPATH=$(cd build/lib* && pwd) \
-		python setup.py test
-}
