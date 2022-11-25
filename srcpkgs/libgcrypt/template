@@ -1,7 +1,7 @@
 # Template file for 'libgcrypt'
 pkgname=libgcrypt
-version=1.9.4
-revision=1
+version=1.10.1
+revision=2
 build_style=gnu-configure
 configure_args="--enable-static --without-capabilities"
 makedepends="libgpg-error-devel"
@@ -10,7 +10,7 @@ maintainer="skmpz <dem.procopiou@gmail.com>"
 license="LGPL-2.1-or-later"
 homepage="https://www.gnupg.org"
 distfiles="https://gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-${version}.tar.bz2"
-checksum=ea849c83a72454e3ed4267697e8ca03390aee972ab421e7df69dfe42b65caaf7
+checksum=ef14ae546b0084cd84259f61a55e07a38c3b53afc0f546bffcef2f01baffe9de
 
 if [ "$CROSS_BUILD" ]; then
 	configure_args+=" ac_cv_sys_symbol_underscore=no"

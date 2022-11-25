@@ -1,8 +1,7 @@
 # Template file for 'ocaml-zarith'
 pkgname=ocaml-zarith
 version=1.12
-revision=3
-wrksrc="Zarith-release-${version}"
+revision=4
 build_style=configure
 make_check_target="tests"
 hostmakedepends="perl"

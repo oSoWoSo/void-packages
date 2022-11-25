@@ -1,8 +1,7 @@
 # Template file for 'python3-ipython'
 pkgname=python3-ipython
-version=8.0.1
+version=8.6.0
 revision=1
-wrksrc="ipython-${version}"
 build_style=python3-module
 hostmakedepends="python3-setuptools"
 depends="python3-setuptools python3-jedi python3-decorator python3-pickleshare
@@ -16,7 +15,7 @@ maintainer="Andrew J. Hesford <ajh@sideband.org>"
 license="BSD-3-Clause"
 homepage="https://ipython.org/"
 distfiles="${PYPI_SITE}/i/ipython/ipython-${version}.tar.gz"
-checksum=ab564d4521ea8ceaac26c3a2c6e5ddbca15c8848fd5a5cc325f960da88d42974
+checksum=7c959e3dedbf7ed81f9b9d8833df252c430610e2a4a6464ec13cd20975ce20a5
 conflicts="python-ipython<=5.8.0_2"
 
 do_check() {

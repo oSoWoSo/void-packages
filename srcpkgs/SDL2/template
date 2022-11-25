@@ -1,6 +1,6 @@
 # Template file for 'SDL2'
 pkgname=SDL2
-version=2.0.18
+version=2.26.0
 revision=1
 build_style=gnu-configure
 configure_args="--enable-alsa --disable-esd --disable-rpath --enable-libudev
@@ -10,12 +10,12 @@ hostmakedepends="pkg-config nasm"
 makedepends="alsa-lib-devel dbus-devel eudev-libudev-devel libusb-compat-devel
  libsamplerate-devel"
 short_desc="Simple DirectMedia Layer (version 2)"
-maintainer="Orphaned <orphan@voidlinux.org>"
+maintainer="Sigrid Solveig Haflínudóttir <ftrvxmtrx@gmail.com>"
 license="Zlib"
 homepage="https://www.libsdl.org/"
-changelog="https://raw.githubusercontent.com/libsdl-org/SDL/main/WhatsNew.txt"
-distfiles="https://www.libsdl.org/release/${pkgname}-${version}.tar.gz"
-checksum=94d40cd73dbfa10bb6eadfbc28f355992bb2d6ef6761ad9d4074eff95ee5711c
+changelog="https://raw.githubusercontent.com/libsdl-org/SDL/SDL2/WhatsNew.txt"
+distfiles="https://www.libsdl.org/release/SDL2-${version}.tar.gz"
+checksum=8000d7169febce93c84b6bdf376631f8179132fd69f7015d4dadb8b9c2bdb295
 
 # Package build options
 build_options="gles opengl pulseaudio pipewire sndio vulkan wayland x11"
@@ -106,10 +106,9 @@ fi
 
 if [ "$build_option_x11" ]; then
 	configure_args+=" --enable-video-x11-xcursor --enable-video-x11-xrandr
-		--enable-video-x11-xinerama --enable-video-x11-vm
 		--enable-video-x11-xinput --enable-video-x11-scrnsaver
 		--enable-video-x11-xshape"
-	makedepends+=" libSM-devel libXcursor-devel libXinerama-devel libXScrnSaver-devel libXrandr-devel"
+	makedepends+=" libSM-devel libXcursor-devel libXScrnSaver-devel libXrandr-devel"
 else
 	configure_args+=" --without-x"
 fi

@@ -1,6 +1,6 @@
 # Template file for 'cmake'
 pkgname=cmake
-version=3.22.1
+version=3.24.3
 revision=1
 build_style=cmake
 configure_args="-DCMAKE_DOC_DIR=/share/doc/cmake
@@ -16,18 +16,20 @@ maintainer="Đoàn Trần Công Danh <congdanhqx@gmail.com>"
 license="BSD-3-Clause, ICU"
 homepage="https://www.cmake.org"
 distfiles="https://www.cmake.org/files/v${version%.*}/${pkgname}-${version}.tar.gz"
-checksum=0e998229549d7b3f368703d20e248e7ee1f853910d42704aa87918c213ea82c0
+checksum=b53aa10fa82bff84ccdb59065927b72d3bee49f4d86261249fc0984b3b367291
 replaces="cmake-bootstrap>=0"
 
-if [ "$CROSS_BUILD" ]; then
-	hostmakedepends+=" cmake"
+if [ "$XBPS_TARGET_LIBC" = musl ]; then
+	configure_args+=" -DCMake_NO_SELF_BACKTRACE=1"
 fi
 
 pre_configure() {
 	local f
-	[ ! "$CROSS_BUILD" ] || return 0
 	mkdir -p build
 	cd build
+	CC=$CC_FOR_BUILD CFLAGS="$CFLAGS_FOR_BUILD" \
+	CXX=$CXX_FOR_BUILD CXXFLAGS="$CXXFLAGS_FOR_BUILD" \
+	LD=$LD_FOR_BUILD LDFLAGS="$LDFLAGS_FOR_BUILD" \
 	../bootstrap --no-system-libs \
 		--generator=Ninja \
 		${XBPS_MAKEJOBS:+--parallel=$XBPS_MAKEJOBS}
@@ -39,6 +41,12 @@ pre_configure() {
 	done
 	cd ${wrksrc}
 	PATH="${wrksrc}/build/Bootstrap.cmk:$PATH"
+}
+
+do_check() {
+	cd build
+	# https://gitlab.kitware.com/cmake/cmake/-/issues/23885
+	./bin/ctest -E RunCMake.SymlinkTrees
 }
 
 post_install() {

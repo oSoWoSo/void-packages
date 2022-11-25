@@ -1,8 +1,7 @@
 # Template file for 'python3-regex'
 pkgname=python3-regex
-version=2022.1.18
-revision=1
-wrksrc="regex-${version}"
+version=2022.9.13
+revision=2
 build_style=python3-module
 hostmakedepends="python3-devel python3-setuptools"
 makedepends="python3-devel"
@@ -10,15 +9,16 @@ depends="python3"
 short_desc="Alternative regular expression module (Python3)"
 maintainer="skmpz <dem.procopiou@gmail.com>"
 license="CNRI-Python, Apache-2.0"
-homepage="https://pypi.org/project/regex/"
+homepage="https://github.com/mrabarnett/mrab-regex"
 distfiles="${PYPI_SITE}/r/regex/regex-${version}.tar.gz"
-checksum=97f32dc03a8054a4c4a5ab5d761ed4861e828b2c200febd4e46857069a483916
+checksum=f07373b6e56a6f3a0df3d75b651a278ca7bd357a796078a26a958ea1ce0588fd
 
 do_check() {
 	(cd build/lib* && python3 -m unittest regex/test_regex.py)
 }
 
 post_install() {
+	rm -f ${DESTDIR}/${py3_sitelib}/regex/test_regex.py
 	local i
 	for i in docs/*.* ; do
 		vdoc $i

@@ -1,7 +1,7 @@
 # Template file for 'qbittorrent'
 pkgname=qbittorrent
-version=4.4.1
-revision=1
+version=4.4.5
+revision=3
 create_wrksrc=yes
 build_style=gnu-configure
 build_helper=qmake
@@ -16,7 +16,8 @@ license="GPL-2.0-or-later"
 homepage="https://www.qbittorrent.org/"
 changelog="https://www.qbittorrent.org/news.php"
 distfiles="${SOURCEFORGE_SITE}/${pkgname}/${pkgname}-${version}.tar.xz"
-checksum=1386f000ce1d791469c3ea03e3951ca25f67f534e66896592bd12357dda9a8ec
+checksum=0d6ed3948d4ad0d63f01510fe902639ae7b383ccfc1c01e88b75fba5b29ff3b3
+CXXFLAGS=-std=gnu++17
 
 do_extract() {
 	local n=${pkgname}-${version}

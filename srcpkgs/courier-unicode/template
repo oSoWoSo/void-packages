@@ -1,6 +1,6 @@
 # Template file for 'courier-unicode'
 pkgname=courier-unicode
-version=2.2.3
+version=2.2.5
 revision=1
 build_style=gnu-configure
 hostmakedepends="perl"
@@ -9,7 +9,7 @@ maintainer="Leah Neukirchen <leah@vuxu.org>"
 license="GPL-3.0-only"
 homepage="http://www.courier-mta.org/unicode/"
 distfiles="${SOURCEFORGE_SITE}/courier/${pkgname}/${version}/${pkgname}-${version}.tar.bz2"
-checksum=08ecf5dc97529ce3aa9dcaa085860762de636ebef968bf4b6e0cdfaaf18c7aff
+checksum=5f42cbaec318ad69366745c9409025c7e0eb8692e887a8382e46b9767b8b98b8
 
 courier-unicode-devel_package() {
 	short_desc+=" - development files"

@@ -1,14 +1,13 @@
 # Template file for 'setzer'
 pkgname=setzer
-version=0.4.2
-revision=1
-wrksrc=Setzer-${version}
+version=0.4.8
+revision=2
 build_style=meson
 hostmakedepends="gettext"
-depends="poppler-glib virtual?tex gspell python3-xdg python3-gobject gtksourceview4 python3-pdfminer.six python3-pexpect"
+depends="poppler-glib virtual?tex gspell python3-gobject gtksourceview4 python3-pexpect"
 short_desc="Simple yet full-featured LaTeX editor written in Python with Gtk"
 maintainer="Bleznudd <bleznudd@pm.me>"
 license="GPL-3.0-or-later"
 homepage="https://github.com/cvfosammmm/setzer"
-distfiles="${homepage}/archive/v${version}.tar.gz"
-checksum=50b5d273120f81b1f0a7efbcc0ce1fb1623518fe18b23ded45a82e8166003d3b
+distfiles="https://github.com/cvfosammmm/setzer/archive/v${version}.tar.gz"
+checksum=4e347f538a5bf9d0be73de3b91fa79d3601c94ba1faf74f191f1904ec67fa2cf

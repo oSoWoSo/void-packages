@@ -1,6 +1,6 @@
 # Template file for 'khotkeys'
 pkgname=khotkeys
-version=5.24.1
+version=5.26.3
 revision=1
 build_style=cmake
 configure_args="-DBUILD_TESTING=OFF"
@@ -12,7 +12,7 @@ maintainer="John <me@johnnynator.dev>"
 license="GPL-2.0-only, LGPL-2.0-or-later"
 homepage="https://invent.kde.org/plasma/khotkeys"
 distfiles="${KDE_SITE}/plasma/${version}/${pkgname}-${version}.tar.xz"
-checksum=5203d1cf255d5fc38b5b4e25a53a7bf48f812ed55e25279a17ce113f5dde5701
+checksum=7500019385813b6a243b472d18e9a6855dce655f91f357d8ce5b7c87cb70955f
 
 if [ "$CROSS_BUILD" ]; then
 	configure_args+=" -DDESKTOPTOJSON_EXECUTABLE=/usr/bin/desktoptojson"

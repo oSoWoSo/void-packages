@@ -1,12 +1,12 @@
 # Template file for 'icewm'
 pkgname=icewm
-version=2.9.5
+version=3.2.2
 revision=1
 build_style=cmake
 make_cmd=make
 configure_args="-DENABLE_LTO=ON -DCONFIG_LIBRSVG=ON -DENABLE_ALSA=ON
  -DCONFIG_XPM=ON -DCONFIG_LIBJPEG=ON -DCFGDIR=/etc/icewm"
-hostmakedepends="asciidoc gettext-devel libtool mkfontdir perl
+hostmakedepends="python3-Markdown gettext-devel libtool mkfontdir perl
  pkg-config"
 makedepends="libSM-devel libXft-devel libXinerama-devel libXpm-devel
  libXrandr-devel libao-devel librsvg-devel libsndfile-devel
@@ -18,7 +18,7 @@ license="GPL-2.0-or-later"
 homepage="https://ice-wm.org/"
 changelog="https://raw.githubusercontent.com/ice-wm/icewm/master/NEWS"
 distfiles="https://github.com/ice-wm/icewm/archive/${version}.tar.gz"
-checksum=5914bf48a3360eb8e8e2177f91284353edc9b3ce21415c393a09530b6884fddd
+checksum=21354a56528b22cb43fc2eb6e662b84eacf090f4d0658ac6712cde792336b2c2
 # broken tests
 make_check=no
 

@@ -3,11 +3,11 @@
 _desc="NVIDIA drivers (GeForce 400, 500 series)"
 
 pkgname=nvidia390
-version=390.147
-revision=2
+version=390.157
+revision=1
 maintainer="Andrew Benson <abenson+void@gmail.com>"
 license="custom:NVIDIA Proprietary"
-homepage="https://www.nvidia.com"
+homepage="https://www.nvidia.com/en-us/drivers/unix/"
 
 archs="i686 x86_64"
 nopie=yes
@@ -22,12 +22,13 @@ conflicts="xserver-abi-video>25_1"
 if [ "$XBPS_TARGET_MACHINE" = "i686" ]; then
 	_pkg="NVIDIA-Linux-x86-${version}"
 	distfiles="http://uk.download.nvidia.com/XFree86/Linux-x86/${version}/${_pkg}.run"
-	checksum=2ac4b05d0de612f13f5f080dff6c73f06ea8b1d8ea21b7505441027ab4d55b01
+	checksum=55d65e0a4539a9cb796200c5f1082fe263fb0951deaaf96a9cffeb8a80f70799
 else
 	_pkg="NVIDIA-Linux-x86_64-${version}-no-compat32"
 	distfiles="http://uk.download.nvidia.com/XFree86/Linux-x86_64/${version}/${_pkg}.run"
-	checksum=3fc4b5a7c64326cea79156fc31e8160a89621219df09a4cd268844c3e318accc
+	checksum=162317a49aa5a521eb888ec12119bfe5a45cec4e8653efc575a2d04fb05bf581
 fi
+patch_args="-Np1 --directory=${XBPS_BUILDDIR}/${pkgname}-${version}/${_pkg}/kernel"
 
 subpackages="nvidia390-gtklibs nvidia390-dkms nvidia390-opencl nvidia390-libs"
 
@@ -195,14 +196,6 @@ do_install() {
 	sed -e "s/__PKGVER/${version}/g" \
 		-e "s/__MAKEJOBS/-j$(nproc)/g" \
 		-i ${DESTDIR}/usr/src/nvidia-${version}/dkms.conf
-	# The "uvm" submodule uses GPL only symbols and can no longer be built.
-	# Remove 2 lines for "nvidia-uvm" and repair consecutive enumeration following.
-	vsed -e '/nvidia-uvm/,+1d' \
- 		-e 's/\[2\]/[1]/g' \
- 		-e 's/\[3\]/[2]/g' \
- 		-i ${DESTDIR}/usr/src/nvidia-${version}/dkms.conf
-	vsed -e 's/ nvidia-uvm//' \
-		-i ${DESTDIR}/usr/src/nvidia-${version}/Makefile
 
 	# Blacklist nouveau
 	vmkdir usr/lib/modprobe.d

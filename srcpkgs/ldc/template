@@ -1,8 +1,8 @@
 # Template file for 'ldc'
 pkgname=ldc
 version=1.28.0
-revision=1
-wrksrc="ldc-${version}-src"
+revision=2
+reverts="1.29.0_1"
 build_style=cmake
 configure_args="
  -DINCLUDE_INSTALL_DIR=/usr/include/dlang/ldc

@@ -1,19 +1,19 @@
 # Template file for 'imlib2'
 pkgname=imlib2
-version=1.8.0
+version=1.9.1
 revision=1
 build_style=gnu-configure
 configure_args="--disable-static --sysconfdir=/etc/imlib2 --enable-visibility-hiding"
 hostmakedepends="pkg-config"
 makedepends="freetype-devel libjpeg-turbo-devel libpng-devel libwebp-devel
  tiff-devel libid3tag-devel giflib-devel libXext-devel libSM-devel
- libheif-devel librsvg-devel"
+ libheif-devel librsvg-devel libopenjpeg2-devel libspectre-devel"
 short_desc="Image manipulation library"
-maintainer="Orphaned <orphan@voidlinux.org>"
+maintainer="tibequadorian <tibequadorian@posteo.de>"
 license="Imlib2"
 homepage="https://sourceforge.net/projects/enlightenment/"
-distfiles="${SOURCEFORGE_SITE}/enlightenment/imlib2-src/imlib2-${version}.tar.gz"
-checksum=6f881c9a1eee040484d2f13070fefbf1d88270a75042e2d5de63fa22ea6e1c88
+distfiles="${SOURCEFORGE_SITE}/enlightenment/imlib2-src/imlib2-${version}.tar.xz"
+checksum=4a224038bfffbe5d4d250c44e05f4ee5ae24dcfef8395b1677c715c58f764d43
 
 post_install() {
 	vlicense COPYING

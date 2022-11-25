@@ -1,6 +1,6 @@
 # Template file for 'libadwaita'
 pkgname=libadwaita
-version=1.0.2
+version=1.2.0
 revision=1
 build_style=meson
 build_helper="gir"
@@ -14,15 +14,13 @@ short_desc="GTK4 building blocks for modern adaptive applications"
 maintainer="Michal Vasilek <michal@vasilek.cz>"
 license="LGPL-2.0-or-later"
 homepage="https://gitlab.gnome.org/GNOME/libadwaita/"
+changelog="https://gitlab.gnome.org/GNOME/libadwaita/-/raw/libadwaita-1-2/NEWS"
 distfiles="${GNOME_SITE}/libadwaita/${version%.*}/libadwaita-${version}.tar.xz"
-checksum=79e56011f5532fba6cb02531249d2bcfb8a6c42495c7a7de92f8819661fea091
+checksum=322f3e1be39ba67981d9fe7228a85818eccaa2ed0aa42bcafe263af881c6460c
+make_check_pre="xvfb-run"
 
 build_options="gir gtk_doc"
 build_options_default="gir gtk_doc"
-
-do_check() {
-	xvfb-run ninja -C build test
-}
 
 pre_build() {
 	# help gi-docgen find gi files on cross

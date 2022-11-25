@@ -1,6 +1,6 @@
 # Template file for 'skalibs'
 pkgname=skalibs
-version=2.11.1.0
+version=2.12.0.1
 revision=1
 build_style=configure
 configure_args="--libdir=/usr/lib --enable-static --enable-shared
@@ -14,7 +14,7 @@ license="ISC"
 homepage="https://skarnet.org/software/skalibs/"
 changelog="https://skarnet.org/software/skalibs/upgrade.html"
 distfiles="https://skarnet.org/software/${pkgname}/${pkgname}-${version}.tar.gz"
-checksum=400180b4d5b651e4fafaf0297b933f5f863b467d357f5b36a6545cf6eb14eab9
+checksum=3e228f72f18d88c17f6c4e0a66881d6d3779427b7e7e889f3142b6f26da30285
 
 post_install() {
 	vlicense COPYING LICENSE

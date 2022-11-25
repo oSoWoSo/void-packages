@@ -1,6 +1,6 @@
 # Template file for 'opera'
 pkgname=opera
-version=83.0.4254.54
+version=92.0.4561.33
 revision=1
 archs="x86_64"
 create_wrksrc=yes
@@ -10,8 +10,8 @@ short_desc="Fast, secure, easy to use browser"
 maintainer="mobinmob <mobinmob@disroot.org>"
 license="custom:Proprietary"
 homepage="https://www.opera.com/computer"
-distfiles="https://rpm.opera.com/rpm/opera_stable-${version}-linux-release-x64-signed.rpm"
-checksum=f0ec5ced36e4d35327fd205aede8d62e44176e8adcd38b443bc0490b622b0862
+distfiles="https://get.geo.opera.com/pub/opera/desktop/${version}/linux/opera-stable_${version}_amd64.rpm"
+checksum=b411e6459272559cc771c744d13ce3c2574635b95cda805902f47a68775942e3
 repository="nonfree"
 nostrip=yes
 
@@ -27,7 +27,6 @@ do_install() {
 	# Link executable in path
 	ln -s ../lib/opera/opera "${DESTDIR}/usr/bin/opera"
 
-	# Install licenses
-	vlicense usr/lib64/opera/resources/eula_desktop_eea.txt
-	vlicense usr/lib64/opera/resources/eula_desktop_row.txt
+	# Install 3rd-party licenses
+	vlicense usr/lib64/opera/opera_autoupdate.licenses
 }

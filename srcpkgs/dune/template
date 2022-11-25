@@ -1,6 +1,6 @@
 # Template file for 'dune'
 pkgname=dune
-version=3.0.2
+version=3.5.0
 revision=1
 makedepends="ocaml"
 depends="ocaml"
@@ -9,10 +9,10 @@ maintainer="Leah Neukirchen <leah@vuxu.org>"
 license="MIT"
 homepage="https://dune.build/"
 distfiles="https://github.com/ocaml/dune/archive/refs/tags/${version}.tar.gz"
-checksum=e8bdf26f0d93a313ba9ebdb4c7a30689eb8c34786421a52a6f43d82f0218e642
+checksum=86c6ba465009c7bcf9fc5ac675c788db0ac8d0c72a3566d88c0e1d454968a184
 nocross="ocaml"
 
-_dune_release_pkgs="dune dune-action-plugin dune-build-info dune-configurator
+_dune_release_pkgs="dune dune-build-info dune-configurator
  dune-glob dune-private-libs dune-site dyn stdune ordering xdg fiber"
 
 do_configure() {
@@ -27,7 +27,7 @@ do_build() {
 do_install() {
 	for pkg in $_dune_release_pkgs; do
 		./dune.exe install $pkg \
-			--destdir=$DESTDIR --prefix=/usr --libdir=/usr/lib/ocaml
+			--destdir=$DESTDIR --prefix=/usr --libdir=/usr/lib/ocaml --mandir=/usr/share/man
 	done
 
 	rm -r ${DESTDIR}/usr/doc

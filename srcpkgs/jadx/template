@@ -1,6 +1,6 @@
 # Template file for 'jadx'
 pkgname=jadx
-version=1.3.2
+version=1.4.5
 revision=1
 hostmakedepends="openjdk8 gradle"
 short_desc="Decompiler for Dalvik bytecode"
@@ -8,7 +8,7 @@ maintainer="Andrew Benson <abenson+void@gmail.com>"
 license="Apache-2.0"
 homepage="https://github.com/skylot/jadx"
 distfiles="https://github.com/skylot/jadx/archive/v${version}.tar.gz"
-checksum=065ea020365beaa39769b76991c4f3e8c3d26542ff8c28e4f9e93bdee9663672
+checksum=bb8b387dc89a3ead4cb2ec7d66d32c7093f51c4c47e937b473145ea651f94d79
 
 do_build() {
 	gradle copyArtifacts

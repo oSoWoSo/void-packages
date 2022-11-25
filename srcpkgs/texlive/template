@@ -1,8 +1,7 @@
 # Template file for 'texlive'
 pkgname=texlive
 version=20210325
-revision=2
-wrksrc="texlive-${version}-source"
+revision=4
 build_wrksrc="build"
 build_style=gnu-configure
 configure_script="../configure"
@@ -60,7 +59,6 @@ configure_args="
  --with-system-libpaper
  --with-system-libpng
  --with-system-mpfr
- --with-system-poppler
  --with-system-pixman
  --with-system-teckit
  --with-system-zlib
@@ -69,9 +67,8 @@ configure_args="
 hostmakedepends="pkg-config perl lua52-BitOp texinfo"
 makedepends="cairo-devel freetype-devel gd-devel graphite-devel gmp-devel
  harfbuzz-devel icu-devel libpaper-devel libpng-devel mpfr-devel
- poppler-devel pixman-devel libteckit-devel zlib-devel zziplib-devel
- libXaw-devel"
-depends="dialog ghostscript perl-Tk texlive-core xbps-triggers"
+ pixman-devel libteckit-devel zlib-devel zziplib-devel libXaw-devel"
+depends="dialog ghostscript perl-Tk texlive-core texlive-latexmk xbps-triggers"
 short_desc="TeX Live"
 maintainer="fosslinux <fosslinux@aussies.space>"
 license="GPL-2.0-or-later"
@@ -391,5 +388,14 @@ texlive-PythonTeX_package() {
 	pkg_install() {
 		vmove usr/bin/*pythontex
 		vmove usr/share/texmf-dist/scripts/pythontex
+	}
+}
+
+texlive-latexmk_package() {
+	depends="perl"
+	short_desc+=" - script for compiling the correct number of times"
+	pkg_install() {
+		vmove usr/bin/latexmk
+		vmove usr/share/texmf-dist/scripts/latexmk
 	}
 }

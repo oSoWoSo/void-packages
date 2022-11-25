@@ -1,6 +1,6 @@
 # Template file for 'plasma-systemmonitor'
 pkgname=plasma-systemmonitor
-version=5.24.1
+version=5.26.3
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules gettext qt5-host-tools qt5-qmake
@@ -12,4 +12,4 @@ maintainer="John <me@johnnynator.dev>"
 license="GPL-2.0-only OR GPL-3.0-only, LGPL-2.1-only OR LGPL-3.0-only"
 homepage="https://invent.kde.org/plasma/plasma-systemmonitor"
 distfiles="${KDE_SITE}/plasma/${version}/${pkgname}-${version}.tar.xz"
-checksum=c0f2b38b4c015bc07d90ca5023d3d9cbe81d126b51fa4cde60a6081448981251
+checksum=9fbf2889d1f991a4984e19f0db7083831533463b9a0bcc886e830d04b2fcbb85

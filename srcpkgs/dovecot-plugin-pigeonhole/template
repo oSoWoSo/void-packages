@@ -1,8 +1,7 @@
 # Template file for 'dovecot-plugin-pigeonhole'
 pkgname=dovecot-plugin-pigeonhole
-version=0.5.18
+version=0.5.19
 revision=1
-wrksrc="dovecot-2.3-pigeonhole-${version}"
 build_style=gnu-configure
 configure_args="--prefix=/usr
  --with-dovecot=${XBPS_CROSS_BASE}/usr/lib/dovecot
@@ -18,8 +17,8 @@ short_desc="Sieve implementation for Dovecot"
 maintainer="Leah Neukirchen <leah@vuxu.org>"
 license="LGPL-2.1-or-later"
 homepage="https://pigeonhole.dovecot.org"
-distfiles="${homepage}/releases/2.3/${wrksrc}.tar.gz"
-checksum=a6d828f8d6f2decba5105343ece5c7a65245bd94e46a8ae4432a6d97543108a5
+distfiles="${homepage}/releases/2.3/dovecot-2.3-pigeonhole-${version}.tar.gz"
+checksum=637709a83fb1338c918e5398049f96b7aeb5ae00696794ed1e5a4d4c0ca3f688
 
 dovecot-plugin-pigeonhole-devel_package() {
 	depends="${sourcepkg}>=${version}_${revision}"

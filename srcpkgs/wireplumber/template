@@ -1,11 +1,11 @@
 # Template file for 'wireplumber'
 pkgname=wireplumber
-version=0.4.8
-revision=1
+version=0.4.12
+revision=2
 build_style=meson
 build_helper=gir
 configure_args="-Dintrospection=enabled -Dsystem-lua=true"
-hostmakedepends="pkg-config glib-devel python3-lxml doxygen"
+hostmakedepends="pkg-config glib-devel python3-lxml doxygen gettext"
 makedepends="libglib-devel pipewire-devel lua54-devel"
 checkdepends="pipewire dbus"
 short_desc="Session and policy manager implementation for PipeWire"
@@ -14,10 +14,11 @@ license="MIT"
 homepage="https://pipewire.pages.freedesktop.org/wireplumber"
 changelog="https://gitlab.freedesktop.org/pipewire/wireplumber/-/raw/master/NEWS.rst"
 distfiles="https://gitlab.freedesktop.org/pipewire/wireplumber/-/archive/$version/wireplumber-$version.tar.gz"
-checksum=a7a84c21230c339a905704a9495dda10a4dec41a96bc115a9b33d24310a3f605
+checksum=afece031dd2d1a5f535de29e21ea94a1b261d3da62b5dbb977e19668f4453b27
 
 post_install() {
 	vlicense LICENSE
+	vsv wireplumber
 }
 
 wireplumber-devel_package() {

@@ -1,7 +1,7 @@
 # Template file for 'kpmcore'
 pkgname=kpmcore
-version=21.08.0
-revision=1
+version=22.04.1
+revision=2
 build_style=cmake
 configure_args="-DBUILD_TESTING=OFF"
 hostmakedepends="extra-cmake-modules python3 qt5-devel qt5-qmake pkg-config kcoreaddons
@@ -13,8 +13,9 @@ short_desc="Library for managing partitions"
 maintainer="jambonmcyeah <jambonmcyeah@gmail.com>"
 license="GPL-3.0-or-later"
 homepage="https://kde.org/applications/system/org.kde.partitionmanager"
+changelog="https://kde.org/announcements/changelogs/gear/${version}/#kpmcore"
 distfiles="${KDE_SITE}/release-service/$version/src/$pkgname-$version.tar.xz"
-checksum=a135c846c46b2073015a3f218bd1c88c41cc1ffcf69a470e1679007140c52a51
+checksum=70d043cc125bd040d6b2af091e3a038d1780702fa327cda070300e94027c64f8
 
 if [ -n "$CROSS_BUILD" ]; then
 	configure_args+=" -DDESKTOPTOJSON_EXECUTABLE=/usr/bin/desktoptojson"

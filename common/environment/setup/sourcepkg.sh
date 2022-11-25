@@ -7,17 +7,24 @@ unset -v archs distfiles checksum build_style build_helper nocross broken
 unset -v configure_script configure_args wrksrc build_wrksrc create_wrksrc
 unset -v make_build_args make_check_args make_install_args
 unset -v make_build_target make_check_target make_install_target
-unset -v make_cmd meson_cmd gem_cmd fetch_cmd
+unset -v make_cmd meson_cmd gem_cmd fetch_cmd make_check_pre
 unset -v python_version stackage
 unset -v cmake_builddir meson_builddir
 unset -v meson_crossfile
 unset -v gemspec
 unset -v go_import_path go_package go_mod_mode
-unset -v patch_args disable_parallel_build keep_libtool_archives make_use_env
+unset -v patch_args disable_parallel_build disable_parallel_check
+unset -v keep_libtool_archives make_use_env
 unset -v reverts subpackages makedepends hostmakedepends checkdepends depends restricted
 unset -v nopie build_options build_options_default bootstrap repository reverts
 unset -v CFLAGS CXXFLAGS FFLAGS CPPFLAGS LDFLAGS LD_LIBRARY_PATH
 unset -v CC CXX CPP GCC LD AR AS RANLIB NM OBJDUMP OBJCOPY STRIP READELF PKG_CONFIG
+unset -v CMAKE_GENERATOR
+# build-helper python3
+unset -v PYPREFIX LDSHARED PYTHON_CONFIG PYTHONPATH _PYTHON_SYSCONFIGDATA_NAME
+
+# unset all $build_option_ variables
+unset -v "${!build_option_@}"
 
 # hooks/do-extract/00-distfiles
 unset -v skip_extraction

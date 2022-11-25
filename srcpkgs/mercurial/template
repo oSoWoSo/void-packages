@@ -1,20 +1,20 @@
 # Template file for 'mercurial'
 pkgname=mercurial
-version=5.9.3
-revision=1
+version=6.2.3
+revision=2
 build_style=python3-module
 hostmakedepends="python3 python3-setuptools python3-devel gettext"
 makedepends="python3-devel"
 depends="python3 ca-certificates"
 # cvs tests fail
-checkdepends="iana-etc tar unzip which xz subversion-python python3-docutils gnupg2
+checkdepends="iana-etc tar unzip which xz subversion-python python3-docutils gnupg
  python3-Pygments"
 short_desc="Fast, lightweight source control management system"
-maintainer="Orphaned <orphan@voidlinux.org>"
+maintainer="dataCobra <datacobra@thinkbot.de>"
 license="GPL-2.0-or-later"
 homepage="https://www.mercurial-scm.org/"
 distfiles="https://www.mercurial-scm.org/release/mercurial-${version}.tar.gz"
-checksum=3b43f68977ad0fa75aa7f1e5c8f0a83ba935621ab2396129abb498e56d1be08e
+checksum=98d1ae002f68adf53d65c5947fe8b7a379f98cf05d9b8ea1f4077d2ca5dce9db
 
 pre_check() {
 	if [ "$XBPS_TARGET_LIBC" = musl ]; then
@@ -24,6 +24,12 @@ pre_check() {
 }
 
 do_check() {
+	mkdir -p /tmp/bin
+	cat <<-'EOF' >/tmp/bin/egrep
+	#!/bin/sh
+	exec grep -E "$@"
+	EOF
+	chmod +x /tmp/bin/egrep
 	if [ "$XBPS_CHECK_PKGS" = full ]; then
 		_additional_test=--allow-slow-tests
 	else
@@ -32,7 +38,7 @@ do_check() {
 
 	cd tests
 	rm test-hghave.t test-merge-tools.t test-status.t
-	python3 run-tests.py ${makejobs} ${_additional_test}
+	PATH=/tmp/bin:$PATH python3 run-tests.py ${makejobs} ${_additional_test}
 }
 
 post_install() {

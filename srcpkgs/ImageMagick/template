@@ -1,31 +1,29 @@
 # Template file for 'ImageMagick'
 pkgname=ImageMagick
-version=7.1.0.23
+version=7.1.0.51
 revision=1
-_majorver=${version%.*}
-_patchver=${version##*.}
-wrksrc="${pkgname}-${_majorver}-${_patchver}"
+_upstream_version="${version/.${version##*.}/-${version##*.}}"
 build_style=gnu-configure
 configure_args="--disable-static --enable-opencl --with-modules --with-gslib
- --with-rsvg --with-wmf --with-dejavu-font-dir=/usr/share/fonts/TTF
+ --with-rsvg --with-wmf --with-dejavu-font-dir=/usr/share/fonts/TTF --with-openexr
  --with-gs-font-dir=/usr/share/fonts/Type1"
 hostmakedepends="automake libtool pkg-config autoconf"
 makedepends="djvulibre-devel fftw-devel ghostscript-devel glib-devel lcms2-devel
  libXt-devel libgomp-devel libltdl-devel librsvg-devel libwebp-devel libwmf-devel
  ocl-icd-devel pango-devel libopenjpeg2-devel graphviz-devel liblqr-devel
- libraqm-devel"
+ libraqm-devel libopenexr-devel libheif-devel"
 short_desc="Create, edit, compose, or convert bitmap images"
-maintainer="Orphaned <orphan@voidlinux.org>"
+maintainer="André Cerqueira <acerqueira021@gmail.com>"
 license="ImageMagick"
 homepage="https://www.imagemagick.org"
-changelog="https://imagemagick.org/script/changelog.php"
-distfiles="https://github.com/ImageMagick/ImageMagick/archive/${_majorver}-${_patchver}.tar.gz"
-checksum=62c24362891d0af2be9a81d01117195ba0ec8e6982c7568195a33019bfc82188
+changelog="https://raw.githubusercontent.com/ImageMagick/Website/main/ChangeLog.md"
+distfiles="https://github.com/ImageMagick/ImageMagick/archive/${_upstream_version}.tar.gz"
+checksum=4333ef2fe63f2510988af82b726f5b1919ebd54037ea6674566c69fcceb67e11
 
 subpackages="libmagick libmagick-devel"
 
 keep_libtool_archives=yes
-conf_files="/etc/ImageMagick-${_majorver%%.*}/*.xml"
+conf_files="/etc/ImageMagick-${version%%.*}/*.xml"
 
 if [ -z "$CROSS_BUILD" ]; then
 	# XXX native perl uses XBPS_TARGET_CFLAGS (-mtune=generic)
@@ -41,7 +39,7 @@ pre_check() {
 
 post_install() {
 	if [ "$CROSS_BUILD" ]; then
-		vsed -i -e "s,$XBPS_WRAPPERDIR/$XBPS_CROSS_TRIPLET-,,g" \
+		vsed -i -e "s,${XBPS_CROSS_TRIPLET}-,,g" \
 			$DESTDIR/usr/bin/*-config
 	fi
 	vlicense LICENSE

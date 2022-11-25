@@ -1,26 +1,20 @@
 # Template file for 'python3-pipenv'
 pkgname=python3-pipenv
-version=2022.1.8
+version=2022.11.11
 revision=1
-wrksrc="pipenv-${version}"
-build_style=python3-module
-hostmakedepends="python3-setuptools"
+build_style=python3-pep517
+hostmakedepends="python3-wheel"
 depends="python3 python3-pip python3-virtualenv python3-virtualenv-clone"
 short_desc="Python Development Workflow for Humans"
 maintainer="Leah Neukirchen <leah@vuxu.org>"
 license="MIT"
 homepage="https://github.com/pypa/pipenv"
+changelog="https://github.com/pypa/pipenv/blob/main/CHANGELOG.rst"
 distfiles="${PYPI_SITE}/p/pipenv/pipenv-${version}.tar.gz"
-checksum=f84d7119239b22ab2ac2b8fbc7d619d83cf41135206d72a17c4f151cda529fd0
+checksum=e69f64477e83595f3b891e1e58b1b1355d4c593432e63b078dc1be9bd93c5066
 conflicts="python-pipenv>=0"
-
-post_extract() {
-	sed -i '/certifi/d' setup.py
-}
+make_check=no # tests are not contained in release tarball
 
 post_install() {
 	vlicense LICENSE
-	# remove files only valid for Python 2
-	rm -rf ${DESTDIR}/${py3_sitelib}/pipenv/patched/yaml2
-	rm -f ${DESTDIR}/${py3_sitelib}/pipenv/vendor/importlib_resources/_py2.py
 }

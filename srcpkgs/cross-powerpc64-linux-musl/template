@@ -6,7 +6,7 @@ _linux_version=5.10.4
 _libucontext_version=1.0
 pkgname=cross-powerpc64-linux-musl
 version=0.34
-revision=3
+revision=4
 build_style=void-cross
 configure_args="--enable-secureplt --disable-vtable-verify
  --disable-decimal-float --with-abi=elfv2 --enable-targets=powerpc-linux"
@@ -14,7 +14,7 @@ hostmakedepends="texinfo tar gcc-objc gcc-go flex perl python3"
 makedepends="isl15-devel libmpc-devel zlib-devel gmp-devel mpfr-devel"
 depends="${pkgname}-libc-${version}_${revision}"
 short_desc="Void cross toolchain for ${pkgname/cross-}"
-maintainer="q66 <daniel@octaforge.org>"
+maintainer="Orphaned <orphan@voidlinux.org>"
 homepage="https://www.voidlinux.org/"
 license="GPL-2.0-or-later, GPL-3.0-or-later, MIT"
 distfiles="

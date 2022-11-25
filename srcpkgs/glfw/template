@@ -1,7 +1,7 @@
 # Template file for 'glfw'
 # update together with glfw-wayland
 pkgname=glfw
-version=3.3.6
+version=3.3.8
 revision=1
 build_style=cmake
 configure_args="-DBUILD_SHARED_LIBS=ON"
@@ -11,11 +11,12 @@ short_desc="Multi-platform library for creating windows with OpenGL contexts"
 maintainer="Enno Boland <gottox@voidlinux.org>"
 license="Zlib"
 homepage="http://www.glfw.org"
-distfiles="${SOURCEFORGE_SITE}/${pkgname}/${pkgname}-${version}.tar.bz2"
-checksum=4e08897813668584b252065dc8bcb5a3cbcdd19918ede4dbc847fad7e35db7ec
+changelog="https://www.glfw.org/changelog.html"
+distfiles="https://github.com/glfw/glfw/archive/${version}.tar.gz"
+checksum=f30f42e05f11e5fc62483e513b0488d5bceeab7d9c5da0ffe2252ad81816c713
 
 glfw-devel_package() {
-	depends="glfw>=${version}_${revision} $makedepends"
+	depends="${makedepends} ${sourcepkg}>=${version}_${revision}"
 	short_desc+=" - development files"
 	pkg_install() {
 		vmove usr/include

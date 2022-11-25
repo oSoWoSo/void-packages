@@ -1,8 +1,7 @@
 # Template file for 'postgresql14'
 pkgname=postgresql14
-version=14.1
-revision=1
-wrksrc="postgresql-${version}"
+version=14.5
+revision=2
 build_style=gnu-configure
 make_build_target=world
 _major="${version%%.*}"
@@ -22,7 +21,8 @@ license="PostgreSQL"
 homepage="https://www.postgresql.org"
 changelog="https://www.postgresql.org/docs/current/release-${version//./-}.html"
 distfiles="https://ftp.postgresql.org/pub/source/v${version}/postgresql-${version}.tar.bz2"
-checksum=4d3c101ea7ae38982f06bdc73758b53727fb6402ecd9382006fa5ecc7c2ca41f
+checksum=d4f72cb5fb857c9a9f75ec8cf091a1771272802f2178f0b2e65b7b6ff64f4a30
+make_check=ci-skip # Postgres server can't be run as root
 
 conf_files="
  /${_sysconfdir}/default/postgresql
@@ -224,5 +224,6 @@ postgresql14-contrib_package() {
 	short_desc="PostgreSQL contributed programs and extensions"
 	pkg_install() {
 		make -C contrib install DESTDIR=${PKGDESTDIR}
+		mv ${PKGDESTDIR}/usr/include ${PKGDESTDIR}/${_prefix}
 	}
 }

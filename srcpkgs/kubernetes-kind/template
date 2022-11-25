@@ -1,8 +1,7 @@
 # Template file for 'kubernetes-kind'
 pkgname=kubernetes-kind
-version=0.11.1
+version=0.14.0
 revision=1
-wrksrc="kind-${version}"
 build_style=go
 build_helper=qemu
 go_import_path="sigs.k8s.io/kind"
@@ -11,7 +10,7 @@ maintainer="Andy Cobaugh <andrew.cobaugh@gmail.com>"
 license="Apache-2.0"
 homepage="https://kind.sigs.k8s.io/"
 distfiles="https://github.com/kubernetes-sigs/kind/archive/v${version}.tar.gz"
-checksum=95ce0e7b01c00be149e5bd777936cef3f79ba7f1f3e5872e7ed60595858a2491
+checksum=7850a3bb4c644622a1c643e63306ddcd76a5b729375df9bc97f87a82375b9439
 _completions="bash zsh fish"
 
 post_build() {

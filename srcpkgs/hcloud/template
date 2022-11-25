@@ -1,8 +1,7 @@
 # Template file for 'hcloud'
 pkgname=hcloud
-version=1.29.0
+version=1.30.4
 revision=1
-wrksrc="cli-${version}"
 build_style=go
 build_helper=qemu
 go_import_path=github.com/hetznercloud/cli
@@ -13,7 +12,7 @@ maintainer="Gerardo Di Iorio <arete74@gmail.com>"
 license="MIT"
 homepage="https://github.com/hetznercloud/cli"
 distfiles="https://github.com/hetznercloud/cli/archive/v${version}.tar.gz"
-checksum=ea8b08702f7285d5e886fc8797287ac05747eb66ad1d77d041725f9cf6c88893
+checksum=70270cacbb4876bb6ac44d014dd3461f04b0f893eb0035e8e53228cdf72e566e
 
 post_install() {
 	vlicense LICENSE

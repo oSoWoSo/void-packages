@@ -1,8 +1,7 @@
 # Template file for 'python3-stack_data'
 pkgname=python3-stack_data
-version=0.2.0
+version=0.6.1
 revision=1
-wrksrc="${pkgname#python3-}-${version}"
 build_style=python3-module
 hostmakedepends="python3-setuptools_scm"
 depends="python3-executing python3-asttokens python3-pure_eval"
@@ -11,7 +10,7 @@ maintainer="Andrew J. Hesford <ajh@sideband.org>"
 license="MIT"
 homepage="https://github.com/alexmojaki/stack_data"
 distfiles="${PYPI_SITE}/s/stack_data/stack_data-${version}.tar.gz"
-checksum=45692d41bd633a9503a5195552df22b583caf16f0b27c4e58c98d88c8b648e12
+checksum=6c9a10eb5f342415fe085db551d673955611afb821551f554d91772415464315
 # Tests require unpackaged dependencies
 make_check=no
 

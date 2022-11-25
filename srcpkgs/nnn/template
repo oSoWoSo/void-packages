@@ -1,6 +1,6 @@
 # Template file for 'nnn'
 pkgname=nnn
-version=4.4
+version=4.6
 revision=1
 build_style=gnu-makefile
 make_install_target="install install-desktop"
@@ -12,7 +12,7 @@ license="BSD-2-Clause"
 homepage="https://github.com/jarun/nnn"
 changelog="https://raw.githubusercontent.com/jarun/nnn/master/CHANGELOG"
 distfiles="https://github.com/jarun/nnn/archive/v${version}.tar.gz"
-checksum=e04a3f0f0c2af1e18cb6f005d18267c7703644274d21bb93f03b30e4fd3d1653
+checksum=15acaf9a88cfb5a2a640d3ef55a48af644fba92b46aac0768efe94c4addf7e3f
 
 if [ "$XBPS_TARGET_LIBC" = "musl" ]; then
 	makedepends+=" musl-fts-devel"

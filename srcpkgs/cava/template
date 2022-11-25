@@ -1,6 +1,6 @@
 # Template file for 'cava'
 pkgname=cava
-version=0.7.5
+version=0.8.3
 revision=1
 build_style=gnu-configure
 hostmakedepends="automake libtool"
@@ -11,8 +11,8 @@ short_desc="Console-based Audio Visualizer for ALSA"
 maintainer="skmpz <dem.procopiou@gmail.com>"
 license="MIT"
 homepage="https://github.com/karlstav/cava"
-distfiles="${homepage}/archive/${version}.tar.gz"
-checksum=863578e7d091735fd9c673239058515300faa79ff76304849a93c37ae3bd93cf
+distfiles="https://github.com/karlstav/cava/archive/refs/tags/${version}.tar.gz"
+checksum=ce7378ababada5a20fa8250c6b3fe6412bc1a7dd31301a52b8b4a71d362875b9
 build_options="alsa pulseaudio sndio"
 build_options_default="alsa pulseaudio sndio"
 

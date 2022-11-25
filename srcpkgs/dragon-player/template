@@ -1,8 +1,7 @@
 # Template file for 'dragon-player'
 pkgname=dragon-player
-version=21.12.2
+version=22.08.2
 revision=1
-wrksrc="dragon-${version}"
 build_style=cmake
 hostmakedepends="extra-cmake-modules pkg-config qt5-qmake qt5-host-tools
  kcoreaddons kdoctools gettext"
@@ -13,4 +12,4 @@ maintainer="John <me@johnnynator.dev>"
 license="GPL-2.0-or-later"
 homepage="https://kde.org/applications/en/multimedia/org.kde.dragonplayer"
 distfiles="${KDE_SITE}/release-service/${version}/src/dragon-${version}.tar.xz"
-checksum=4b932f4cee0fda53c24df32fc5e81dbc4696e4a9cfddb9217a093a077524f61f
+checksum=cc595ca000618b7d69c95fc57c6420c1343c7e3b7e311c570a98deff46234a93

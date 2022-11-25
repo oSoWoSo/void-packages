@@ -1,6 +1,6 @@
 # Template file for 'openvpn'
 pkgname=openvpn
-version=2.5.5
+version=2.5.7
 revision=1
 build_style=gnu-configure
 configure_args="$(vopt_enable pkcs11) --disable-systemd
@@ -12,8 +12,9 @@ short_desc="Easy-to-use, robust, and highly configurable VPN"
 maintainer="Orphaned <orphan@voidlinux.org>"
 license="GPL-2.0-only"
 homepage="https://www.openvpn.net"
+changelog="https://raw.githubusercontent.com/OpenVPN/openvpn/release/${version%.*}/Changes.rst"
 distfiles="http://build.openvpn.net/downloads/releases/${pkgname}-${version}.tar.xz"
-checksum=119bd69fa0210838f6cdaa273696dc738efa200f454dbe11eb6dfb75dfb6003b
+checksum=313bca7e996a4f59ef9940dd87c6c4b9168064db9be6cabebd37cd65f13759ed
 
 build_options="mbedtls pkcs11"
 build_options_default="pkcs11"

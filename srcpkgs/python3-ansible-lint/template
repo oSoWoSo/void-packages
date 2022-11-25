@@ -1,28 +1,28 @@
 # Template file for 'python3-ansible-lint'
 pkgname=python3-ansible-lint
-version=5.4.0
+version=6.9.0
 revision=1
-wrksrc="${pkgname/python3-/}-${version}"
 build_style=python3-pep517
-make_install_target="ansible_lint-${version}-py3-none-any.whl"
-hostmakedepends="python3-wheel python3-toml"
-depends="ansible-core python3-yamllint python3-six python3-yaml python3-ruamel.yaml python3-tenacity python3-enrich python3-wcmatch"
+make_install_target="dist/ansible_lint-*-*-*-*.whl"
+hostmakedepends="python3-wheel python3-setuptools_scm"
+depends="python3-ansible-compat ansible-core black python3-filelock
+ python3-jsonschema python3-packaging python3-yaml python3-rich
+ python3-ruamel.yaml python3-wcmatch python3-yamllint"
 short_desc="Linter for Ansible files"
 maintainer="Jan Christian Grünhage <jan.christian@gruenhage.xyz>"
-license="MIT"
-homepage="https://github.com/ansible-community/ansible-lint"
+# Note about licensing from upstream:
+# The ansible-lint project is distributed as GPLv3 due to use of GPLv3 runtime
+# dependencies, like ansible and yamllint. For historical reasons, its own
+# code-base remains licensed under a more liberal MIT license and any
+# contributions made are accepted as being made under original MIT license.
+license="GPL-3.0-only"
+homepage="https://github.com/ansible/ansible-lint"
 distfiles="${PYPI_SITE}/a/${pkgname/python3-/}/${pkgname/python3-/}-${version}.tar.gz"
-checksum=2160a60b4ab034c04006d701a1779340ffb0f6e28f030ff8de958e1062a88962
-# Tests are currently broken for ansible on python 3.10
-# See https://github.com/ansible/ansible/issues/74658
-# and https://github.com/ansible/ansible/issues/74660
-make_check=no
+checksum=14ef919920c4acc980547ded0bd423a7a27a0b2327738e593343f446f3b126c6
+# cba anymore, the list of failing tests changes with every update
+make_check="no"
 
 post_patch() {
-	# scm versioning is broken in this release
-	vsed -e "/name =/a version = ${version}" -e "/setuptools_scm/d" -i setup.cfg
-}
-
-post_install() {
-	vlicense LICENSE
+	vsed -e "/setuptools_scm_git_archive/d" -i pyproject.toml
+	export SETUPTOOLS_SCM_PRETEND_VERSION="${version}"
 }

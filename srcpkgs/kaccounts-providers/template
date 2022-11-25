@@ -1,6 +1,6 @@
 # Template file for 'kaccounts-providers'
 pkgname=kaccounts-providers
-version=21.12.2
+version=22.04.2
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules intltool qt5-qmake qt5-host-tools
@@ -10,10 +10,10 @@ makedepends="kparts-devel kaccounts-integration-devel glib-devel
 short_desc="KDE Accounts Providers"
 maintainer="Piotr Wójcik <chocimier@tlen.pl>"
 license="GPL-2.0-or-later"
-homepage="https://cgit.kde.org/kaccounts-providers.git/"
+homepage="https://invent.kde.org/network/kaccounts-providers"
 changelog="https://kde.org/announcements/changelogs/gear/${version}/#kaccounts-providers"
 distfiles="${KDE_SITE}/release-service/${version}/src/kaccounts-providers-${version}.tar.xz"
-checksum=cd07ee01cdd45e9ecb114a38e1cf845aed0a6dbb245d8bbeebe74fe3fa203feb
+checksum=0a67a6ec230cffaea9cf9e9d7742afcba7681d9ed73e690e2329e70fcc937ea2
 
 build_options="nextcloud"
 desc_option_nextcloud="Build nextcloud support (needs Qt5 WebEngine)"

@@ -1,8 +1,7 @@
 # Template file for 'docker-compose'
 pkgname=docker-compose
-version=2.2.3
+version=2.12.2
 revision=1
-wrksrc="compose-${version}"
 build_style=go
 go_import_path="github.com/docker/compose/v2/cmd"
 go_ldflags="-X github.com/docker/compose/v2/internal.Version=v${version}"
@@ -12,7 +11,7 @@ maintainer="Michal Vasilek <michal@vasilek.cz>"
 license="Apache-2.0"
 homepage="https://docs.docker.com/compose/"
 distfiles="https://github.com/docker/compose/archive/refs/tags/v${version}.tar.gz"
-checksum=22210187e73732edd9fc02f122ea61481806c703af7b73d0a7351f2e8ed7c0b8
+checksum=311131c5d930fdb1f5e86de19ea2ad1705d23e5745b780c0b10b2eb3f964fc69
 
 post_install() {
 	mkdir -p ${DESTDIR}/usr/libexec/docker/cli-plugins

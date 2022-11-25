@@ -1,11 +1,10 @@
 # Template file for 'cmake-gui'
 pkgname=cmake-gui
-version=3.22.1
+version=3.24.3
 revision=1
-wrksrc="cmake-${version}"
 build_style=cmake
 configure_args="-DCMAKE_DOC_DIR=/share/doc/cmake
- -DSPHINX_MAN=1 -DCMAKE_MAN_DIR=/share/man -DQT_HOST_PATH=/usr
+ -DSPHINX_MAN=1 -DCMAKE_MAN_DIR=/share/man
  -DBUILD_QtDialog=ON -DCMAKE_USE_SYSTEM_LIBRARIES=ON -DKWSYS_LFS_WORKS=1"
 hostmakedepends="qt6-base-devel python3-Sphinx"
 makedepends="jsoncpp-devel libarchive-devel libcurl-devel libuv-devel
@@ -17,7 +16,13 @@ maintainer="Đoàn Trần Công Danh <congdanhqx@gmail.com>"
 license="BSD-3-Clause"
 homepage="https://www.cmake.org"
 distfiles="https://www.cmake.org/files/v${version%.*}/cmake-${version}.tar.gz"
-checksum=0e998229549d7b3f368703d20e248e7ee1f853910d42704aa87918c213ea82c0
+checksum=b53aa10fa82bff84ccdb59065927b72d3bee49f4d86261249fc0984b3b367291
+
+do_check() {
+	cd build
+	# https://gitlab.kitware.com/cmake/cmake/-/issues/23885
+	ctest -E RunCMake.SymlinkTrees
+}
 
 do_install() {
 	# We are only interested in cmake-gui.

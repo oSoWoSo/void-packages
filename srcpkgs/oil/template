@@ -1,6 +1,6 @@
 # Template file for 'oil'
 pkgname=oil
-version=0.9.7
+version=0.12.9
 revision=1
 build_style=configure
 configure_args="--prefix=/usr $(vopt_with readline)"
@@ -10,9 +10,9 @@ short_desc="Oil, a new unix shell"
 maintainer="MarcoAPC <marcoaureliopc@gmail.com>"
 license="Apache-2.0"
 homepage="https://www.oilshell.org"
-distfiles="${homepage}/download/${pkgname}-${version}.tar.xz"
-checksum=26db8240ceee878b6666b4b0263d4e877854cd02aa285c71592d750836ef97ea
-register_shell="/usr/bin/osh"
+distfiles="https://www.oilshell.org/download/oil-${version}.tar.xz"
+checksum=1d8fd266254e7ceac0ebd806c44a7ea9d467b9327bd97bde024f57a78e7371ff
+register_shell="/usr/bin/osh /usr/bin/oil"
 nocross="Build systems gets confused with host and cross toolchains/headers"
 nostrip=yes
 
@@ -27,8 +27,9 @@ pre_build() {
 do_install() {
 	# Install binaries
 	vbin _bin/oil.ovm
-	# Symlink osh, oshc to oil.ovm.
+	vman doc/osh.1
+	# Symlink osh, oil to oil.ovm.
 	cd "${DESTDIR}"/usr/bin
 	ln -s oil.ovm osh
-	ln -s oil.ovm oshc
+	ln -s oil.ovm oil
 }

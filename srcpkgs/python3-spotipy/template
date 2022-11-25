@@ -1,18 +1,18 @@
 # Template file for 'python3-spotipy'
 pkgname=python3-spotipy
-version=2.19.0
-revision=2
-wrksrc="spotipy-${version}"
+version=2.21.0
+revision=1
 build_style=python3-module
 hostmakedepends="pkg-config python3-setuptools"
 makedepends="python3-devel"
-depends="python3-requests python3-six python3-urllib3"
+depends="python3-requests python3-six python3-urllib3 python3-redis"
 short_desc="Light weight Python library for the Spotify Web API"
-maintainer="Eloi Torrents <eloitorrentsj@gmail.com>"
+maintainer="Eloi Torrents <eloitor@disroot.org>"
 license="MIT"
 homepage="https://github.com/plamere/spotipy"
-distfiles="${homepage}/archive/${version}.tar.gz"
-checksum=36c94b4b3beaa7979721272d84837ee4df3adb8ca6d32c5675b91b3823b4df12
+changelog="https://raw.githubusercontent.com/spotipy-dev/spotipy/master/CHANGELOG.md"
+distfiles="https://github.com/plamere/spotipy/archive/${version}.tar.gz"
+checksum=da0310c3635b973742bc3e5ff217af492d54095ddb150d8a022039f3b0e179cb
 make_check=no # Requires Spotify API Key
 
 post_install() {

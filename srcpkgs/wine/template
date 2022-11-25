@@ -1,6 +1,6 @@
 # Template file for 'wine'
 pkgname=wine
-version=7.2
+version=7.20
 revision=1
 _pkgver=${version/r/-r}
 create_wrksrc=yes
@@ -13,8 +13,8 @@ license="LGPL-2.1-or-later"
 homepage="http://www.winehq.org/"
 distfiles="https://dl.winehq.org/wine/source/${version%.*}.x/wine-${_pkgver}.tar.xz
  https://github.com/wine-staging/wine-staging/archive/v${_pkgver}.tar.gz"
-checksum="dfc641523c8dbc664168b6174441633d971275456bf67de2dcaa99c8daa5ee15
- e6d19af5df9b8dea7422416fdd67e99768dfc37f287061d1d022eabc076b3be4"
+checksum="751b79f22b5a9f72c9ec15f755b00b13d3ed073e9168c3ef4adabd9db37d0d50
+ d3210cf8e8c75c7dba63dce9af014fae2664078c00baaff85eb878df81e421ed"
 
 build_options="mingw staging xshm"
 build_options_default="mingw xshm"
@@ -24,6 +24,8 @@ desc_option_xshm="Enable support for the X Shared Memory Extension"
 
 lib32mode=full
 archs="i686* x86_64*"
+
+patch_args="-Np1 --directory=${build_wrksrc}"
 
 _nopie=no
 if [ "$XBPS_TARGET_MACHINE" = i686-musl ]; then
@@ -43,11 +45,12 @@ makedepends="gettext-devel ncurses-devel glu-devel libSM-devel
  libldap-devel alsa-lib-devel libgphoto2-devel glib-devel
  freetype-devel pulseaudio-devel libopenal-devel giflib-devel
  v4l-utils-devel fontconfig-devel gnutls-devel dbus-devel sane-devel
- libpcap-devel cups-devel ocl-icd-devel vulkan-loader vkd3d-devel
- gst-plugins-base1-devel SDL2-devel"
+ libpcap-devel cups-devel ocl-icd-devel vulkan-loader gst-plugins-base1-devel
+ SDL2-devel"
 depends="libXi libXinerama libXcomposite libXcursor libOSMesa
  desktop-file-utils hicolor-icon-theme liberation-fonts-ttf
  gnutls SDL2 wine-common>=${version}_${revision} libwine>=${version}_${revision}"
+# This testsuite might hang indefinitely
 make_check=extended
 
 case $XBPS_TARGET_MACHINE in

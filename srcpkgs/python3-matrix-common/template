@@ -1,10 +1,8 @@
 # Template file for 'python3-matrix-common'
 pkgname=python3-matrix-common
-version=1.0.0
-revision=1
-wrksrc="matrix-python-common-${version}"
+version=1.3.0
+revision=2
 build_style=python3-pep517
-make_install_target="matrix_common-${version}-*-*-*.whl"
 hostmakedepends="python3-setuptools python3-wheel"
 depends="python3-attrs"
 short_desc="Common code for Synapse, Sydent and Sygnal"
@@ -12,5 +10,5 @@ maintainer="Joel Beckmeyer <joel@beckmeyer.us>"
 license="Apache-2.0"
 homepage="https://github.com/matrix-org/matrix-python-common"
 distfiles="https://github.com/matrix-org/matrix-python-common/archive/v${version}.tar.gz"
-checksum=d610357a78caf5141814f055e8b3facabf4dd4863db8594030d58c81b2b2b7fd
+checksum=9792a69b04904cb2da027890fe07229cc6610254268d2a5037e31aaeb7047104
 make_check=no # requires unpackaged python3 module aiounittest

@@ -1,8 +1,7 @@
 # Template file for 'sigil'
 pkgname=sigil
-version=1.8.0
-revision=1
-wrksrc="Sigil-${version}"
+version=1.9.10
+revision=2
 build_style=cmake
 pycompile_dirs="usr/share/sigil/python3lib"
 # Can use system zlib, minizip and hunspell; can't use system pcre
@@ -18,8 +17,9 @@ short_desc="Multi-platform EPUB ebook editor"
 maintainer="Orphaned <orphan@voidlinux.org>"
 license="GPL-3.0-or-later"
 homepage="https://github.com/Sigil-Ebook/Sigil"
+changelog="https://raw.githubusercontent.com/Sigil-Ebook/Sigil/master/ChangeLog.txt"
 distfiles="${homepage}/archive/${version}.tar.gz"
-checksum=33d84331f259ab8d92fc2c5fed6f05fd5f011695c48f83537423635a7afdd2ec
+checksum=35b6051d966c2848a8a031ebe691449229b3c95a56145647dc71857acc18fad5
 python_version=3
 
 if [ "$CROSS_BUILD" ]; then

@@ -1,9 +1,8 @@
 # Template file for 'valadoc'
 pkgname=valadoc
 # Should be kept in sync with 'vala' (shared distfiles)
-version=0.54.7
+version=0.56.3
 revision=1
-wrksrc="vala-${version}"
 build_style=gnu-configure
 configure_args="--with-cgraph=yes"
 hostmakedepends="flex libxslt pkg-config automake libtool vala"
@@ -15,7 +14,7 @@ license="LGPL-2.1-or-later"
 homepage="https://wiki.gnome.org/Projects/Vala"
 changelog="https://gitlab.gnome.org/GNOME/vala/raw/master/NEWS"
 distfiles="${GNOME_SITE}/vala/${version%.*}/vala-${version}.tar.xz"
-checksum=62079ca1ff02e5d17ae72aa9a5adc61ae6afdcfebb0d9f06063a36efbeaca0c7
+checksum=e1066221bf7b89cb1fa7327a3888645cb33b604de3bf45aa81132fd040b699bf
 
 pre_configure() {
 	autoreconf -if
