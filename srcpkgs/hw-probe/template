@@ -1,0 +1,23 @@
+# Template file for 'hw-probe'
+pkgname=hw-probe
+version=1.6
+revision=1
+#archs="i686 x86_64"
+#wrksrc=
+#create_wrksrc=yes
+build_style=gnu-configure
+#configure_args=""
+#make_build_args=""
+#make_install_args=""
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+hostmakedepends=""
+makedepends=""
+depends=""
+short_desc="Collect hardware details to help debug hardware issues, check for compatibility and drivers"
+maintainer=" <zen@osowoso.xyz>"
+license="GPL-3.0-or-later"
+homepage="https://linux-hardware.org/"
+changelog="https://github.com/linuxhw/hw-probe/blob/master/NEWS.md"
+distfiles="https://github.com/linuxhw/hw-probe/archive/refs/tags/${version}.tar.gz"
+checksum=de048be6aef357d3142c9e2327d6f79d205a42aa3396ad381ed319115d1c9a22
