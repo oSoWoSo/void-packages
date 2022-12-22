@@ -5,7 +5,7 @@ revision=1
 #archs="i686 x86_64"
 #wrksrc=
 #create_wrksrc=yes
-build_style=gnu-configure
+build_style=cmake
 #configure_args=""
 #make_build_args=""
 #make_install_args=""
@@ -13,7 +13,8 @@ build_style=gnu-configure
 #make_dirs="/var/log/dir 0755 root root"
 hostmakedepends=""
 makedepends=""
-depends=""
+depends="acpica-utils curl ddcutil dmidecode hwinfo net-tools pciutils perl usbutils efibootmgr hdparm inxi smartmontools perl-Digest-SHA1 perl-Data-Dump perl-LWP mcelog hdparm mesa-demos memtester cpuid rfkill xinput inxi i2c-tools opensc hplip
+"
 short_desc="Collect hardware details to help debug hardware issues, check for compatibility and drivers"
 maintainer=" <zen@osowoso.xyz>"
 license="GPL-3.0-or-later"
@@ -21,3 +22,5 @@ homepage="https://linux-hardware.org/"
 changelog="https://github.com/linuxhw/hw-probe/blob/master/NEWS.md"
 distfiles="https://github.com/linuxhw/hw-probe/archive/refs/tags/${version}.tar.gz"
 checksum=de048be6aef357d3142c9e2327d6f79d205a42aa3396ad381ed319115d1c9a22
+
+make install
