@@ -1,0 +1,21 @@
+# Template file for 'lapce'
+pkgname=lapce
+version=0.2.5
+revision=1
+archs="aarch64* x86_64*" # wasmer-vm crate fails to build (unsupported platform)
+build_style=cargo
+hostmakedepends="pkg-config"
+makedepends="fontconfig-devel gtk+3-devel openssl-devel"
+short_desc="Lightning-fast and powerful code editor"
+maintainer="Alex Lohr <alexthkloss@web.de>"
+license="Apache-2.0"
+homepage="https://lapce.dev/"
+changelog="https://github.com/lapce/lapce/releases"
+distfiles="https://github.com/lapce/lapce/archive/refs/tags/v${version}.tar.gz"
+checksum=3b8357653eda77b2c85306ba9f7202e539987ada4a7b5be2018b142bb23be7e4
+
+post_install() {
+	vinstall extra/linux/dev.lapce.lapce.desktop 644 usr/share/applications/
+	vinstall extra/linux/dev.lapce.lapce.metainfo.xml 644 usr/share/appdata/
+	vinstall extra/images/logo_color.svg 644 usr/share/icons/hicolor/scalable/apps/ dev.lapce.lapce.svg
+}
