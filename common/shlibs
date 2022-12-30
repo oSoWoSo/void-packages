@@ -4221,3 +4221,5 @@ libfst.so.25 openfst-1.8.2_1
 libvosk.so vosk-api-0.3.43_1
 libdspy-1.so.1 d-spy-1.4.0_1
 libpanel-1.so.1 libpanel-1.0.1_1
+libAppStreamQt.so.2 AppStream-qt-0.15.5_2
+libpackagekitqt5.so.1 PackageKit-qt-1.1.0_1
