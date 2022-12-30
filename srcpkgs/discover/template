@@ -1,0 +1,23 @@
+# Template file for 'discover'
+pkgname=discover
+version=5.26.4
+revision=1
+archs="x86_64"
+#wrksrc=
+#create_wrksrc=yes
+build_style=cmake
+#configure_args=""
+#make_build_args=""
+#make_install_args=""
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+hostmakedepends=""
+makedepends="plasma-workspace-devel extra-cmake-modules pkg-config AppStream-devel AppStream-qt PackageKit-devel qt5-devel qt5-webview-devel gettext-devel purpose-devel PackageKit-qt"
+depends="PackageKit AppStream AppStream-qt qt5 qt5-webview gettext purpose PackageKit-qt"
+short_desc="KDE and Plasma resources management GUI"
+maintainer="Cole Stowell <cole@stowell.pro>"
+license="LGPL"
+homepage="https://invent.kde.org/plasma/discover"
+#changelog=""
+distfiles="https://invent.kde.org/plasma/discover/-/archive/v${version}/discover-v${version}.tar.gz"
+checksum=234b05cccbcfe1bafaac1caef328588734f3ccfed217161c475bd6079a82863c
