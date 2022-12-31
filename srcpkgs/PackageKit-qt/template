@@ -3,21 +3,20 @@ pkgname=PackageKit-qt
 version=1.1.0
 revision=1
 archs="x86_64"
-#wrksrc=
-#create_wrksrc=yes
 build_style=cmake
-#configure_args=""
-#make_build_args=""
-#make_install_args=""
-#conf_files=""
-#make_dirs="/var/log/dir 0755 root root"
-hostmakedepends=""
 makedepends="qt5-devel PackageKit"
 depends="qt5 PackageKit"
 short_desc="Qt bindings for PackageKit"
 maintainer="Cole Stowell <cole@stowell.pro>"
 license="LGPL-2.1-only"
-homepage="${FREEDESKTOP_SITE}/PackageKit/"
+homepage="https://www.freedesktop.org/software/PackageKit/"
 #changelog=""
 distfiles="${FREEDESKTOP_SITE}/PackageKit/releases/PackageKit-Qt-${version}.tar.xz"
 checksum=8a0ac393eb34c9b896be3f6f260247c067b2af8b54cb53e12b4c6163c1cfc98d
+
+libpackagekit-qt_package() {
+	short_desc+=" - library"
+	pkg_install() {
+		vmove "usr/lib/*.so.*"
+	}
+}
