@@ -1,0 +1,23 @@
+# Template file for 'protonup'
+pkgname=protonup
+version=0.1.5
+revision=1
+#archs="i686 x86_64"
+#wrksrc=
+#create_wrksrc=yes
+build_style=python3-module
+#configure_args=""
+#make_build_args=""
+#make_install_args=""
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+hostmakedepends="python3-build python3-setuptools python3-wheel python3-installer"
+makedepends=""
+depends=""
+short_desc="Automate the installation and update of GloriousEggroll's Proton-GE"
+maintainer="zenobit <zen@osowoso.xyz>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/AUNaseef/protonup"
+#changelog=""
+distfiles="https://github.com/AUNaseef/protonup/archive/refs/tags/${version}.tar.gz"
+checksum=8bee61205876c733f031d7943a6354b0b49dffaa6ece2b4540fe5c7a26a212e7
