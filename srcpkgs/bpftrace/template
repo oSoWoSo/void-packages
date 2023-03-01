@@ -16,8 +16,3 @@ checksum=ccc853205b081fd7e4270016065ccc04764286644bf8e0eee9bd7f344cad63e5
 nostrip=yes  # needs to read own symbol table
 
 CXXFLAGS="-isystem ${XBPS_CROSS_BASE}/usr/include/bcc/compat"
-
-post_install() {
-	# clashes with bcc-tools
-	rm -rf ${DESTDIR}/usr/share/man
-}
