@@ -21,11 +21,7 @@ libcprime_package() {
 dfl-applications_package() {
 	short_desc="Random text"
 	pkg_install() {
-		vmove usr/include
-		vmove usr/lib/*.a
 		vmove usr/lib/*.so
-		vmove usr/lib/pkgconfig
-		vmove usr/share/man/man3
 	}
 }
 
