@@ -1,0 +1,12 @@
+# Template file for 'dfl-applications'
+pkgname=dfl-applications
+version=0.1.1
+revision=1
+build_style=meson
+hostmakedepends="dfl-ipc qt5-devel qt6-base-devel cmake pkg-config"
+short_desc="Class that extends QApplications"
+maintainer="zenobit <zen@osowoso.xyz>"
+license="GPL-3.0-only"
+homepage="https://gitlab.com/desktop-frameworks/applications"
+distfiles="https://gitlab.com/desktop-frameworks/applications/-/archive/v0.1.1/applications-v0.1.1.tar.gz"
+checksum=5009085c598aadd028de5f6721d5b8ed4886e1e605f9bbd0d1252e3c93f03606
