@@ -1,0 +1,12 @@
+# Template file for 'paperde'
+pkgname=paperde
+version=0.2.1
+revision=1
+build_style=meson
+hostmakedepends="libcsys libcprime wayqt wayfire dfl-applications dfl-login1 dfl-ipc dfl-sni dfl-settings pkg-config cmake qt5-qmake qt5 qt5-wayland qt5-svg qt5-tools-devel libdbusmenu-qt5-devel wayland-devel xdg-desktop-portal qt5ct"
+short_desc="Desktop Environment using Qt/Wayland and wayfire"
+maintainer="zenobit <zen@osowoso.xyz>"
+license="GPL-3.0-only"
+homepage="https://gitlab.com/cubocore/paper/paperde"
+distfiles="https://gitlab.com/cubocore/paper/paperde/-/archive/v${version}/paperde-v${version}.tar.gz"
+checksum=3e93b0733c92be8e485087d16c7057d0178da81615ad74aa8b74e5870b21c332
