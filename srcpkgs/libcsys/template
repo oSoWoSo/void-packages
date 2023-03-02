@@ -1,0 +1,13 @@
+# Template file for 'libcsys'
+pkgname=libcsys
+version=4.4.1
+revision=1
+build_style=cmake
+hostmakedepends="qt5-devel"
+depends="udisks2"
+short_desc="For managing drive and getting system resource information"
+maintainer="zenobit <zen@osowoso.xyz>"
+license="GPL-3.0-only"
+homepage="https://gitlab.com/cubocore/coreapps/libcsys"
+distfiles="https://gitlab.com/cubocore/libcsys/-/archive/v${version}/libcsys-v${version}.tar.gz"
+checksum=42bb1e15ad7c0ddd5900ee43dbde311ee3ff5cf26adc0a56a6c10ac67a406b37
