@@ -11,9 +11,15 @@ homepage="https://cubocore.org/paperde.html"
 distfiles="https://gitlab.com/cubocore/paper/paperde/-/archive/v${version}/paperde-v${version}.tar.gz"
 checksum=40a1ca455869f6e55592579359530f5ce0031694d6f87b28c2956fb00d6bd8e5
 
+libcprime_package() {
+	short_desc="Random text"
+	pkg_install() {
+		vmove usr/lib/*.so
+	}
+}
 
 dfl-applications_package() {
-	short_desc=""
+	short_desc="Random text"
 	pkg_install() {
 		vmove usr/include
 		vmove usr/lib/*.a
@@ -24,56 +30,45 @@ dfl-applications_package() {
 }
 
 dfl-ipc_package() {
-	short_desc=""
+	short_desc="Random text"
 	pkg_install() {
 		vmove usr/lib/*.so
 	}
 }
 
 dfl-login1_package() {
-	short_desc=""
+	short_desc="Random text"
 	pkg_install() {
 		vmove usr/lib/*.so
 	}
 }
 
 dfl-settings_package() {
-	short_desc=""
+	short_desc="Random text"
 	pkg_install() {
 		vmove usr/lib/*.so
 	}
 }
 
 dfl-sni_package() {
-	short_desc=""
-	pkg_install() {
-		vmove usr/lib/*.so
-	}
-}
-
-libcprime_package() {
-	short_desc=""
+	short_desc="Random text"
 	pkg_install() {
 		vmove usr/lib/*.so
 	}
 }
 
 libcsys_package() {
-	short_desc=""
+	short_desc="Random text"
 	pkg_install() {
 		vmove usr/lib/*.so
 	}
 }
 
 wayqt_package() {
-	short_desc=""
+	short_desc="Random text"
 	pkg_install() {
 		vmove usr/lib/*.so
 	}
-}
-
-post_install() {
-	vlicense ../LICENSE.txt
 }
 
 # papi-devel_package() {
