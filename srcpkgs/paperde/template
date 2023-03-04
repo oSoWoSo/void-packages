@@ -3,10 +3,24 @@ pkgname=paperde
 version=0.2.1
 revision=1
 build_style=meson
-hostmakedepends="libcsys libcprime wayqt wayfire dfl-applications dfl-login1 dfl-ipc dfl-sni dfl-settings pkg-config cmake qt5-qmake qt5 qt5-wayland qt5-svg qt5-tools-devel libdbusmenu-qt5-devel wayland-devel xdg-desktop-portal qt5ct"
+hostmakedepends="libcsys libcprime wayqt pkg-config qt5-qmake qt5 qt5-wayland qt5-svg qt5-tools-devel libdbusmenu-qt5-devel wayland-devel qt5ct"
+makedepends="dfl-applications dfl-login1 dfl-ipc dfl-sni dfl-settings"
+depends="wayfire xdg-desktop-portal"
 short_desc="Desktop Environment using Qt/Wayland and wayfire"
 maintainer="zenobit <zen@osowoso.xyz>"
 license="GPL-3.0-only"
 homepage="https://cubocore.org/paperde.html"
 distfiles="https://gitlab.com/cubocore/paper/paperde/-/archive/v${version}/paperde-v${version}.tar.gz"
 checksum=40a1ca455869f6e55592579359530f5ce0031694d6f87b28c2956fb00d6bd8e5
+
+paperde-devel_package() {
+	depends="paperde>=${version}_${revision}"
+	short_desc+=" - development files"
+	pkg_install() {
+		vmove usr/include
+		vmove "usr/lib/*.a"
+		vmove "usr/lib/*.so"
+		vmove usr/lib/pkgconfig
+		vmove usr/share/doc
+	}
+}
