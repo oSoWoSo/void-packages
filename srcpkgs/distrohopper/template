@@ -1,0 +1,20 @@
+# Template file for 'distrohopper'
+pkgname=distrohopper
+version=0.76
+revision=1
+depends="bash cdrtools coreutils grep jq procps-ng python3 qemu sed socat spice-gtk swtpm usbutils util-linux wget xdg-user-dirs xrandr zsync gettext yad fzf"
+short_desc="Quickly download, create and run VM of any operating system"
+maintainer="zenobit <zen@osowoso.xyz>"
+license="AGPL-3.0-only"
+homepage="https://github.com/oSoWoSo/DistroHopper"
+distfiles="https://github.com/oSoWoSo/DistroHopper/archive/refs/tags/${version}.tar.gz"
+checksum=4baabb8c0f8e522e83a329eef4cf7d395679f476c66cafecb0c8ad7eeee82233
+
+do_install() {
+	vbin dh
+	vbin quickemu
+	vbin quickget
+	vbin macrecovery
+	vbin windowskey
+	vlicense LICENSE
+}
