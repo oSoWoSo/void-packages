@@ -1,7 +1,7 @@
 # Template file for 'cargo'
 pkgname=cargo
 version=1.68.2
-revision=1
+revision=2
 _cargo_revision=0.69.1
 build_helper=rust
 hostmakedepends="cargo-bootstrap rust python3 curl cmake pkg-config zlib-devel"
