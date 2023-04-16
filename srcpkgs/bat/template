@@ -1,7 +1,7 @@
 # Template file for 'bat'
 pkgname=bat
 version=0.23.0
-revision=1
+revision=2
 build_style=cargo
 hostmakedepends="cmake llvm clang pkg-config"
 makedepends="libcurl-devel libgit2-devel libssh2-devel oniguruma-devel"
