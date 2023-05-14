@@ -1,0 +1,21 @@
+# Template file for 'tori'
+pkgname=tori
+version=0.2.3
+revision=1
+build_style=cargo
+make_install_args="--path tori"
+hostmakedepends="pkg-config python3"
+makedepends="alsa-lib-devel mpv-devel"
+depends="cava yt-dlp"
+short_desc="Frictionless music player for the terminal"
+maintainer="Marcin Puc <tranzystorek.io@protonmail.com>"
+license="GPL-3.0-or-later"
+homepage="https://leoriether.github.io/tori/"
+changelog="https://github.com/LeoRiether/tori/releases"
+distfiles="https://github.com/LeoRiether/tori/archive/refs/tags/v${version}.tar.gz"
+checksum=5515675748b3a83344f41ef40f209c41925555d9e27bd17efd2cc25d489d6069
+
+post_install() {
+	vinstall assets/tori.svg 644 usr/share/icons/hicolor/scalable/apps
+	vinstall contrib/tori.desktop 644 usr/share/applications
+}
