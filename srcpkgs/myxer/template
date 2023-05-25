@@ -1,0 +1,26 @@
+# Template file for 'myxer'
+pkgname=myxer
+version=1.2.1
+revision=1
+#archs="i686 x86_64"
+#build_wrksrc=
+build_style=cargo
+#configure_args=""
+#make_build_args=""
+#make_install_args=""
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+hostmakedepends="glib"
+makedepends="glib glib-devel"
+depends=""
+short_desc="Modern Volume Mixer for PulseAudio"
+maintainer="zenobit <zen@osowoso.xyz>"
+license="GPL-3.0-or-later"
+homepage="https://myxer.aurailus.com/"
+#changelog=""
+distfiles="https://github.com/VixenUtils/Myxer/archive/refs/tags/1.2.1.tar.gz"
+checksum=76c01c0e823417f212b49be5c2449bd47a9762b8a658cd7e7357dd251149b909
+
+do_build() {
+	cargo build --release
+}
