@@ -1,6 +1,6 @@
 # Template file for 'MangoHud'
 pkgname=MangoHud
-version=0.6.8
+version=0.6.9
 revision=1
 build_style=meson
 configure_args="-Duse_system_vulkan=enabled -Dwith_xnvctrl=disabled
@@ -13,7 +13,7 @@ maintainer="John <me@johnnynator.dev>"
 license="MIT"
 homepage="https://github.com/flightlessmango/MangoHud"
 distfiles="https://github.com/flightlessmango/MangoHud/releases/download/v${version}/MangoHud-v${version}-Source-DFSG.tar.xz"
-checksum=0c4358428e6ae48d13282dec4bf4e78015b4f5e46d080a7e7588786cef63c09f
+checksum=705c77efeb1e3791b89da02246594092693e10aa947329baa57fb0e10827a0ff
 
 post_patch() {
 	if [ "$XBPS_TARGET_LIBC" = "musl" ]; then
