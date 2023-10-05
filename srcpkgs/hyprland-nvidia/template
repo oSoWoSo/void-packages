@@ -1,0 +1,120 @@
+# Template file for 'hyprland-nvidia'
+pkgname=hyprland-nvidia
+version=0.33.1
+revision=1
+hostmakedepends="jq git pkg-config glslang hwids meson cmake ninja autoconf mk-configure"
+makedepends="
+	ffmpeg-devel
+	libX11-devel
+	pango-devel
+	libdrm-devel
+	wayland-devel
+	libxkbcommon-devel
+	pixman-devel
+	cairo-devel
+	libseat-devel
+	libinput-devel
+	wayland-protocols
+	xcb-util-renderutil-devel
+	xcb-util-errors-devel
+	xcb-util-wm-devel
+	xorg-server-xwayland
+	vulkan-loader
+	Vulkan-Headers
+	libglvnd-devel
+	libliftoff
+	libdisplay-info-devel
+"
+depends="
+	libxcb
+	xcb-proto
+	xcb-util
+	xcb-util-keysyms
+	libXfixes
+	pixman
+	wayland-protocols
+	cairo
+	pango
+	polkit
+	glslang
+	libinput
+	libxkbcommon
+	wayland>=1.22.0
+	xcb-util-errors
+	xcb-util-renderutil
+	xcb-util-wm
+	vulkan-loader
+	Vulkan-ValidationLayers
+	xorg-server-xwayland
+	libliftoff
+	libdisplay-info
+"
+short_desc="Dynamic tiling Wayland compositor that doesn't sacrifice on its looks (NVIDIA patch)"
+maintainer="Makrennel <makrommel@protonmail.ch>"
+license="BSD"
+homepage="https://hyprland.org/"
+changelog="https://github.com/hyprwm/Hyprland/releases"
+distfiles="https://github.com/hyprwm/Hyprland/releases/download/v${version}/source-v${version}.tar.gz"
+checksum=fe2b39ca90a4dde04159d69ea49c71315449efe5630cf2ff8bb75d4dd4589153
+conflicts="hyprland"
+
+do_build() {
+	# build hyprland-specific wlroots
+	make fixwlr
+	pushd subprojects/wlroots
+	meson build/ --prefix="${wrksrc}/tmpwlr" --buildtype=release
+	ninja -C build/
+	mkdir -p "${wrksrc}/tmpwlr"
+	ninja -C build/ install
+	popd
+
+	# build udis86
+	pushd subprojects/udis86
+	cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Release -H./ -B./build -G Ninja
+	cmake --build ./build --config Release --target all -j${XBPS_MAKEJOBS}
+	popd
+
+	# build hyprland
+	cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Release -DNO_SYSTEMD:STRING=true -S . -B ./build -G Ninja
+	cmake --build ./build --config Release --target all -j${XBPS_MAKEJOBS}
+
+	# build hyprctl
+	pushd hyprctl
+	make all
+	popd
+}
+
+do_install() {
+	vlicense LICENSE
+	
+	# copy headers
+	vmkdir usr/include/hyprland
+	vmkdir usr/include/hyprland/wlroots
+	vmkdir usr/include/hyprland/protocols
+	find src -name '*.h*' -exec install -Dm0644 {} ${DESTDIR}/usr/include/hyprland/{} \;
+	pushd subprojects/wlroots/include
+	find . -name '*.h*' -exec install -Dm0644 {} ${DESTDIR}/usr/include/hyprland/wlroots/{} \;
+	popd
+	pushd subprojects/wlroots/build/include
+	find . -name '*.h*' -exec install -Dm0644 {} ${DESTDIR}/usr/include/hyprland/wlroots/{} \;
+	popd
+	cp protocols/*-protocol.h ${DESTDIR}/usr/include/hyprland/protocols
+
+	# binaries
+	vbin build/Hyprland
+	vbin hyprctl/hyprctl
+	
+	# assets
+	vmkdir usr/share/wayland-sessions
+	vmkdir usr/share/hyprland
+	vmkdir usr/share/xdg-desktop-portal
+	install -Dm0644 assets/*.png ${DESTDIR}/usr/share/hyprland
+	vinstall assets/header.svg 644 usr/share/hyprland
+	vinstall assets/hyprland-portals.conf 644 usr/share/xdg-desktop-portal
+	vinstall example/hyprland.desktop 644 usr/share/wayland-sessions
+	vinstall example/hyprland.conf 644 usr/share/hyprland
+
+	# wlroots
+	vinstall tmpwlr/lib/libwlroots.so.12032 755 usr/lib
+}
+
