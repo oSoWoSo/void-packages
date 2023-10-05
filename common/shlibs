@@ -4291,3 +4291,5 @@ libsqsh.so.1 libsqsh-1.3.0_1
 libunicode.so.0.4 libunicode-0.4.0_1
 libunicode_ucd.so.0.4 libunicode-0.4.0_1
 libunicode_loader.so.0.4 libunicode-0.4.0_1
+libdisplay-info.so.1 libdisplay-info-0.1.1_1
+libliftoff.so.0 libliftoff-0.4.1_1
