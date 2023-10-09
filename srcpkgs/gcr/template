@@ -1,6 +1,6 @@
 # Template file for 'gcr'
 pkgname=gcr
-version=3.41.1
+version=3.92.0
 revision=1
 build_style=meson
 build_helper="gir"
@@ -15,7 +15,7 @@ maintainer="Orphaned <orphan@voidlinux.org>"
 license="LGPL-2.0-or-later, LGPL-2.1-or-later, GPL-2.0-or-later"
 homepage="https://gitlab.gnome.org/GNOME/gcr"
 distfiles="${GNOME_SITE}/gcr/${version%.*}/gcr-${version}.tar.xz"
-checksum=bb7128a3c2febbfee9c03b90d77d498d0ceb237b0789802d60185c71c4bea24f
+checksum=896abf8e1db0f40eb28073f364f36a72385ac8abf8cd1362b1016e97721ff518
 make_check_pre="dbus-run-session"
 make_check=no # Gcr:ERROR:../gcr/test-gnupg-collection.c:203:test_load: assertion failed: (record)
 
