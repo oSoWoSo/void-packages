@@ -1,6 +1,6 @@
 # Template file for 'wayfire'
 pkgname=wayfire
-version=0.7.5
+version=0.8.0
 revision=1
 _utils_commit=889fdafa7b09fc6ce70313fd3f067cfc8c21a2ac
 _touch_commit=8974eb0f6a65464b63dd03b842795cb441fb6403
@@ -19,7 +19,7 @@ homepage="https://wayfire.org"
 distfiles="https://github.com/WayfireWM/wayfire/archive/refs/tags/v${version}.tar.gz
  https://github.com/WayfireWM/wf-utils/archive/${_utils_commit}.tar.gz
  https://github.com/WayfireWM/wf-touch/archive/${_touch_commit}.tar.gz"
-checksum="ae9a44d3ddcdf97b2dbe2baeeaf880f24f95bfb18e11e1dd5ad7443c26c5e19e
+checksum="3b67dd03a9370a0c0a2d9b98d77d9184d62b25ca13844cfdbb0cac788cb9d4b6
  bbde37e1a8b5ecb322096b32891593c14264800291be8773f7f0708fc110ed2f
  09061c8a4d3d964e8dcfd1a7b97f7dc43d0fc30743b0993585439c6923ce422f"
 
