@@ -1,0 +1,17 @@
+# Template file for 'gama'
+pkgname=gama
+version=1.2.0
+revision=1
+build_style=go
+makedepends="make git pkg-config"
+go_import_path="github.com/termkit/gama"
+short_desc="Manage your GitHub Actions from Terminal with great UI"
+maintainer="zenobit <zenobit@disroot.org>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/termkit/gama"
+distfiles="https://github.com/termkit/gama/archive/refs/tags/v${version}.tar.gz"
+checksum=bbab6739c849a7f498334a3305c08a7f1dd2e14f74a7c71fe23085ade8b0e6a3
+
+do_build() {
+	make build
+}
