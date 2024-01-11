@@ -1,0 +1,26 @@
+# Template file for 'tomlplusplus'
+pkgname=tomlplusplus
+version=3.4.0
+revision=1
+#archs="i686 x86_64"
+#build_wrksrc=
+build_style=meson
+#configure_args=""
+#make_build_args=""
+#make_install_args=""
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+hostmakedepends="cmake"
+makedepends="gcc glibc"
+#depends=""
+short_desc="Header-only TOML config file parser and serializer for C++17"
+maintainer="zenobit <zenobit@disroot.org>"
+license="MIT"
+homepage="https://marzer.github.io/tomlplusplus/"
+#changelog=""
+distfiles="https://github.com/marzer/tomlplusplus/archive/refs/tags/v${version}.tar.gz"
+checksum=8517f65938a4faae9ccf8ebb36631a38c1cadfb5efa85d9a72e15b9e97d25155
+
+post_install() {
+	vlicense LICENSE
+}
