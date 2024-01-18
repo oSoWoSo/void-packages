@@ -1,0 +1,17 @@
+# Template file for 'jqless'
+pkgname=jqless
+version=0.1.2
+revision=1
+build_style=go
+go_import_path="github.com/samsullivan/jqless"
+makedepends="libX11-devel"
+short_desc="Combining jq and less for real-time JSON parsing"
+maintainer="zenobit <zenobit@disroot.org>"
+license="MIT"
+homepage="https://github.com/samsullivan/jqless"
+distfiles="https://github.com/samsullivan/jqless/archive/refs/tags/v${version}.tar.gz"
+checksum=0514b8d8c08347fdc05b395c189a967f42c4792b87a3a0a49ff0db7bf37d6786
+
+post_install() {
+	vlicense LICENSE.md
+}
