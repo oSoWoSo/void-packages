@@ -1,0 +1,17 @@
+# Template file for 'tips'
+pkgname=tips
+version=0.0.8
+revision=1
+build_style=go
+go_import_path=github.com/deckarep/tips
+short_desc="Command-line tool to wrangle your Tailscale tailnet cluster"
+maintainer="zenobit <zenobit@disroot.org>"
+license="MIT"
+homepage="https://github.com/deckarep/tips"
+#changelog=""
+distfiles="https://github.com/deckarep/tips/archive/refs/tags/v${version}.tar.gz"
+checksum=2d5fd8012e846ae2250fe50360f9278ebed0f7cabda8fab2422ca80b8e8f86ed
+
+post_install() {
+	vlicense LICENSE
+}
