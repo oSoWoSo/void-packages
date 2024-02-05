@@ -1,0 +1,17 @@
+# Template file for 'unifetch'
+pkgname=unifetch
+version=1.3.2
+revision=1
+build_style=gnu-makefile
+depends="bash"
+short_desc="Unofficial inheritor of Neofetch"
+maintainer="zenobit <zenobit@disroot.org>"
+license="MIT"
+homepage="https://github.com/njb-fm/unifetch"
+#changelog=""
+distfiles="https://github.com/njb-fm/unifetch/archive/refs/tags/${version}.tar.gz"
+checksum=081108fddd6ee5e4ee53e41b1f64c638c342664aba32fe8d17e2eb51061b0108
+
+post_install() {
+	vlicense LICENSE.md
+}
