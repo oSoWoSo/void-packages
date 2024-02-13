@@ -4303,3 +4303,5 @@ libunicode_loader.so.0.4 libunicode-0.4.0_1
 force-stage.so.0.1 void-force-stage-0.1_1
 libliftoff.so.0 libliftoff-0.4.1_1
 libscfg.so libscfg-0.1.1_1
+librocm_smi64.so.1 ROCm-SMI-devel-6.0.2_1
+liboam.so.1.0 ROCm-SMI-devel-6.0.2_1
