@@ -1,5 +1,5 @@
 ---
-name: 'Build buildroot containers'
+name: 'Build buildroot containers anywhere'
 
 on:
   workflow_dispatch:
