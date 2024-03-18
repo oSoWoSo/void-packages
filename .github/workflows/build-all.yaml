@@ -1,4 +1,4 @@
-name: Check build
+name: Check build anywhere
 
 on:
   pull_request:
@@ -9,6 +9,8 @@ on:
       # - 'ci-**'
     paths:
       - 'srcpkgs/**'
+  
+  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
