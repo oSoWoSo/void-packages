@@ -9,8 +9,8 @@ on:
     paths:
       - common/container/**
   push:
-    branches:
-      - master
+    # branches:
+      # - master
     paths:
       - common/container/**
 
