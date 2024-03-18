@@ -5,8 +5,8 @@ on:
     paths:
       - 'srcpkgs/**'
   push:
-    branches:
-      - 'ci-**'
+    # branches:
+      # - 'ci-**'
     paths:
       - 'srcpkgs/**'
 
