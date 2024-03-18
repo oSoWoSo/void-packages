@@ -1,5 +1,5 @@
 ---
-name: 'Build buildroot containers'
+name: 'Build buildroot containers anywhere'
 
 on:
   workflow_dispatch:
@@ -9,8 +9,8 @@ on:
     paths:
       - common/container/**
   push:
-    branches:
-      - master
+    # branches:
+      # - master
     paths:
       - common/container/**
 
