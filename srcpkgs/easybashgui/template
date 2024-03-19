@@ -1,0 +1,22 @@
+# Template file for 'easybashgui'
+pkgname=easybashgui
+version=13.0.1
+revision=1
+#build_style=gnu-makefile
+short_desc="Bash functions library that aims to give simple GUI functions"
+maintainer="zenobit <zenobit@disroot.org>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/BashGui/easybashgui"
+distfiles="https://github.com/BashGui/easybashgui/archive/refs/tags/${version}.tar.gz"
+checksum=8eff65d29a315632627b1dabeb7e1937a883ef9bda80a8d5d1af1ca09f3475d4
+
+do_install() {
+	vbin src/easybashgui
+	vbin src/easybashgui-debug
+	vbin src/easydialog-legacy
+	vcopy lib/easybashlib /usr/lib/easybashgui
+	vcopy lib/easybashgui.lib /usr/lib/easybashgui
+	vman docs/easybashgui.1.gz
+	vcopy icons/Attenzione.xpm /usr/share/icons/easybashgui
+	vcopy icons/Ok.xpm /usr/share/icons/easybashgui
+}
