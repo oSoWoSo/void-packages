@@ -4545,3 +4545,4 @@ libflashrom.so.1 flashrom-1.4.0_1
 libpyside6.so.6.7 libpyside6-6.7.2_1
 libpyside6qml.so.6.7 libpyside6-6.7.2_1
 libshiboken6.so.6.7 libshiboken6-6.7.2_1
+libGeographicLib.so.26 libgeographic-2.3_1
