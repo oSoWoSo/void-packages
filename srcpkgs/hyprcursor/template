@@ -1,0 +1,28 @@
+# Template file for 'hyprcursor'
+pkgname=hyprcursor
+version=0.1.5
+revision=1
+build_style=cmake
+hostmakedepends="ninja pkg-config gcc hyprlang"
+makedepends=" cairo-devel glibc-devel librsvg-devel libzip-devel"
+depends="cairo glibc hyprlang libgcc librsvg libstdc++ libzip"
+#checkdepends=""
+short_desc="Hyprland cursor format, library and utilities"
+maintainer="zenobit <zenobit@disroot.org>"
+license="BSD-3-Clause"
+homepage="https://github.com/hyprwm/hyprcursor"
+distfiles="https://github.com/hyprwm/hyprcursor/archive/refs/tags/v${version}.tar.gz"
+checksum=3958b0d7b80bcabca1c46841016c7354afc3cbcbf86b785b7b6289524cb5ec5c
+
+do_build() {
+	cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_INSTALL_PREFIX:PATH=/usr -S . -B ./build
+	cmake --build ./build --config Release --target all -j$(nproc 2>/dev/null || getconf NPROCESSORS_CONF)
+}
+
+do_install() {
+	cmake --install build
+}
+
+post_install() {
+	vlicense LICENSE
+}
