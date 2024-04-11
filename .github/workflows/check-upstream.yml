@@ -1,0 +1,46 @@
+  - uses: poll-github-repo/action@v1
+    with:
+        # Repository you want to track
+        # Must have a format "owner/repo" (like "facebook/react")
+        repo-to-sync: void-linux/void-packages
+
+        # Path to the file in <repo-to-sync> that you want to track
+        path-to-sync: CHANGELOG.md
+
+        # Path to a local file that stores timestamps of the last check in ISO format.
+        # This is required to check only a small subset of changes on every run.
+        # NOTE: this file MUST exist before the action runs
+        # 2022-03-18T00:33:40Z is an example of what it could contain
+        cache-path: .sync/CHANGELOG.md.last-sync
+
+        # Label that is added to every created issue
+        tracking-issue-label: upstream-changelog-md
+
+        # Template for tracking issue title (see available placeholders below)
+        tracking-issue-title: "Update on {{ path }}: {{ sha-short }}"
+
+        # Template for tracking issue body (see available placeholders below)
+        tracking-issue-body: |
+            New commit in owner/repo:
+
+            **{{ message }}** [link]({{ url }})
+            token: ${{ secrets.GITHUB_TOKEN }}
+            yes-create-issues: true
+
+        # GitHub token
+        #
+        # You can use ${{ secrets.GITHUB_TOKEN }} to create issues/commits
+        # using `github-actions` account.
+        #
+        # Of course, you can generate and pass token
+        # of your own GitHub bot if you want to
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+        # Special boolean flag that simplifies initial setup
+        #
+        # When set to `false` the action doesn't do any issues/commit creation,
+        # but it still prints what would be created
+        #
+        # Configure everything, make sure it does what expected and set it to `true`
+        yes-create-issues: false
+
