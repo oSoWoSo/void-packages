@@ -1,7 +1,7 @@
 # Template file for 'freeorion'
 pkgname=freeorion
 version=0.5.0.1
-revision=1
+revision=2
 build_style=cmake
 hostmakedepends="cppcheck doxygen python3-pycodestyle"
 makedepends="boost-devel libvorbis-devel
@@ -16,7 +16,10 @@ distfiles="https://github.com/freeorion/freeorion/releases/download/v${version}/
 checksum=c6f62c3b400d50b336d62508ac5d5d656e4c0c8e57d0ff2b270f72381e68e1db
 replaces="freeorion-data>=0"
 
-post_extract() {
-	_build_no=${_release/*_/}
-	sed -i -e "s|\${FreeOrion_BUILD_NO}|$_build_no|" util/Version.cpp.in
+pre_configure() {
+	cp util/Version.cpp util/Version.cpp.in
+	if [ "$XBPS_WORDSIZE" = "32" ]; then
+		CXXFLAGS+=" -g1"
+		LDFLAGS+=" -Wl,--no-keep-memory"
+	fi
 }
