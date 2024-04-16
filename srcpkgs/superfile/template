@@ -1,0 +1,26 @@
+# Template file for 'superfile'
+pkgname=superfile
+version=1.0.1
+revision=1
+build_style=go
+go_import_path=github.com/MHNightCat/superfile
+depends="exiftool nerd-fonts"
+short_desc="Pretty fancy and modern file manager in terminal file manager"
+maintainer="zen0bit <zenobit@disroot.org>"
+license="MIT"
+homepage="https://github.com/MHNightCat/superfile"
+distfiles="https://github.com/MHNightCat/superfile/archive/refs/tags/v${version}.tar.gz"
+checksum=140ee260c515090c1b540b34e56d8836a84fccdd3232132312b3ebbb06ae537f
+
+do_build() {
+	cd ./src
+	go build -o ../bin/spf
+}
+
+do_install() {
+	vbin bin/spf
+}
+
+post-install() {
+	vlicense LICENSE
+}
