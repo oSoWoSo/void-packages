@@ -102,6 +102,7 @@ libglib-2.0.so.0 glib-2.76.0_1
 libgmodule-2.0.so.0 glib-2.76.0_1
 libgio-2.0.so.0 glib-2.76.0_1
 libgobject-2.0.so.0 glib-2.76.0_1
+libgrepository-2.0.so.0 glib-2.80.0_1
 libwt.so.4.10.4 wt-4.10.4_1
 libwtdbo.so.4.10.4 wt-4.10.4_1
 libwtdbosqlite3.so.4.10.4 wt-4.10.4_1
@@ -606,7 +607,7 @@ libcamel-1.2.so.64 evolution-data-server-3.46.0_1
 libebackend-1.2.so.11 evolution-data-server-3.46.0_1
 libebook-1.2.so.21 evolution-data-server-3.46.0_1
 libebook-contacts-1.2.so.4 evolution-data-server-3.46.0_1
-libecal-2.0.so.2 evolution-data-server-3.46.0_1
+libecal-2.0.so.3 evolution-data-server-3.52.0_1
 libedata-book-1.2.so.27 evolution-data-server-3.46.0_1
 libedataserver-1.2.so.27 evolution-data-server-3.46.0_1
 libedataserverui-1.2.so.4 evolution-data-server-3.46.0_1
