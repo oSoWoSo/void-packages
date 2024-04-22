@@ -756,9 +756,7 @@ libtotem-plparser.so.18 totem-pl-parser-3.26.1_1
 libtotem-plparser-mini.so.18 libtotem-plparser-mini-3.26.1_1
 libgladeui-2.so.13 libgladeui3-3.38.0_1
 libtdb.so.1 libtdb-1.2.2_1
-libgssdp-1.2.so.0 gssdp1.2-1.4.0.1_1
 libgssdp-1.6.so.0 gssdp-1.6.0_1
-libgupnp-1.2.so.0 gupnp1.2-1.2.4_1
 libgupnp-1.6.so.0 gupnp-1.6.0_1
 libsamplerate.so.0 libsamplerate-0.1.7_1
 libmms.so.0 libmms-0.6_1
@@ -820,7 +818,6 @@ libfolks-dummy.so.26 folks-0.15.0_1
 libfolks-telepathy.so.26 folks-0.15.0_1
 libfolks-eds.so.26 folks-0.15.0_1
 libnice.so.10 libnice-0.1.18_3
-libgupnp-igd-1.0.so.4 gupnp1.2-igd-1.2.0_1
 libgupnp-igd-1.6.so.0 gupnp-igd-1.4.0_1
 libtelepathy-logger.so.3 telepathy-logger-0.6.0_1
 libmission-control-plugins.so.0 telepathy-mission-control-5.9.2_1
@@ -4305,3 +4302,4 @@ force-stage.so.0.1 void-force-stage-0.1_1
 libliftoff.so.0 libliftoff-0.4.1_1
 libscfg.so libscfg-0.1.1_1
 libmsgraph-0.so.1 msgraph-0.2.1_1
+libgtk-session-lock.so.0 gtk-session-lock-0.2.0_1
