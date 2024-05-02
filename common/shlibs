@@ -733,6 +733,7 @@ libassuan.so.0 libassuan-2.0.1_1
 libgpgme.so.11 libgpgme-1.12.0_2
 libgpgmepp.so.6 gpgmepp-1.7.0_3
 libqgpgme.so.15 gpgmeqt-1.18.0_1
+libqgpgmeqt6.so.15 gpgme-qt6-1.23.2_1
 libgarcon-1.so.0 garcon-0.1.12_1
 libgarcon-gtk3-1.so.0 garcon-0.6.1_1
 libxfce4ui-2.so.0 libxfce4ui-4.18.0_1
@@ -1179,7 +1180,7 @@ libspice-client-glib-2.0.so.8 spice-gtk-0.41_2
 libspice-controller.so.0 spice-gtk-0.41_2
 libvirt-gconfig-1.0.so.0 libvirt-glib-0.1.2_1
 libvirt-gobject-1.0.so.0 libvirt-glib-0.1.2_1
-libgsasl.so.7 libgsasl-1.8.0_1
+libgsasl.so.18 libgsasl-2.2.1_1
 libzmq.so.5 zeromq-4.1.2_1
 libstatgrab.so.10 libstatgrab-0.91_1
 libseccomp.so.2 libseccomp-2.0.0_1
