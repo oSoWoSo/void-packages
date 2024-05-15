@@ -1576,6 +1576,7 @@ libKPim5AkonadiContact.so.5 akonadi-contacts-23.04.0_1
 libKF5Prison.so.5 prison-5.43.0_1
 libKPim5AkonadiMime.so.5 akonadi-mime-23.04.0_1
 libKPim5Mime.so.5 kmime-23.04.0_1
+libKPim6Mime.so.6 kmime6-24.02.0_1
 libKF5Kirigami2.so.5 kirigami2-5.47.0_1
 libtaskmanager.so.6 plasma-workspace-5.8.4_1
 libnotificationmanager.so.1 plasma-workspace-5.15.90_1
@@ -2295,6 +2296,7 @@ libdbus-c++-glib-1.so.0 libdbus-c++-0.9.0_1
 libpagemaker-0.0.so.0 libpagemaker-0.0.2_1
 libKF5CddbWidgets.so.5 libkcddb-17.08.2_1
 libKF5Cddb.so.5 libkcddb-17.08.2_1
+libKCddb6.so.5 libkcddb6-24.02.2_1
 libk3bdevice.so.8 k3b-22.12.1_1
 libk3blib.so.8 k3b-22.12.1_1
 libsndio.so.7 libsndio-1.7.0_1
@@ -3299,8 +3301,8 @@ libKPim6AkonadiWidgets.so.6 kf6-akonadi-24.02.0_1
 libKPim6AkonadiCore.so.6 kf6-akonadi-24.02.0_1
 libKPim5IdentityManagement.so.5 kidentitymanagement-23.04.0_1
 libKPim5IdentityManagementWidgets.so.5 kidentitymanagement-23.04.0_1
-libKChart.so.2 kdiagram-2.6.0_1
-libKGantt.so.2 kdiagram-2.6.0_1
+libKChart6.so.3 kdiagram6-3.0.0_1
+libKGantt6.so.3 kdiagram6-3.0.0_1
 libscrypt.so.0 libscrypt-1.21_1
 libzuluCryptPluginManager.so.1.0.0 zulucrypt-5.2.0_1
 libzuluCrypt-exe.so.1.2.0 zulucrypt-5.2.0_1
