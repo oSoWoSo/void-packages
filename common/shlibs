@@ -3065,7 +3065,7 @@ libdouble-conversion.so.3 double-conversion-3.1.5_1
 libspectrum.so.8 libspectrum-1.2.2_1
 libbearssl.so.0 bearssl-0.3_1
 libXfont2.so.2 libXfont2-2.0.1_1
-libqalculate.so.22 libqalculate-3.20.1_1
+libqalculate.so.23 libqalculate-5.1.1_1
 libostree-1.so.1 ostree-2023.1_1
 librhash.so.1 rhash-1.4.4_1
 libserialport.so.0 libserialport-0.1.1_1
@@ -3656,8 +3656,8 @@ libwoff2enc.so.1.0.2 libwoff2enc1.0.2-1.0.2_1
 libwoff2dec.so.1.0.2 libwoff2dec1.0.2-1.0.2_1
 libcloudproviders.so.0 libcloudproviders-0.2.5_2
 libkdsingleapplication-qt6.so.1.1 KDSingleApplication-1.1.0_1
-libKF5KDEGames.so.7 libkdegames-18.08.3_1
-libKF5KDEGamesPrivate.so.7 libkdegames-21.04.0_1
+libKDEGames6.so.6 libkdegames-24.02.0_1
+libKDEGames6Private.so.6 libkdegames-24.02.0_1
 libidn2.so.0 libidn2-2.1.1_1
 libgmime-3.0.so.0 gmime-3.2.3_1
 libgetdns.so.10 getdns-1.5.1_7
