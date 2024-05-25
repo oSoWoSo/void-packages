@@ -480,7 +480,6 @@ libKPim6GrantleeTheme.so.6 kf6-grantleetheme-24.02.2_1
 libKPim6IMAP.so.6 kimap-24.02.0_1
 libKPim6LdapCore.so.6 kldap-24.02.0_1
 libKPim6LdapWidgets.so.6 kldap-24.02.0_1
-libKF5CalendarCore.so.5 kcalendarcore-5.63.0_1
 libKPim6AkonadiSearchDebug.so.6 akonadi-search-24.02.0_1
 libKPim6AkonadiSearchCore.so.6 akonadi-search-24.02.0_1
 libKPim6AkonadiSearchPIM.so.6 akonadi-search-24.02.0_1
@@ -894,8 +893,6 @@ libgrilo-0.3.so.0 grilo-0.3.2_1
 libgrlnet-0.3.so.0 grilo-0.3.2_1
 libgrlpls-0.3.so.0 grilo-0.3.2_1
 libquvi.so.7 libquvi-0.4.0_1
-libepc-1.0.so.3 libepc-0.4.1_1
-libepc-ui-1.0.so.3 libepc-0.4.1_1
 libgupnp-dlna-2.0.so.4 gupnp-dlna-0.12.0_1
 libgupnp-dlna-gst-2.0.so.4 gupnp-dlna-0.12.0_1
 libfm.so.4 libfm-1.2.3_3
@@ -1563,7 +1560,6 @@ libdovecot-storage.so.0 dovecot-2.3.13_3
 libdovecot-lda.so.0 dovecot-2.3.13_3
 libKPim6AkonadiContactCore.so.6 akonadi-contacts-24.02.0_1
 libKPim6AkonadiContactWidgets.so.6 akonadi-contacts-24.02.0_1
-libKF5Prison.so.5 prison-5.43.0_1
 libKPim6AkonadiMime.so.6 akonadi-mime-24.02.0_1
 libKPim5Mime.so.5 kmime-23.04.0_1
 libKPim6Mime.so.6 kmime6-24.02.0_1
@@ -2593,8 +2589,6 @@ libosgUtil.so.161 osg-3.6.5_1
 libosgVolume.so.161 osg-3.6.5_1
 libosgGA.so.161 osg-3.6.5_1
 libosgPresentation.so.161 osg-3.6.5_1
-libKF5Screen.so.8 libkscreen-5.26.90_1
-libKF5ScreenDpms.so.8 libkscreen-5.26.90_1
 libKF6Screen.so.8 libkf6screen-6.0.0_1
 libKF6ScreenDpms.so.8 libkf6screen-6.0.0_1
 libdbusmenu-qt5.so.2 libdbusmenu-qt5-0.9.3.0_1
@@ -2800,7 +2794,6 @@ libbabeltrace-ctf-metadata.so.1 babeltrace-1.5.3_1
 libbabeltrace-dummy.so.1 babeltrace-1.5.3_1
 libbabeltrace-lttng-live.so.1 babeltrace-1.5.3_1
 liblttng-ctl.so.0 lttng-tools-2.10.1_1
-libKF5DNSSD.so.5 kdnssd-5.26.0_1
 libtwaindsm.so.2 twaindsm-2.3.0_1
 libspnav.so.0 libspnav-0.2.3_1
 libsimage.so.20 simage-1.7.0_1
@@ -2888,7 +2881,6 @@ libKF5Service.so.5 kservice-5.26.0_1
 libKF5GlobalAccel.so.5 kglobalaccel-5.26.0_1
 libKF5GlobalAccelPrivate.so.5 kglobalaccel-5.26.0_1
 libKF5Package.so.5 kpackage-5.26.0_1
-libKF5Su.so.5 kdesu-5.26.0_1
 libKF5Emoticons.so.5 kemoticons-5.26.0_1
 libKF5IconThemes.so.5 kiconthemes-5.26.0_1
 libKF5JobWidgets.so.5 kjobwidgets-5.26.0_1
@@ -2921,22 +2913,16 @@ libKF5WebKit.so.5 kdewebkit-5.26.0_1
 libKF5TextEditor.so.5 ktexteditor-5.26.0_1
 libKF5Plasma.so.5 plasma-framework-5.26.0_1
 libKF5PlasmaQuick.so.5 plasma-framework-5.26.0_1
-libKF5ModemManagerQt.so.6 modemmanager-qt5-5.26.0_1
 libKF5People.so.5 kpeople-5.26.0_1
 libKF5PeopleBackend.so.5 kpeople-5.36.0_1
 libKF5PeopleWidgets.so.5 kpeople-5.36.0_1
-libKF5XmlRpcClient.so.5 kxmlrpcclient-5.26.0_1
-libKF5BluezQt.so.6 bluez-qt5-5.26.0_1
 libKF5FileMetaData.so.3 kfilemetadata5-5.26.0_1
-libKF5Baloo.so.5 baloo5-5.26.0_1
-libKF5BalooEngine.so.5 baloo5-5.26.0_1
 libKF5ActivitiesStats.so.1 kactivities5-stats-5.26.0_1
 libKF5Runner.so.5 krunner-5.26.0_1
 libKF5JS.so.5 kjs-5.26.0_1
 libKF5JSApi.so.5 kjs-5.36.0_1
 libKF5KDELibs4Support.so.5 kdelibs4support-5.26.0_1
 libKF5KHtml.so.5 khtml-5.26.0_1
-libKF5JsEmbed.so.5 kjsembed-5.26.0_1
 libKF5KrossCore.so.5 kross-5.26.0_1
 libKF5KrossUi.so.5 kross-5.36.0_1
 libKGlobalAccelD.so.0 kglobalacceld-6.0.0_1
@@ -3142,7 +3128,6 @@ liboggz.so.2 liboggz-1.1.1_1
 libfishsound.so.1 libfishsound-1.0.0_1
 libxqilla.so.2 XQilla-2.3.4_1
 libKF5DocTools.so.5 kdoctools-5.36.0_1
-libKF5MediaPlayer.so.5 kmediaplayer-5.36.0_1
 libxo.so.0 libxo-0.9.0_1
 libbrotlicommon.so.1 brotli-1.0.2_1
 libbrotlidec.so.1 brotli-1.0.2_1
