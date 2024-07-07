@@ -1,9 +1,8 @@
 # Template file for 'furnace'
 pkgname=furnace
-version=0.6.1
+version=0.6.3
 revision=1
 _adpcm_commit="ef7a217154badc3b99978ac481b268c8aab67bd8"
-build_wrksrc=${pkgname}-${version}
 build_style=cmake
 configure_args="-DSYSTEM_FFTW=ON -DSYSTEM_FMT=ON -DSYSTEM_LIBSNDFILE=ON -DSYSTEM_PORTAUDIO=ON -DSYSTEM_RTMIDI=ON
  -DSYSTEM_SDL2=ON -DSYSTEM_ZLIB=ON"
@@ -15,10 +14,12 @@ license="GPL-2.0-or-later"
 homepage="https://github.com/tildearrow/furnace"
 distfiles="https://github.com/tildearrow/furnace/archive/refs/tags/v${version}.tar.gz
  https://github.com/superctr/adpcm/archive/${_adpcm_commit}.tar.gz"
-checksum="4af60c47c3070a176e9edf03663a6319d219083b25f9b43234bd0acfdf62a6b0
+checksum="bc28647c2175fc4e0c831d2d3f814c37828bb525af42897e5337f0e6c4168ffb
  46da29342d2968ff222ba00e07c646e038b76af2e6c86de037c653059a056251"
-patch_args="-Np1 --directory=${build_wrksrc}"
+
+skip_extraction="
+ ${_adpcm_commit}.tar.gz"
 
 post_extract() {
-	mv -T adpcm-${_adpcm_commit} ${pkgname}-${version}/extern/adpcm
+	vsrcextract -C extern/adpcm ${_adpcm_commit}.tar.gz
 }

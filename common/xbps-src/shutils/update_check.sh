@@ -8,6 +8,13 @@ update_check() {
     local urlpfx urlsfx
     local -A fetchedurls
 
+    local curlargs=(
+        -A "xbps-src-update-check/$XBPS_SRC_VERSION"
+        --max-time 10 --compressed -Lsk
+    )
+
+    pkgname=${pkgname#kf6-}
+
     # XBPS_UPDATE_CHECK_VERBOSE is the old way to show verbose messages
     [ "$XBPS_UPDATE_CHECK_VERBOSE" ] && XBPS_VERBOSE="$XBPS_UPDATE_CHECK_VERBOSE"
 
@@ -62,7 +69,7 @@ update_check() {
               *code.google.com*|*googlecode*|\
               *launchpad.net*|\
               *cpan.*|\
-              *pythonhosted.org*|\
+              *pythonhosted.org*|*pypi.org/project/*|\
               *github.com*|\
               *//gitlab.*|\
               *bitbucket.org*|\
@@ -95,7 +102,7 @@ update_check() {
             # substitute url if needed
             msg_verbose "(folder) fetching $urlpfx and scanning with $rx\n"
             skipdirs=
-            curl -A "xbps-src-update-check/$XBPS_SRC_VERSION" --max-time 10 -Lsk "$urlpfx" |
+            curl "${curlargs[@]}" "$urlpfx" |
                 grep -Po -i "$rx" |
                 # sort -V places 1.1/ before 1/, but 1A/ before 1.1A/
                 sed -e 's:$:A:' -e 's:/A$:A/:' | sort -Vru | sed -e 's:A/$:/A:' -e 's:A$::' |
@@ -124,9 +131,10 @@ update_check() {
                 url="https://launchpad.net/$pkgurlname/+download";;
             *cpan.*)
                 pkgname=${pkgname#perl-};;
-            *pythonhosted.org*)
+            *pythonhosted.org*|*pypi.org/project/*)
                 pkgname=${pkgname#python-}
                 pkgname=${pkgname#python3-}
+                rx="(?<=${pkgname//-/[-_]}-)[0-9.]+(post[0-9]*)?(?=(([.]tar|-cp|-py)))"
                 url="https://pypi.org/simple/$pkgname";;
             *github.com*)
                 pkgurlname="$(printf %s "$url" | cut -d/ -f4,5)"
@@ -138,7 +146,7 @@ update_check() {
                     *) pkgurlname="$(printf %s "$url" | cut -d / -f 1-5)";;
                 esac
                 url="$pkgurlname/-/tags"
-                rx='/archive/[^/]+/\Q'"$pkgname"'\E-v?\K[\d.]+(?=\.tar\.gz")';;
+                rx='/archive/[^/]+/\Q'"$pkgname"'\E-v?\K[\d.]+(?=\.tar\.gz)';;
             *bitbucket.org*)
                 pkgurlname="$(printf %s "$url" | cut -d/ -f4,5)"
                 url="https://bitbucket.org/$pkgurlname/downloads"
@@ -197,7 +205,7 @@ update_check() {
         fi
 
         msg_verbose "fetching $url and scanning with $rx\n"
-        curl -H 'Accept: text/html,application/xhtml+xml,application/xml,text/plain,application/rss+xml' -A "xbps-src-update-check/$XBPS_SRC_VERSION" --max-time 10 -Lsk "$url" |
+        curl "${curlargs[@]}" -H 'Accept: text/html,application/xhtml+xml,application/xml,text/plain,application/rss+xml' "$url" |
             grep -Po -i "$rx"
         fetchedurls[$url]=yes
     done |

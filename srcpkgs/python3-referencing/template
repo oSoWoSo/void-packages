@@ -1,6 +1,6 @@
 # Template file for 'python3-referencing'
 pkgname=python3-referencing
-version=0.33.0
+version=0.35.1
 revision=1
 build_style=python3-pep517
 hostmakedepends="hatchling hatch-vcs"
@@ -12,7 +12,7 @@ license="MIT"
 homepage="https://github.com/python-jsonschema/referencing"
 changelog="https://raw.githubusercontent.com/python-jsonschema/referencing/main/docs/changes.rst"
 distfiles="${PYPI_SITE}/r/referencing/referencing-${version}.tar.gz"
-checksum=c775fedf74bc0f9189c2a3be1c12fd03e8c23f4d371dce795df44e06c5b412f7
+checksum=25b42124a6c8b632a425174f24087783efb348a6f1e0008e63cd4466fedf703c
 
 if [ "$XBPS_CHECK_PKGS" = full ]; then
 	# cyclic dependency

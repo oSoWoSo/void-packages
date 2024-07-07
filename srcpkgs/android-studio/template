@@ -1,16 +1,16 @@
 # Template file for 'android-studio'
 pkgname=android-studio
-version=2023.2.1.23
+version=2023.3.1.18
 revision=1
 archs="x86_64"
 hostmakedepends="tar"
 short_desc="Official Android IDE"
-maintainer="Orphaned <orphan@voidlinux.org>"
+maintainer="Bnyro <bnyro@tutanota.com>"
 license="Apache-2.0"
-homepage="https://tools.android.com"
-# changelog="https://developer.android.com/studio/releases/index.html"
+homepage="https://developer.android.com/studio/"
+changelog="https://developer.android.com/studio/releases/"
 distfiles="https://dl.google.com/dl/android/studio/ide-zips/${version}/android-studio-${version}-linux.tar.gz"
-checksum=1b668f80ca811cdc350deb6568143da37fd57d7e90121f5542a319e52fd5a073
+checksum=46a9b4a311820b2c1841110affa286d65665ac9f8970fd9e9eb903c3d7aa436e
 repository=nonfree
 restricted=yes
 python_version=3

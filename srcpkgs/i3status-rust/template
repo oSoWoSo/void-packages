@@ -1,6 +1,6 @@
 # Template file for 'i3status-rust'
 pkgname=i3status-rust
-version=0.32.3
+version=0.33.1
 revision=1
 build_style=cargo
 build_helper="qemu"
@@ -13,7 +13,7 @@ license="GPL-3.0-only"
 homepage="https://github.com/greshake/i3status-rust"
 changelog="https://raw.githubusercontent.com/greshake/i3status-rust/master/NEWS.md"
 distfiles="https://github.com/greshake/i3status-rust/archive/refs/tags/v${version}.tar.gz"
-checksum=6a2c37d0e424d666f297d7ec36279b54a522acf5bf77af883be1991513e4da61
+checksum=3b460f6adebee4ca49890ec4ebc50d42fe4b544aac7ec12ba5e4de971a06859a
 
 post_build() {
 	cargo auditable build --release --target "${RUST_TARGET}" --package xtask
@@ -25,4 +25,5 @@ post_install() {
 	vcopy files/icons usr/share/i3status-rust/
 	vcopy files/themes usr/share/i3status-rust/
 	vman man/i3status-rs.1
+	vsconf examples/config.toml
 }

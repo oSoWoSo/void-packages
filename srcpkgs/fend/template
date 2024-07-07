@@ -1,6 +1,6 @@
 # Template file for 'fend'
 pkgname=fend
-version=1.4.5
+version=1.4.8
 revision=1
 build_style=cargo
 make_install_args="--path cli"
@@ -13,8 +13,8 @@ homepage="https://printfn.github.io/fend/"
 changelog="https://raw.githubusercontent.com/printfn/fend/main/CHANGELOG.md"
 distfiles="https://github.com/printfn/fend/archive/refs/tags/v${version}.tar.gz
  https://github.com/printfn/fend/releases/download/v${version}/fend.1"
-checksum="1bf65941f690ef6f0c95cf2485e6675bd35c3a46725fe9d1ed06c810c1a05b22
- 0161a89e36e93b558e253bfb9daef2ebf85c82ed7f992b72963edbf63350e9be"
+checksum="5e973bf7f53416039d5efc2f2ec360add5184625644e986808c21e5bd292fc58
+ c0c8f8d188b5baa6c355edb81b57e48f4bff16be47edbbba9287dfb5f45222d7"
 skip_extraction="fend.1"
 
 post_install() {

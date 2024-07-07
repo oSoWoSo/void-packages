@@ -1,6 +1,6 @@
 # Template file for 'mongo-c-driver'
 pkgname=mongo-c-driver
-version=1.26.1
+version=1.27.1
 revision=1
 build_style=cmake
 configure_args="-DENABLE_TESTS=OFF"
@@ -11,7 +11,7 @@ maintainer="Andrew Benson <abenson+void@gmail.com>"
 license="Apache-2.0"
 homepage="https://mongoc.org"
 distfiles="https://github.com/mongodb/mongo-c-driver/archive/${version}.tar.gz"
-checksum=718922183339db70079d4b56d37789a9e4aa0a62bb4d5eac55e3013da18e6d39
+checksum=cc97407b16da54ba9b27029237b9a7a13651ada04da15e3b5dcd8fee8db20eed
 
 pre_configure() {
 	echo "${version}" > VERSION_CURRENT

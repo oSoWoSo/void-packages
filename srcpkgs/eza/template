@@ -1,20 +1,24 @@
 # Template file for 'eza'
 pkgname=eza
-version=0.18.7
+version=0.18.16
 revision=1
 build_style=cargo
-hostmakedepends="pandoc pkg-config"
+hostmakedepends="pkg-config"
 makedepends="libgit2-devel"
 short_desc="Modern, maintained replacement for ls"
 maintainer="Marcin Puc <tranzystorek.io@protonmail.com>"
 license="MIT"
 homepage="https://eza.rocks"
 changelog="https://raw.githubusercontent.com/eza-community/eza/main/CHANGELOG.md"
-distfiles="https://github.com/eza-community/eza/archive/refs/tags/v${version}.tar.gz"
-checksum=e712e3ae97ca7ee28e411b8537e20b1efb88b3e052c8053c13d70ae97bae9b61
+distfiles="https://github.com/eza-community/eza/archive/refs/tags/v${version}.tar.gz
+https://github.com/eza-community/eza/releases/download/v${version}/man-${version}.tar.gz"
+checksum="dd713474b902568cb2c7c8ea7db8e08db5818617e34908ae7142e9da9cefd17b
+ 6ca5b8d2c1e245291892a9cc32dfa2eeb9d19c3a99bd79f4582fbab149976000"
 
-post_patch() {
-	cargo update --package git2@0.18.2 --precise 0.17.2
+skip_extraction="man-${version}.tar.gz"
+
+post_extract() {
+	vsrcextract -C manpages --strip-components=3 man-${version}.tar.gz
 }
 
 post_install() {
@@ -22,8 +26,7 @@ post_install() {
 	vcompletion completions/fish/eza.fish fish
 	vcompletion completions/zsh/_eza zsh
 
-	for manpage in eza.1 eza_colors.5 eza_colors-explanation.5; do
-		pandoc --standalone -f markdown -t man man/${manpage}.md > ${manpage}
+	for manpage in manpages/*; do
 		vman ${manpage}
 	done
 

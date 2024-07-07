@@ -10,7 +10,7 @@ on:
     paths:
       - 'srcpkgs/**'
 
-    workflow_dispatch:
+  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}

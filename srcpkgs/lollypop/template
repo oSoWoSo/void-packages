@@ -1,7 +1,7 @@
 # Template file for 'lollypop'
 pkgname=lollypop
-version=1.4.37
-revision=4
+version=1.4.39
+revision=1
 build_style=meson
 hostmakedepends="glib-devel gobject-introspection gettext pkg-config"
 makedepends="gtk+3-devel libsoup3-devel python3-gobject-devel python3-devel
@@ -14,4 +14,4 @@ maintainer="Duncaen <duncaen@voidlinux.org>"
 license="GPL-3.0-or-later"
 homepage="https://wiki.gnome.org/Apps/Lollypop"
 distfiles="https://adishatz.org/lollypop/lollypop-${version}.tar.xz"
-checksum=cb570e529a1bc37404993c7ad3a8ae54dea88e5d89ea297f55444e1dedfde50a
+checksum=610e72a784510b7d5c8372c958cfd2040a4794084a987ce9ccfe481f9f7a2e08
