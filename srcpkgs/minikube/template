@@ -1,7 +1,7 @@
 # Template file for 'minikube'
 pkgname=minikube
-version=1.27.0
-revision=3
+version=1.33.1
+revision=1
 archs="x86_64* i686* aarch64*"
 build_style=go
 build_helper=qemu
@@ -17,7 +17,7 @@ license="Apache-2.0"
 homepage="https://github.com/kubernetes/minikube"
 changelog="https://raw.githubusercontent.com/kubernetes/minikube/master/CHANGELOG.md"
 distfiles="https://github.com/kubernetes/minikube/archive/v$version.tar.gz"
-checksum=8978a27cff9bf1450c0cd56e28306e8272150f599a017ba31c2bad57fd9248d2
+checksum=c09715a884ffc9af49772e579d1932bdd0377c3346a5631d48ae23453ba6945b
 
 pre_build() {
 	local storage_provisioner_tag= iso_version=
