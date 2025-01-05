@@ -1,8 +1,8 @@
 # .github/workflows/sync.yml
 name: Rebase Upstream
 on:
-  schedule:
-    - cron: '0 */6 * * *' # Run every 6 hours
+  # schedule:
+    # - cron: '0 */6 * * *' # Run every 6 hours
   workflow_dispatch:   # run manually
 
 jobs:
