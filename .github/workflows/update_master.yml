@@ -11,6 +11,9 @@ on:
         description: 'Fork Sync Test Mode'
         type: boolean
         default: false
+permissions:
+  contents: write
+  actions: write
 
 jobs:
   sync_latest_from_upstream:
