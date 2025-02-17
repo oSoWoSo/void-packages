@@ -1,0 +1,42 @@
+# Template file for 'vtm'
+pkgname=vtm
+version=0.9.99.61
+revision=1
+build_style=cmake
+make_install_args="-DCMAKE_INSTALL_PREFIX:PATH='/usr'"
+hostmakedepends="pkg-config gcc"
+#makedepends=""
+#depends=""
+short_desc="Text-based desktop environment"
+maintainer="zenobit <zenobit@disroot.org>"
+license="MIT"
+homepage="https://github.com/directvt/vtm"
+#changelog=""
+distfiles="https://github.com/directvt/vtm/archive/refs/tags/v${version}.tar.gz"
+checksum=3fde4995a092fffb02076e90d015bf9088c374ae1d5489f00ae5d13c1667c09b
+
+pre_build() {
+	cmake . -B bin
+}
+
+do_build() {
+	cmake --build bin
+}
+
+do_install() {
+	cmake --install bin
+}
+
+post_install() {
+	vdoc readme.md
+	vdoc doc/apps.md
+	vdoc doc/architecture.md
+	vdoc doc/build.md
+	vdoc doc/character_geometry.md
+	vdoc doc/command-line-options.md
+	vdoc doc/panel.md
+	vdoc doc/settings.md
+	vdoc doc/user-interface.md
+	vdoc doc/vt-input-mode.md
+	vlicense LICENSE
+}
